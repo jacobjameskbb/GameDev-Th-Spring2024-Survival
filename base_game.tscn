@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw0idmmtutr8j"]
+
+[ext_resource type="Script" path="res://Script/Camera.gd" id="1_oxv8s"]
+[ext_resource type="PackedScene" uid="uid://vbtqarv47q7u" path="res://player.tscn" id="2_axymc"]
+
+[sub_resource type="TileSet" id="TileSet_oa836"]
+physics_layer_0/collision_layer = 1
+
+[node name="BaseGame" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_oa836")
+format = 2
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("1_oxv8s")
+
+[node name="Player" parent="." instance=ExtResource("2_axymc")]
