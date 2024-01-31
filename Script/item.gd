@@ -1,7 +1,6 @@
 extends Sprite2D
 
 @onready var items: Dictionary = {
-	'plank of wood': preload("res://Assets/Sprites/plank of wood.png")
 	
 	
 	

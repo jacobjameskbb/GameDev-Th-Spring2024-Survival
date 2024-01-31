@@ -1,22 +1,22 @@
 extends CharacterBody2D
 
-var speed = 400
+var speed = 20000
 
-var inventory: Dictionary = {}
+var inventory: Array = []
 
-func get_input():
+func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+	velocity = input_direction * speed * delta
 
-func _physics_process(_delta):
-	get_input()
+func _physics_process(delta):
+	get_input(delta)
 	move_and_slide()
 
 	for area in $ReachArea.get_overlapping_areas():
-		if area.is_in_group('Item') and area.mouse_in_area == true:
-			if Input.is_action_pressed("Pickup"):
-				inventory[str(area)] = area
-				area.visible = false
+		if area.get_parent.is_in_group('Item') and area.mouse_in_area == true:
+			if Input.is_action_pressed('Pickup'):
+				inventory.append(area.get_parent().items[area.get_parent().is_item])
+				area.get_parent.visible = false
 
 
 

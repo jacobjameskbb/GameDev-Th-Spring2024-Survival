@@ -7,5 +7,5 @@ func _ready():
 		if object.is_in_group('Player'):
 			player = object
 
-func _process(_delta):
+func _physics_process(_delta):
 	position = player.position
