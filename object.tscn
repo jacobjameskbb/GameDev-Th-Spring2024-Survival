@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://if4fjdf57ais"]
+[gd_scene load_steps=4 format=3 uid="uid://if4fjdf57ais"]
 
 [ext_resource type="Script" path="res://Script/object.gd" id="1_ioerv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kaih"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7v"]
+size = Vector2(32, 32)
+
 [node name="object" type="Sprite2D"]
 script = ExtResource("1_ioerv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5kaih")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_g7b7v")

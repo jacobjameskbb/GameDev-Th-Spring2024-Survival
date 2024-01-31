@@ -29,5 +29,12 @@ func _ready():
 	is_object = objects[random_objects[randi_range(0,random_objects.size() - 1)]]
 	texture = is_object
 
+	if objects['Tree'] == is_object:
+		$Area2D.scale = Vector2(1,2)
+	else:
+		$Area2D.scale = Vector2(1,1)
+	
+	
+
 func _process(_delta):
 	pass

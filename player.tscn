@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://hkjtkc08kohw" path="res://Assets/Sprites/icon.svg" id="2_j5h42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47tj0"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53i8b"]
-radius = 256.008
+radius = 128.004
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_1xnsh")
@@ -16,6 +16,7 @@ script = ExtResource("1_1xnsh")
 shape = SubResource("RectangleShape2D_47tj0")
 
 [node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j5h42")
 
 [node name="ReachArea" type="Area2D" parent="."]
