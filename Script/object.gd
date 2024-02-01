@@ -7,8 +7,7 @@ extends Sprite2D
 }
 
 var only_city: Array = [
-	'Scrap pile'
-	
+	'Scrap pile',
 	
 ]
 
@@ -32,6 +31,7 @@ func _ready():
 	if objects['Tree'] == is_object:
 		position += Vector2(0,-16)
 		$Area2D.global_position += Vector2(0,16)
+		z_index += 1
 
 func _process(_delta):
 	pass

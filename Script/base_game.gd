@@ -35,3 +35,5 @@ func pick_random_foliage_position():
 func generate_city():
 	pass
 
+func _on_quit_button_up():
+	get_tree().quit()
