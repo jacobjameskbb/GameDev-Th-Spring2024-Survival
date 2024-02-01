@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=20 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Texture2D" uid="uid://pcfwl24a3gq5" path="res://Assets/Sprites/Grass.png" id="1_3w017"]
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cetgqhx7vy3pq" path="res://Assets/Sprites/Bridge_wall.png" id="4_vm25b"]
 [ext_resource type="Texture2D" uid="uid://c64f74v0cjwxs" path="res://Assets/Sprites/Road.png" id="5_ni4v6"]
 [ext_resource type="Texture2D" uid="uid://bjcrlrowbv8lf" path="res://Assets/Sprites/Road_with_strip.png" id="6_6omen"]
+[ext_resource type="Script" path="res://Script/ToolBar.gd" id="9_n2n2v"]
+[ext_resource type="Texture2D" uid="uid://d07chu2ntqcwn" path="res://Assets/Sprites/Golf_Cart.png" id="10_rgkby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixa3e"]
 texture = ExtResource("1_3w017")
@@ -88,6 +90,9 @@ sources/3 = SubResource("TileSetAtlasSource_6bwsj")
 sources/4 = SubResource("TileSetAtlasSource_xr8y6")
 sources/5 = SubResource("TileSetAtlasSource_bkry4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggu08"]
+size = Vector2(178, 178)
+
 [node name="BaseGame" type="Node"]
 script = ExtResource("1_oglgy")
 
@@ -100,19 +105,34 @@ layer_0/tile_data = PackedInt32Array(10, 0, 0, 11, 0, 0, 65547, 0, 0, 65546, 0, 
 position_smoothing_enabled = true
 script = ExtResource("1_oxv8s")
 
-[node name="Control" type="Control" parent="Camera"]
+[node name="ToolBar" type="Control" parent="Camera"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = -576.0
 offset_top = 256.0
 offset_right = 576.0
 offset_bottom = 324.0
+script = ExtResource("9_n2n2v")
 
-[node name="MenuBar" type="MenuBar" parent="Camera/Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera/ToolBar"]
 layout_mode = 0
-offset_right = 136.0
-offset_bottom = 64.0
+offset_right = 128.0
+offset_bottom = 68.0
+horizontal_scroll_mode = 0
 
-[node name="PopupMenu" type="PopupMenu" parent="Camera/Control/MenuBar"]
+[node name="GridContainer" type="GridContainer" parent="Camera/ToolBar/ScrollContainer"]
+layout_mode = 2
+columns = 4
 
 [node name="Player" parent="." instance=ExtResource("2_axymc")]
+
+[node name="GolfCart" type="Sprite2D" parent="."]
+position = Vector2(1832, -120)
+texture = ExtResource("10_rgkby")
+
+[node name="Area2D" type="Area2D" parent="GolfCart"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GolfCart/Area2D"]
+position = Vector2(4, 39)
+shape = SubResource("RectangleShape2D_ggu08")

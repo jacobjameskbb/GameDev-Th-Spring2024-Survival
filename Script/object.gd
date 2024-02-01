@@ -30,11 +30,8 @@ func _ready():
 	texture = is_object
 
 	if objects['Tree'] == is_object:
-		$Area2D.scale = Vector2(1,2)
-	else:
-		$Area2D.scale = Vector2(1,1)
-	
-	
+		position += Vector2(0,-16)
+		$Area2D.global_position += Vector2(0,16)
 
 func _process(_delta):
 	pass

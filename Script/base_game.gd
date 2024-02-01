@@ -8,21 +8,18 @@ var city_area: PackedVector2Array = []
 
 var list_of_current_objects: Array = []
 
-const needed_foliage = 100
+const foliage_density = 600
 
 var current_foliage = 0
 
-
-
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
-		island_area.append(Vector2(tile * 32))
+		island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 
 	generate_foliage()
 
-
 func generate_foliage():
-	while current_foliage < needed_foliage:
+	while current_foliage < foliage_density:
 		var new_object = object.instantiate()
 		new_object.position = pick_random_foliage_position()
 		list_of_current_objects.append(new_object)

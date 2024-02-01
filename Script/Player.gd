@@ -15,10 +15,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 	for area in $ReachArea.get_overlapping_areas():
-		if area.get_parent().is_in_group('Item') and area.mouse_in_area == true and Input.is_action_pressed('Pickup'):
+		if area.get_parent().is_in_group('Item') and area.mouse_in_area == true and Input.is_action_pressed('pickup'):
 			if inventory.size() < max_inventory_size:
 				inventory.append(area.get_parent().items[area.get_parent().is_item])
-				area.get_parent.visible = false
+				area.get_parent().queue_free()
 			else:
 				pass
 
