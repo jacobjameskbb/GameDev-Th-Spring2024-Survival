@@ -18,18 +18,30 @@ func _physics_process(delta):
 
 	for area in $ReachArea.get_overlapping_areas():
 		if area.get_parent().is_in_group('Pickup_able'):
-			if area.mouse_entered() == true and Input.is_action_pressed('pickup'):
+			if area.get_parent().mouse_in_area == true and Input.is_action_pressed('pickup'):
 				if inventory.size() < max_inventory_size:
-					inventory.append(area.get_parent().items[area.get_parent().is_item])
-					area.get_parent().queue_free()
-					var new_item = inventory_item_scene.instantiate()
-					var is_item
-					if area.get_parent().is_in_group('object'):
-						is_item = area.get_parent().is_object
+					if area.get_parent().is_in_group('resource'):
+						if area.get_parent().is_resource not in inventory:
+							inventory.append(area.get_parent().is_resource)
+							var new_item = inventory_item_scene.instantiate()
+							new_item.is_item = area.get_parent().is_resource
+							get_node('/BaseGame/Camera/ToolBar/Inventory/GridContainer').add_child(new_item)
+						else:
+							for child in get_node('/BaseGame/Camera/ToolBar/Inventory/GridContainer').get_children():
+								if child.is_item == area.get_parent().is_resource:
+									child.item_amount += 1
 					elif area.get_parent().is_in_group('item'):
-						is_item = area.get_parent().is_item
-					
-					get_node('/BaseGame/Camera/ToolBar/Inventory/GridContainer').add_child(new_item)
+						if area.get_parent().is_item not in inventory:
+							inventory.append(area.get_parent().is_item)
+							var new_item = inventory_item_scene.instantiate()
+							new_item.is_item = area.get_parent().is_item
+							get_node('/BaseGame/Camera/ToolBar/Inventory/GridContainer').add_child(new_item)
+						else:
+							for child in get_node('/BaseGame/Camera/ToolBar/Inventory/GridContainer').get_children():
+								if child.is_item == area.get_parent().is_item:
+									child.item_amount += 1
+
+					area.get_parent().queue_free()
 
 
 

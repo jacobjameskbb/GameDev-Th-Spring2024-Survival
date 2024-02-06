@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8mu5s05ml3tr"]
+[gd_scene load_steps=6 format=3 uid="uid://c8mu5s05ml3tr"]
 
 [ext_resource type="Script" path="res://Script/inventory_item.gd" id="1_gf34x"]
 [ext_resource type="Texture2D" uid="uid://ddblstuc7rfpg" path="res://Assets/Sprites/plank of wood.png" id="1_jn8us"]
@@ -8,6 +8,11 @@ font_size = 11
 
 [sub_resource type="LabelSettings" id="LabelSettings_yocgr"]
 font_size = 11
+font_color = Color(0, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_olw3n"]
+font_size = 11
+font_color = Color(0, 1, 1, 1)
 
 [node name="Inventory_item" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -43,11 +48,22 @@ clip_text = true
 [node name="Item_amount" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.625
+anchor_left = 0.75
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "x1"
+text = "1"
 label_settings = SubResource("LabelSettings_yocgr")
+
+[node name="X" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.75
+anchor_right = 0.75
+anchor_bottom = 1.0
+text = "x"
+label_settings = SubResource("LabelSettings_olw3n")
+horizontal_alignment = 2
