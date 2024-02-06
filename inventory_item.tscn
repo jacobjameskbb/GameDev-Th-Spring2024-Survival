@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8mu5s05ml3tr"]
+
+[ext_resource type="Script" path="res://Script/inventory_item.gd" id="1_gf34x"]
+[ext_resource type="Texture2D" uid="uid://ddblstuc7rfpg" path="res://Assets/Sprites/plank of wood.png" id="1_jn8us"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qwuk"]
+font_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_yocgr"]
+font_size = 11
+
+[node name="Inventory_item" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchor_right = 0.056
+anchor_bottom = 0.099
+offset_right = -0.512001
+offset_bottom = -0.152008
+script = ExtResource("1_gf34x")
+
+[node name="Sprite" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.75
+texture = ExtResource("1_jn8us")
+expand_mode = 1
+
+[node name="Item_name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
+anchor_right = 0.625
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Item"
+label_settings = SubResource("LabelSettings_1qwuk")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Item_amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x1"
+label_settings = SubResource("LabelSettings_yocgr")

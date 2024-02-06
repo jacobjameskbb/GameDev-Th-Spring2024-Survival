@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1oqv"]
 size = Vector2(32, 32)
 
-[node name="Resource" type="Sprite2D"]
+[node name="Resource" type="Sprite2D" groups=["Pickup_able", "Resource"]]
 script = ExtResource("1_rvmbj")
 
 [node name="Area2D" type="Area2D" parent="."]

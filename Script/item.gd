@@ -6,7 +6,7 @@ extends Sprite2D
 	
 	
 	
-	}
+}
 
 var is_item
 

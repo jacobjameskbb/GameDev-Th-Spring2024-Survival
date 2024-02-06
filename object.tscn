@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7v"]
 size = Vector2(32, 32)
 
-[node name="object" type="Sprite2D"]
+[node name="object" type="Sprite2D" groups=["object"]]
 script = ExtResource("1_ioerv")
 
 [node name="Area2D" type="Area2D" parent="."]
