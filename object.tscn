@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="object" type="Sprite2D" groups=["Object"]]
+y_sort_enabled = true
 script = ExtResource("1_ioerv")
 
 [node name="Area2D" type="Area2D" parent="."]

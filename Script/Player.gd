@@ -18,7 +18,7 @@ var left_click = false
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed * delta
-	if Input.is_action_pressed('LMB'):
+	if Input.is_action_just_pressed('LMB'):
 		left_click = true
 	else:
 		left_click = false
@@ -58,4 +58,5 @@ func _process(_delta):
 				if area.get_parent().mouse_in_area == true:
 					if area.get_parent().objects['Tree'] == area.get_parent().is_object:
 						if item_equipped == 'Axe':
+							print('wham')
 							area.get_parent().hit_points += -10 * axe_level

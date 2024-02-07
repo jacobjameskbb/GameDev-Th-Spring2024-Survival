@@ -24,6 +24,7 @@ var mouse_in_area = false
 func spawn_in(came_from):
 	if came_from == 'tree':
 		is_resource = resources[0]
+		position.y += 16
 	if came_from == 'rock':
 		pass
 	if came_from == 'scrap pile':

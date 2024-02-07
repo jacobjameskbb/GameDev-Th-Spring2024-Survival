@@ -21,7 +21,6 @@ Global="*res://Script/global.gd"
 
 [display]
 
-window/size/mode=3
 mouse_cursor/custom_image="res://Assets/Sprites/Hand.png"
 
 [input]
