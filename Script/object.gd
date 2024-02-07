@@ -17,8 +17,6 @@ var is_object
 
 var hit_points = 200
 
-var mouse_in_area = false
-
 func _ready():
 	var random_objects = []
 	if Global.in_city == false:
@@ -35,7 +33,6 @@ func _ready():
 	if objects['Tree'] == is_object:
 		position += Vector2(0,-16)
 		$StaticBody2D.global_position += Vector2(0,16)
-		$Area2D.global_position += Vector2(0,16)
 	if objects['Rock'] == is_object:
 		hit_points *= 2
 
@@ -52,11 +49,7 @@ func _process(_delta):
 			new_resource.spawn_in('scrap pile')
 		queue_free()
 
-
-func _on_area_2d_mouse_entered():
-	print('in')
-	mouse_in_area = true
-
-func _on_area_2d_mouse_exited():
-	print('out')
-	mouse_in_area = false
+func _on_button_button_up():
+	if objects['Tree'] == is_object:
+		if Global.Player.item_equipped == 'Axe':
+			hit_points += -10 * Global.Player.axe_level

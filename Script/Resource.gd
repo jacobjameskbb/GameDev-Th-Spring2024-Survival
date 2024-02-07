@@ -1,14 +1,5 @@
 extends Sprite2D
 
-@onready var list_of_resources_sprites: Dictionary = {
-	'Plank' : preload("res://Assets/Sprites/plank of wood.png")
-	
-	
-	
-	
-	
-}
-
 var resources: Array = [
 	'Plank'
 	
@@ -19,8 +10,6 @@ var resources: Array = [
 
 var is_resource
 
-var mouse_in_area = false
-
 func spawn_in(came_from):
 	if came_from == 'tree':
 		is_resource = resources[0]
@@ -30,13 +19,18 @@ func spawn_in(came_from):
 	if came_from == 'scrap pile':
 		pass
 
-	texture = list_of_resources_sprites[is_resource]
+	texture = Global.list_of_resources_sprites[is_resource]
 
 func _process(_delta):
-	pass
+	if Global.Player.inventory.size() < Global.Player.max_inventory_size:
+			if is_resource not in Global.Player.inventory:
+				Global.Player.inventory.append(is_resource)
+				var new_item = Global.inventory_item_scene.instantiate()
+				new_item.is_item = is_resource
+				get_node('/root/BaseGame/Camera/ToolBar/Inventory/ItemGridContainer').add_child(new_item)
+			else:
+				for child in get_node('/root/BaseGame/Camera/ToolBar/Inventory/ItemGridContainer').get_children():
+					if child.is_item == is_resource:
+						child.item_amount += 1
 
-func _on_area_2d_mouse_entered():
-	mouse_in_area = true
-
-func _on_area_2d_mouse_exited():
-	mouse_in_area = false
+			queue_free()

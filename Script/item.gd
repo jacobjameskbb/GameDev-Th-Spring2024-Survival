@@ -1,13 +1,5 @@
 extends Sprite2D
 
-@onready var items_sprites: Dictionary = {
-	
-	
-	
-	
-	
-}
-
 var items: Array = [
 	
 	
@@ -17,20 +9,20 @@ var items: Array = [
 
 var is_item
 
-var mouse_in_area = false
-
 func _ready():
 	var random_items: Array
 	for i in items:
 		random_items.append(i)
 	is_item = items[randi_range(0,random_items.size() - 1)]
-	texture = items_sprites[is_item]
+	texture = Global.items_sprites[is_item]
 
 func _process(_delta):
-	pass
-
-func _on_area_2d_mouse_entered():
-	mouse_in_area = true
-
-func _on_area_2d_mouse_exited():
-	mouse_in_area = false
+	if is_item not in Global.Player.inventory:
+		Global.Player.inventory.append(is_item)
+		var new_item = Global.inventory_item_scene.instantiate()
+		new_item.is_item = is_item
+		get_node('/root/BaseGame/Camera/ToolBar/Inventory/ItemGridContainer').add_child(new_item)
+	else:
+		for child in get_node('/root/BaseGame/Camera/ToolBar/Inventory/ItemGridContainer').get_children():
+			if child.is_item == is_item:
+				child.item_amount += 1
