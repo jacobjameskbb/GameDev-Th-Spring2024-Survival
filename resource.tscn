@@ -1,25 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://f47oj3myqy7i"]
+[gd_scene load_steps=3 format=3 uid="uid://f47oj3myqy7i"]
 
 [ext_resource type="Script" path="res://Script/Resource.gd" id="1_rvmbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81bic"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1oqv"]
-size = Vector2(32, 32)
-
 [node name="Resource" type="Sprite2D" groups=["Pickup_able", "Resource"]]
 script = ExtResource("1_rvmbj")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_priority = 10.0
+priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_81bic")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_k1oqv")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

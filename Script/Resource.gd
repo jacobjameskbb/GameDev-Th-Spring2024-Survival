@@ -21,10 +21,6 @@ var is_resource
 
 var mouse_in_area = false
 
-func _ready():
-	var is_from = 'tree'
-	spawn_in(is_from)
-
 func spawn_in(came_from):
 	if came_from == 'tree':
 		is_resource = resources[0]

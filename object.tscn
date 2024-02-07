@@ -2,21 +2,26 @@
 
 [ext_resource type="Script" path="res://Script/object.gd" id="1_ioerv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kaih"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojdn2"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7v"]
 size = Vector2(32, 32)
 
-[node name="object" type="Sprite2D" groups=["object"]]
+[node name="object" type="Sprite2D" groups=["Object"]]
 script = ExtResource("1_ioerv")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_priority = 10.0
+priority = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_5kaih")
+shape = SubResource("RectangleShape2D_ojdn2")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_g7b7v")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
