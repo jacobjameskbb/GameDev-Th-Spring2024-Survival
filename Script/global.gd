@@ -5,8 +5,8 @@ extends Node
 @onready var Player = get_node('/root/BaseGame/Player')
 
 @onready var item_sprites: Dictionary = {
-	'Plank' : preload("res://Assets/Sprites/plank of wood.png")
-	
+	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
+	'Rock' : preload("res://Assets/Sprites/rocks.png")
 	
 	
 	
@@ -15,8 +15,8 @@ extends Node
 }
 
 @onready var list_of_resources_sprites: Dictionary = {
-	'Plank' : preload("res://Assets/Sprites/plank of wood.png")
-	
+	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
+	'Rock' : preload("res://Assets/Sprites/rocks.png")
 	
 	
 	

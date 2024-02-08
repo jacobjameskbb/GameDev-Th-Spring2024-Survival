@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=35 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="Script" path="res://Script/Camera.gd" id="1_oxv8s"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://5fjyv0o24afc" path="res://Assets/Sprites/sand daytime.png" id="10_8uxyx"]
 [ext_resource type="Texture2D" uid="uid://d07chu2ntqcwn" path="res://Assets/Sprites/Golf_Cart.png" id="10_rgkby"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="11_r2qiq"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="13_qwrt5"]
+[ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="14_olbxc"]
+[ext_resource type="Script" path="res://Script/Mouse.gd" id="16_an6iv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixa3e"]
 texture = ExtResource("2_ifpug")
@@ -119,8 +122,27 @@ sources/6 = SubResource("TileSetAtlasSource_qx248")
 sources/7 = SubResource("TileSetAtlasSource_wkiou")
 sources/8 = SubResource("TileSetAtlasSource_lj7l2")
 
+[sub_resource type="InputEventKey" id="InputEventKey_wxkn8"]
+device = -1
+physical_keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_qjo1g"]
+events = [SubResource("InputEventKey_wxkn8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8ri03"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_ewvd7"]
+events = [SubResource("InputEventKey_8ri03")]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggu08"]
 size = Vector2(336, 240)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pksym"]
+radius = 8.0
 
 [node name="BaseGame" type="Node"]
 script = ExtResource("1_oglgy")
@@ -169,6 +191,19 @@ offset_right = 512.0
 offset_bottom = 96.0
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
+[node name="Axe_sprite_button" type="TextureButton" parent="Camera/ToolBar/Axe"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+shortcut = SubResource("Shortcut_qjo1g")
+texture_normal = ExtResource("13_qwrt5")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Pickaxe" type="ColorRect" parent="Camera/ToolBar"]
 layout_mode = 0
 offset_left = 520.0
@@ -176,6 +211,15 @@ offset_top = 56.0
 offset_right = 560.0
 offset_bottom = 96.0
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
+
+[node name="Pickaxe_sprite_button" type="TextureButton" parent="Camera/ToolBar/Pickaxe"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+shortcut = SubResource("Shortcut_ewvd7")
+texture_normal = ExtResource("14_olbxc")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Gun" type="ColorRect" parent="Camera/ToolBar"]
 layout_mode = 1
@@ -247,4 +291,12 @@ texture = ExtResource("10_rgkby")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GolfCart/Area2D"]
 shape = SubResource("RectangleShape2D_ggu08")
 
+[node name="Mouse" type="Area2D" parent="." groups=["Mouse"]]
+script = ExtResource("16_an6iv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
+shape = SubResource("CircleShape2D_pksym")
+
+[connection signal="button_up" from="Camera/ToolBar/Axe/Axe_sprite_button" to="Camera/ToolBar" method="_on_axe_sprite_button_button_up"]
+[connection signal="button_up" from="Camera/ToolBar/Pickaxe/Pickaxe_sprite_button" to="Camera/ToolBar" method="_on_pickaxe_sprite_button_button_up"]
 [connection signal="button_up" from="Camera/Menu/PopUpMenu/Quit" to="." method="_on_quit_button_up"]

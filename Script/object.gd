@@ -33,6 +33,7 @@ func _ready():
 	if objects['Tree'] == is_object:
 		position += Vector2(0,-16)
 		$StaticBody2D.global_position += Vector2(0,16)
+		$Button.global_position += Vector2(0,16)
 	if objects['Rock'] == is_object:
 		hit_points *= 2
 
@@ -47,9 +48,18 @@ func _process(_delta):
 			new_resource.spawn_in('rock')
 		if objects['Scrap pile'] == is_object:
 			new_resource.spawn_in('scrap pile')
+
+		if objects['Tree'] == is_object:
+			get_node('/root/BaseGame').island_area.append(position + Vector2(0,16))
+		else:
+			get_node('/root/BaseGame').island_area.append(position)
 		queue_free()
 
 func _on_button_button_up():
-	if objects['Tree'] == is_object:
-		if Global.Player.item_equipped == 'Axe':
-			hit_points += -10 * Global.Player.axe_level
+	if Global.Player.mouse_in_area:
+		if objects['Tree'] == is_object:
+			if Global.Player.item_equipped == 'Axe':
+				hit_points += -10 * Global.Player.axe_level
+		if objects['Rock'] == is_object:
+			if Global.Player.item_equipped == 'Pickaxe':
+				hit_points += -10 * Global.Player.axe_level

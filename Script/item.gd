@@ -16,7 +16,7 @@ func _ready():
 	is_item = items[randi_range(0,random_items.size() - 1)]
 	texture = Global.items_sprites[is_item]
 
-func _process(_delta):
+func _on_button_button_up():
 	if is_item not in Global.Player.inventory:
 		Global.Player.inventory.append(is_item)
 		var new_item = Global.inventory_item_scene.instantiate()

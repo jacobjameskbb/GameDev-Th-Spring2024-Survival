@@ -1,11 +1,9 @@
 extends Sprite2D
 
 var resources: Array = [
-	'Plank'
-	
-	
-	
-	
+	'Plank',
+	'Rock',
+	'Scrap'
 ]
 
 var is_resource
@@ -15,13 +13,13 @@ func spawn_in(came_from):
 		is_resource = resources[0]
 		position.y += 16
 	if came_from == 'rock':
-		pass
+		is_resource = resources[1]
 	if came_from == 'scrap pile':
-		pass
+		is_resource = resources[2]
 
 	texture = Global.list_of_resources_sprites[is_resource]
 
-func _process(_delta):
+func _on_button_button_up():
 	if Global.Player.inventory.size() < Global.Player.max_inventory_size:
 			if is_resource not in Global.Player.inventory:
 				Global.Player.inventory.append(is_resource)
