@@ -6,7 +6,7 @@ extends Node
 
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rocks.png")
+	'Rock' : preload("res://Assets/Sprites/rubble.png")
 	
 	
 	
@@ -14,9 +14,16 @@ extends Node
 	
 }
 
+@onready var objects: Dictionary = {
+	'Tree' : preload("res://Assets/Sprites/tree.png"),
+	'Rock' : preload("res://Assets/Sprites/rock.png"),
+	'Scrap pile' : preload("res://Assets/Sprites/Scrap pile.png"),
+	'Palm tree' : preload("res://Assets/Sprites/palm tree.png")
+}
+
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rocks.png")
+	'Rock' : preload("res://Assets/Sprites/rubble.png")
 	
 	
 	
