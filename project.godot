@@ -21,6 +21,7 @@ Global="*res://Script/global.gd"
 
 [display]
 
+window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://Assets/Sprites/Hand.png"
 
 [input]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 20000
+var speed = 15000
 
 var inventory: Array = []
 
