@@ -82,9 +82,9 @@ func _process(_delta):
 
 func _on_button_button_up():
 	if Global.Player.mouse_in_area:
-		if Global.objects['Tree'] == is_object or Global.objects['Palm tree']:
+		if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
 			if Global.Player.item_equipped == 'Axe':
 				hit_points += -10 * Global.Player.axe_level
 		if Global.objects['Rock'] == is_object:
 			if Global.Player.item_equipped == 'Pickaxe':
-				hit_points += -10 * Global.Player.axe_level
+				hit_points += -10 * Global.Player.pickaxe_level

@@ -34,6 +34,7 @@ func generate_foliage():
 		list_of_current_objects.append(new_object)
 		current_foliage += 1
 		add_child(new_object)
+
 	while current_beach_foliage < beach_foliage_density:
 		var new_object = object.instantiate()
 		new_object.position = pick_random_beach_foliage_position()

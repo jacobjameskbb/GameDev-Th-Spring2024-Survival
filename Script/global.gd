@@ -45,5 +45,3 @@ var in_city = false
 
 
 
-
-
