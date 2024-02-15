@@ -16,6 +16,11 @@ func spawn_in(came_from):
 		is_resource = resources[1]
 	if came_from == 'scrap pile':
 		is_resource = resources[2]
+	if came_from == 'palm tree':
+		if 1 == randi_range(0,3):
+			is_resource = resources[3]
+		else:
+			is_resource = resources[0]
 
 	texture = Global.list_of_resources_sprites[is_resource]
 

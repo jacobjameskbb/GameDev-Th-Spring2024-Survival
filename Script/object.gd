@@ -67,6 +67,8 @@ func _process(_delta):
 			new_resource.spawn_in('rock')
 		if Global.objects['Scrap pile'] == is_object:
 			new_resource.spawn_in('scrap pile')
+		if Global.objects['Palm tree'] == is_object:
+			new_resource.spawn_in('palm tree')
 
 		if Global.objects['Tree'] == is_object:
 			get_node('/root/BaseGame').island_area.append(position + Vector2(0,16))

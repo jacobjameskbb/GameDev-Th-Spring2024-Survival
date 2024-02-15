@@ -23,8 +23,8 @@ extends Node
 
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rubble.png")
-	
+	'Rock' : preload("res://Assets/Sprites/rubble.png"),
+	'Scrap' : preload('res://Assets/Sprites/scrap.png')
 	
 	
 	
