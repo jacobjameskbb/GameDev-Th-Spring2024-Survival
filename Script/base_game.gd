@@ -27,6 +27,8 @@ func _ready():
 
 	generate_foliage()
 
+	count_time()
+
 func generate_foliage():
 	while current_foliage < foliage_density:
 		var new_object = object.instantiate()
@@ -60,3 +62,14 @@ func generate_city():
 
 func _on_quit_button_up():
 	get_tree().quit()
+
+func count_time():
+	await $Timer.timeout
+	Global.current_time += 1
+	print(Global.current_time)
+	count_time()
+
+
+
+
+

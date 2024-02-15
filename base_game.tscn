@@ -134,8 +134,10 @@ size = Vector2(128, 544)
 [node name="BaseGame" type="Node"]
 script = ExtResource("1_oglgy")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(1, 1, 0.792157, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_oa836")
