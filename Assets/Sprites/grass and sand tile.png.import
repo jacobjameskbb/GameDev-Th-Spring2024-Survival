@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8j3hg8yuepe4"
-path="res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"
+uid="uid://bjgn4rtm1ctn3"
+path="res://.godot/imported/grass and sand tile.png-b6939222b573e22bab930c4000999d11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/axe.png"
-dest_files=["res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"]
+source_file="res://Assets/Sprites/grass and sand tile.png"
+dest_files=["res://.godot/imported/grass and sand tile.png-b6939222b573e22bab930c4000999d11.ctex"]
 
 [params]
 

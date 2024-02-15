@@ -6,6 +6,7 @@ var item_amount: int = 1
 
 func _ready():
 	$Sprite.texture = Global.item_sprites[is_item]
+	$Item_name.text = is_item
 
 func _process(_delta):
 	$Item_amount.text = str(item_amount)
