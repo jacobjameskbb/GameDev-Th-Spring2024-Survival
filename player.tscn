@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=7 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
+[ext_resource type="Texture2D" uid="uid://dn3mfonnducft" path="res://Assets/Sprites/WalkDown1 Army Guy.png" id="2_in25n"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
@@ -11,6 +12,17 @@ size = Vector2(58, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n38ow"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_in25n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wb1h5")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_wb1h5")
