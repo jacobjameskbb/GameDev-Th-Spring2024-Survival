@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7wfwact1repj"
-path="res://.godot/imported/Tree.png-348187bda0490d693a59016b1e2c7313.ctex"
+uid="uid://i0glmsv2yho1"
+path="res://.godot/imported/Idle Army Guy.png-cc963e760135a54ed9bfc8a289b4865e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-348187bda0490d693a59016b1e2c7313.ctex"]
+source_file="res://Assets/Sprites/Idle Army Guy.png"
+dest_files=["res://.godot/imported/Idle Army Guy.png-cc963e760135a54ed9bfc8a289b4865e.ctex"]
 
 [params]
 

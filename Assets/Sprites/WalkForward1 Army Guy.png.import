@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7wfwact1repj"
-path="res://.godot/imported/Tree.png-348187bda0490d693a59016b1e2c7313.ctex"
+uid="uid://cbkdepl4tai34"
+path="res://.godot/imported/WalkForward1 Army Guy.png-87e89dae1946ec8af171c7af11c77531.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-348187bda0490d693a59016b1e2c7313.ctex"]
+source_file="res://Assets/Sprites/WalkForward1 Army Guy.png"
+dest_files=["res://.godot/imported/WalkForward1 Army Guy.png-87e89dae1946ec8af171c7af11c77531.ctex"]
 
 [params]
 
