@@ -8,8 +8,8 @@ var max_inventory_size = 10
 
 var item_equipped
 
-var axe_level = 5
-var pickaxe_level = 5
+var axe_level = 1
+var pickaxe_level = 1
 
 var mouse_in_area = false
 
