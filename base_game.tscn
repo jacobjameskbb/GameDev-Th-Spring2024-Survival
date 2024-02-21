@@ -25,6 +25,7 @@ tile_data = PackedInt32Array(0, 3, 0, 65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 2
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixa3e"]
 texture = ExtResource("2_ifpug")
 0:0/size_in_atlas = Vector2i(2, 2)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -164,6 +165,7 @@ script = ExtResource("1_oglgy")
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.392157, 0.392157, 0.392157, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_oa836")
@@ -267,6 +269,12 @@ offset_right = -0.186035
 offset_bottom = -0.0579987
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
+[node name="TextureButton" type="TextureButton" parent="Player/ToolBar/Gun"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
 [node name="MeleeWeapon" type="ColorRect" parent="Player/ToolBar"]
 layout_mode = 1
 anchors_preset = -1
@@ -279,6 +287,12 @@ offset_top = 0.0399933
 offset_right = 0.0559692
 offset_bottom = -0.0579987
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
+
+[node name="TextureButton" type="TextureButton" parent="Player/ToolBar/MeleeWeapon"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
 
 [node name="Menu" type="Control" parent="Player"]
 z_index = 2

@@ -18,6 +18,8 @@ var current_foliage = 0
 
 var current_beach_foliage = 0
 
+var time_step: float = 0.0
+
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
 		island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
@@ -66,7 +68,16 @@ func _on_quit_button_up():
 func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
-	print(Global.current_time)
+	if Global.current_time <= 600 and Global.morning == false:
+		print($CanvasModulate.get_color())
+		time_step += 0.425
+		$CanvasModulate.set_color(Color((0.0 + time_step),(0.0 + time_step),(0.0 + time_step),1))
+	elif Global.morning == false:
+		Global.morning = true
+		Global.day += 1
+	if Global.morning == true:
+		time_step += -0.00425
+		$CanvasModulate.set_color(Color((0.0 + time_step),(0.0 + time_step),(0.0 + time_step),1))
 	count_time()
 
 

@@ -43,6 +43,6 @@ var in_city = false
 
 var current_time = 0
 
+var morning = false
 
-
-
+var day = 0
