@@ -189,6 +189,7 @@ offset_bottom = 259.0
 script = ExtResource("9_n2n2v")
 
 [node name="Inventory" type="ScrollContainer" parent="Player/ToolBar"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.144
