@@ -21,6 +21,7 @@ Global="*res://Script/global.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://Assets/Sprites/Hand.png"
 
@@ -80,3 +81,4 @@ pickaxe={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.298039, 0.298039, 0.298039, 0)

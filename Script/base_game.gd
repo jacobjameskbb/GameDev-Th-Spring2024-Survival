@@ -68,15 +68,17 @@ func _on_quit_button_up():
 func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
-	if Global.current_time <= 600 and Global.morning == false:
-		time_step += 1.0/600.0
-		$CanvasModulate.set_color(Color((0.392 + time_step),(0.392 + time_step),(0.392 + time_step),1))
+	$Player/Time.text = str(Global.current_time)
+	if Global.morning == false:
+		time_step += 1.0
+		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
 	elif Global.morning == false:
 		Global.morning = true
 		Global.day += 1
+		$Player/Day_value_label.text = str(Global.day)
 	if Global.morning == true:
-		time_step += -1.0/600.0
-		$CanvasModulate.set_color(Color((0.392 + time_step),(0.392 + time_step),(0.392 + time_step),1))
+		time_step += -1.0
+		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
 	count_time()
 
 

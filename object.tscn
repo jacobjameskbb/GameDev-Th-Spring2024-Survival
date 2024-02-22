@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="3_t1utx"]
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="4_x68ea"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7v"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2bdo"]
 size = Vector2(32, 32)
 
 [node name="object" type="Sprite2D" groups=["Object"]]
@@ -15,7 +15,7 @@ script = ExtResource("1_ioerv")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_g7b7v")
+shape = SubResource("RectangleShape2D_b2bdo")
 
 [node name="Button" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(32, 32)

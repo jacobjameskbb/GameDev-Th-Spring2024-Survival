@@ -35,15 +35,24 @@ func _ready():
 		if Global.objects['Tree'] == is_object:
 			position += Vector2(0,-16)
 			scale.y *= 2
+			scale.x += 0.25
 			for child in get_children():
 				child.scale.y /= 2
+				child.scale.x -= 0.25
+			$StaticBody2D/CollisionShape2D.shape.size.y = 20
+			$StaticBody2D/CollisionShape2D.shape.size.x = 16
 			$StaticBody2D.global_position += Vector2(0,16)
 			$Button.global_position += Vector2(0,16)
-			$ProgressBar.global_position += Vector2(0,16)
+			$ProgressBar.position = Vector2(-12.5,16)
+			$ProgressBar.size = Vector2(32,2)
+			$ProgressBar.scale = Vector2(0.825,0.5)
 
 		if Global.objects['Rock'] == is_object:
 			hit_points *= 2
 			max_health *= 2
+			$StaticBody2D/CollisionShape2D.shape = CircleShape2D.new()
+			$StaticBody2D/CollisionShape2D.shape.radius = 9.5
+			$StaticBody2D/CollisionShape2D.position.y += 1
 
 	else:
 		is_object = Global.objects['Palm tree']
@@ -51,7 +60,11 @@ func _ready():
 		scale.y *= 2
 		for child in get_children():
 			child.scale.y /= 2
-			child.global_position += Vector2(0,16)
+		$StaticBody2D/CollisionShape2D.shape.size.y = 20
+		$StaticBody2D/CollisionShape2D.shape.size.x = 16
+		$StaticBody2D.global_position += Vector2(0,16)
+		$Button.global_position += Vector2(0,16)
+		$ProgressBar.position = Vector2(-16,16)
 
 	texture = is_object
 	$ProgressBar.max_value = hit_points

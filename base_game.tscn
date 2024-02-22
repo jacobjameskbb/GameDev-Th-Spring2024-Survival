@@ -216,10 +216,10 @@ anchor_left = 0.387
 anchor_top = 0.52
 anchor_right = 0.431
 anchor_bottom = 0.846
-offset_left = 0.185974
-offset_top = 0.0399933
-offset_right = -0.382019
-offset_bottom = -0.0579987
+offset_left = 0.186005
+offset_top = 0.0400009
+offset_right = -0.381989
+offset_bottom = -0.057991
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
 [node name="Axe_sprite_button" type="TextureButton" parent="Player/ToolBar/Axe"]
@@ -243,9 +243,9 @@ anchor_top = 0.52
 anchor_right = 0.491
 anchor_bottom = 0.846
 offset_left = -0.0559998
-offset_top = 0.0399933
+offset_top = 0.0400009
 offset_right = 0.297974
-offset_bottom = -0.0579987
+offset_bottom = -0.057991
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
 [node name="Pickaxe_sprite_button" type="TextureButton" parent="Player/ToolBar/Pickaxe"]
@@ -265,9 +265,9 @@ anchor_top = 0.52
 anchor_right = 0.613
 anchor_bottom = 0.846
 offset_left = 0.382019
-offset_top = 0.0399933
+offset_top = 0.0400009
 offset_right = -0.186035
-offset_bottom = -0.0579987
+offset_bottom = -0.057991
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
 [node name="TextureButton" type="TextureButton" parent="Player/ToolBar/Gun"]
@@ -284,9 +284,9 @@ anchor_top = 0.52
 anchor_right = 0.552
 anchor_bottom = 0.846
 offset_left = -0.298004
-offset_top = 0.0399933
+offset_top = 0.0400009
 offset_right = 0.0559692
-offset_bottom = -0.0579987
+offset_bottom = -0.057991
 color = Color(0.384314, 0.384314, 0.384314, 0.686275)
 
 [node name="TextureButton" type="TextureButton" parent="Player/ToolBar/MeleeWeapon"]
@@ -335,6 +335,30 @@ offset_top = 104.0
 offset_right = 99.0
 offset_bottom = 135.0
 text = "Settings"
+
+[node name="Day_label" type="Label" parent="Player"]
+z_index = 2
+offset_left = -461.0
+offset_top = -259.0
+offset_right = -431.0
+offset_bottom = -236.0
+text = "Day:"
+
+[node name="Day_value_label" type="Label" parent="Player"]
+z_index = 2
+offset_left = -426.0
+offset_top = -259.0
+offset_right = -416.0
+offset_bottom = -236.0
+text = "0"
+
+[node name="Time" type="Label" parent="Player"]
+z_index = 2
+offset_left = -461.0
+offset_top = -235.0
+offset_right = -421.0
+offset_bottom = -212.0
+text = "0"
 
 [node name="GolfCart" type="Sprite2D" parent="."]
 position = Vector2(1832, -120)

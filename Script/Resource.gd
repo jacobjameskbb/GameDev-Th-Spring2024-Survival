@@ -3,7 +3,8 @@ extends Sprite2D
 var resources: Array = [
 	'Plank',
 	'Rock',
-	'Scrap'
+	'Scrap',
+	'Coconut',
 ]
 
 var is_resource
