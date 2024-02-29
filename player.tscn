@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=8 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
-[ext_resource type="Texture2D" uid="uid://dn3mfonnducft" path="res://Assets/Sprites/WalkDown1 Army Guy.png" id="2_in25n"]
+[ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
+[ext_resource type="Texture2D" uid="uid://byc4vjbr5hofd" path="res://Assets/Sprites/WalkDown2.0 Army Guy.png" id="4_td54q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43)
@@ -14,10 +15,13 @@ radius = 80.0062
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_in25n")
+"texture": ExtResource("2_o7mfy")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_wb1h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_td54q")
 }],
 "loop": true,
 "name": &"down",
@@ -54,4 +58,5 @@ shape = SubResource("CircleShape2D_dyfcg")
 position = Vector2(-0.25, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_n38ow")
-animation = &"idle"
+animation = &"down"
+frame_progress = 0.549962
