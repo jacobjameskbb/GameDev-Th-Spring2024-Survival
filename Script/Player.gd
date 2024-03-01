@@ -15,6 +15,10 @@ var mouse_in_area = false
 
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
+	if input_direction == Vector2(0,1):
+		$AnimatedSprite2D.play('down')
+	if input_direction == Vector2(0,0):
+		$AnimatedSprite2D.play('idle')
 	velocity = input_direction * speed * delta
 
 func _physics_process(delta):
