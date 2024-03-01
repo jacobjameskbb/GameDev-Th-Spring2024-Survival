@@ -72,16 +72,17 @@ func count_time():
 	if Global.after_noon == false:
 		time_step += 1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
-	if time_step == 600 or (time_step == 0 and Global.day != 0):
+	if Global.after_noon == true:
+		time_step += -1.0
+		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
+	if time_step == 600 or (time_step < 0):
 		if Global.after_noon == false:
 			Global.after_noon = true
 		else:
 			Global.after_noon = false
-		Global.day += 1
-		$Player/Day_value_label.text = str(Global.day)
-	if Global.after_noon == true:
-		time_step += -1.0
-		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
+		if Global.after_noon == false:
+			Global.day += 1
+			$Player/Day_value_label.text = str(Global.day)
 	count_time()
 
 

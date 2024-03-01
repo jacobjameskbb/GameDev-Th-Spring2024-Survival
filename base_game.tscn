@@ -162,7 +162,6 @@ size = Vector2(128, 544)
 script = ExtResource("1_oglgy")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.001
 autostart = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
