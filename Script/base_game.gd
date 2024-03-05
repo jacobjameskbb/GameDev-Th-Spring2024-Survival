@@ -18,7 +18,7 @@ var current_foliage = 0
 
 var current_beach_foliage = 0
 
-var time_step: float = 0.0
+var time_step: float = 300.0
 
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
@@ -68,7 +68,13 @@ func _on_quit_button_up():
 func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
-	$Player/Time.text = str(time_step)
+	$Player/MTime.text = str(int($Player/MTime.text) + 1)
+	if int($Player/MTime.text) == 60:
+		$Player/MTime.text = str(0)
+		if int($Player/HTime.text) != 10:
+			$Player/HTime.text = str(int($Player/HTime.text) + 1)
+		else:
+			$Player/HTime.text = str(0)
 	if Global.after_noon == false:
 		time_step += 1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))

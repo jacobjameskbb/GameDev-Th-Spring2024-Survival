@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=10 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
 [ext_resource type="Texture2D" uid="uid://byc4vjbr5hofd" path="res://Assets/Sprites/WalkDown2.0 Army Guy.png" id="4_td54q"]
+[ext_resource type="Texture2D" uid="uid://pxpata0iuqp0" path="res://Assets/Sprites/Held_Pickaxe.png" id="5_qnsxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43)
@@ -36,6 +37,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0f1r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"chopping",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"chopping_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qnsxm")
+}],
+"loop": true,
+"name": &"mining",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mining_default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"no_tool",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 0
 motion_mode = 1
@@ -60,3 +92,9 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_n38ow")
 animation = &"down"
 frame_progress = 0.549962
+
+[node name="HeldItem" type="AnimatedSprite2D" parent="."]
+position = Vector2(-14, -7)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_b0f1r")
+animation = &"mining"
