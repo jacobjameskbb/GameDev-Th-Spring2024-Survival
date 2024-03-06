@@ -69,8 +69,10 @@ func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
 	$Player/MTime.text = str(int($Player/MTime.text) + 1)
+	if int($Player/MTime.text) < 10:
+		$Player/MTime.text = str('0',$Player/MTime.text)
 	if int($Player/MTime.text) == 60:
-		$Player/MTime.text = str(0)
+		$Player/MTime.text = str('00')
 		if int($Player/HTime.text) != 10:
 			$Player/HTime.text = str(int($Player/HTime.text) + 1)
 		else:

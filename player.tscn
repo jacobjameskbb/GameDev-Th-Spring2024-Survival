@@ -97,4 +97,4 @@ frame_progress = 0.549962
 position = Vector2(-14, -7)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_b0f1r")
-animation = &"mining"
+animation = &"no_tool"
