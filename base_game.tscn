@@ -163,12 +163,12 @@ size = Vector2(128, 544)
 script = ExtResource("1_oglgy")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_a3ox6")
 volume_db = -1.0
-autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.642, 0.642, 0.642, 1)
