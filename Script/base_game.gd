@@ -73,10 +73,10 @@ func count_time():
 		$Player/MTime.text = str('0',$Player/MTime.text)
 	if int($Player/MTime.text) == 60:
 		$Player/MTime.text = str('00')
-		if int($Player/HTime.text) < 21:
+		if int($Player/HTime.text) < 19:
 			$Player/HTime.text = str(int($Player/HTime.text) + 1)
 		else:
-			$Player/HTime.text = str(1)
+			$Player/HTime.text = str(0)
 	if Global.after_noon == false:
 		time_step += 1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
