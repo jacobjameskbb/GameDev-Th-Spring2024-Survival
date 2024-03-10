@@ -91,9 +91,7 @@ func count_time():
 		if Global.after_noon == false:
 			Global.day += 1
 			$Player/Day_value_label.text = str(Global.day)
+	if time_step == 180 and Global.after_noon == true:
+		$DaySong.stop()
+		$BeginNight.play()
 	count_time()
-
-
-
-
-
