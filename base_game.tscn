@@ -427,3 +427,5 @@ metadata/_edit_lock_ = true
 [connection signal="button_up" from="Player/ToolBar/Axe/Axe_sprite_button" to="Player/ToolBar" method="_on_axe_sprite_button_button_up"]
 [connection signal="button_up" from="Player/ToolBar/Pickaxe/Pickaxe_sprite_button" to="Player/ToolBar" method="_on_pickaxe_sprite_button_button_up"]
 [connection signal="button_up" from="Player/Menu/PopUpMenu/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="Mouse/Panel/Button" to="Mouse/Panel" method="_on_button_button_up"]
+[connection signal="button_up" from="Mouse/Panel/Button2" to="Mouse/Panel" method="_on_button_2_button_up"]
