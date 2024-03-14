@@ -20,6 +20,8 @@ var current_beach_foliage = 0
 
 var time_step: float = 300.0
 
+var dictionary_of_tile_sprites = {}
+
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
 		island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
@@ -28,6 +30,8 @@ func _ready():
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 
 	generate_foliage()
+
+	get_tile_positions()
 
 	count_time()
 
@@ -61,6 +65,12 @@ func pick_random_beach_foliage_position():
 
 func generate_city():
 	pass
+
+func get_tile_positions():
+	for tile in $TileMap.get_used_cells_by_id(0,0):
+		for x in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
+			for y in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
+				dictionary_of_tile_sprites[tile] = Vector2(tile.x + x, tile.y + y)
 
 func _on_quit_button_up():
 	get_tree().quit()

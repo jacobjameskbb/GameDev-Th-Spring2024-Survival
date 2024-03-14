@@ -34,3 +34,13 @@ func _process(_delta):
 		mouse_in_area = true
 	else:
 		mouse_in_area = false
+
+func play():
+	if item_equipped == 'Pickaxe':
+		$HeldItem.play('mining')
+	
+	
+
+
+
+
