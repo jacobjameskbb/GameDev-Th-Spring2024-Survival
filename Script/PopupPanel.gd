@@ -16,9 +16,18 @@ func open(object_selected):
 		$Button.text = 'Travel to town'
 		$Button2.text = 'Check storage'
 
+func close():
+	self.visible = false
+	last_position = null
+
 func _on_button_button_up():
-	if currently_over:
-		pass
+	if currently_over == 'GolfCart':
+		get_node('/root/BaseGame/Player').position = get_node(str('/root/BaseGame/Position',str(int(Global.in_city)))).position
+
+	self.close()
 
 func _on_button_2_button_up():
-	pass
+	if currently_over == 'GolfCart':
+		pass
+
+	self.close()
