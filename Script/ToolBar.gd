@@ -14,7 +14,17 @@ func _process(_delta):
 		_on_pickaxe_sprite_button_button_up()
 
 func _on_axe_sprite_button_button_up():
-	Global.Player.item_equipped = 'Axe'
+	if Global.Player.item_equipped != 'Axe':
+		Global.Player.item_equipped = 'Axe'
+		get_node('/root/BaseGame/Player').get_child(3).animation = 'chopping_default'
+	else:
+		get_node('/root/BaseGame/Player').get_child(3).animation = 'no_tool'
+		Global.Player.item_equipped = null
 
 func _on_pickaxe_sprite_button_button_up():
-	Global.Player.item_equipped = 'Pickaxe'
+	if Global.Player.item_equipped != 'Pickaxe':
+		Global.Player.item_equipped = 'Pickaxe'
+		get_node('/root/BaseGame/Player').get_child(3).animation = 'mining_default'
+	else:
+		get_node('/root/BaseGame/Player').get_child(3).animation = 'no_tool'
+		Global.Player.item_equipped = null

@@ -9,6 +9,7 @@ var max_inventory_size = 10
 var item_equipped
 
 var axe_level = 1
+
 var pickaxe_level = 1
 
 var mouse_in_area = false
@@ -34,3 +35,9 @@ func _process(_delta):
 		mouse_in_area = true
 	else:
 		mouse_in_area = false
+
+func _on_held_item_animation_finished():
+	if $HeldItem.animation == 'Mining':
+		$HeldItem.animation = 'mining_default'
+	if $HeldItem.animation == 'chopping':
+		$HeldItem.animation = 'chopping_default'

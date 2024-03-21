@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcu8afqkg2lrq"
-path="res://.godot/imported/Rock.png-442d2dec8f7657fce67395348d65562e.ctex"
+uid="uid://c6ux5o63lji2r"
+path="res://.godot/imported/cobblestone wall.png-0e47cca02a67e150f6f1ebab10820194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Rock.png"
-dest_files=["res://.godot/imported/Rock.png-442d2dec8f7657fce67395348d65562e.ctex"]
+source_file="res://Assets/Sprites/cobblestone wall.png"
+dest_files=["res://.godot/imported/cobblestone wall.png-0e47cca02a67e150f6f1ebab10820194.ctex"]
 
 [params]
 
