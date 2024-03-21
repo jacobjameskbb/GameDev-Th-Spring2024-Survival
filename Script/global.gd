@@ -16,7 +16,7 @@ extends Node
 
 @onready var objects: Dictionary = {
 	'Tree' : preload("res://Assets/Sprites/Tree.png"),
-	'Rock' : preload("res://Assets/Sprites/Rock.png"),
+	'Rock' : preload("res://Assets/Sprites/rock.png"),
 	'Scrap pile' : preload("res://Assets/Sprites/Scrap pile.png"),
 	'Palm tree' : preload("res://Assets/Sprites/palm tree.png")
 }

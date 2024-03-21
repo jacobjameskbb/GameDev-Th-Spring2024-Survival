@@ -100,7 +100,12 @@ func _process(_delta):
 func _on_button_button_up():
 	if Global.Player.mouse_in_area:
 		if taking_damage == false:
-			take_damage()
+			if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
+				if Global.Player.item_equipped == 'Axe':
+					take_damage()
+			if Global.objects['Rock'] == is_object or Global.objects['Scrap pile'] == is_object:
+				if Global.Player.item_equipped == 'Pickaxe':
+					take_damage()
 
 func take_damage():
 	taking_damage = true
