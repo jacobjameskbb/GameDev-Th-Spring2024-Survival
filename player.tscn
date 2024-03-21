@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
 [ext_resource type="Texture2D" uid="uid://byc4vjbr5hofd" path="res://Assets/Sprites/WalkDown2.0 Army Guy.png" id="4_td54q"]
-[ext_resource type="Texture2D" uid="uid://pxpata0iuqp0" path="res://Assets/Sprites/Held_Pickaxe.png" id="5_qnsxm"]
 [ext_resource type="Texture2D" uid="uid://hm1lxcl4eyau" path="res://Assets/Sprites/Pickaxe down 1.png" id="6_0523c"]
 [ext_resource type="Texture2D" uid="uid://b20beg2602ekn" path="res://Assets/Sprites/Pickaxe up 1.png" id="6_ljsw4"]
 [ext_resource type="Texture2D" uid="uid://bofxt5rbn51v2" path="res://Assets/Sprites/Pickaxe down 2.png" id="8_dr48l"]
 [ext_resource type="Texture2D" uid="uid://q23n1oshjg7l" path="res://Assets/Sprites/Pickaxe down 3.png" id="9_4cumi"]
 [ext_resource type="Texture2D" uid="uid://b06muqmomrwjn" path="res://Assets/Sprites/Pickaxe up 2.png" id="10_ugbrg"]
 [ext_resource type="Texture2D" uid="uid://bokm3k5h0iarq" path="res://Assets/Sprites/Pickaxe up 3.png" id="11_bbxf8"]
+[ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43)
@@ -57,14 +57,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_qnsxm")
-}],
-"loop": true,
-"name": &"mining",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("6_ljsw4")
 }, {
 "duration": 1.0,
@@ -91,11 +83,22 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_bbxf8")
 }],
-"loop": true,
+"loop": false,
+"name": &"mining",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ljsw4")
+}],
+"loop": false,
 "name": &"mining_default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_q12vt")
+}],
 "loop": true,
 "name": &"no_tool",
 "speed": 5.0
@@ -131,3 +134,5 @@ position = Vector2(-10, 3)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_b0f1r")
 animation = &"no_tool"
+
+[connection signal="animation_finished" from="HeldItem" to="." method="_on_held_item_animation_finished"]

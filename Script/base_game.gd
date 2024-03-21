@@ -20,7 +20,9 @@ var current_beach_foliage = 0
 
 var time_step: float = 300.0
 
-var dictionary_of_tile_sprites = {}
+var dictionary_of_tile_sprites: Dictionary = {}
+
+var list_of_tile_positions: PackedVector2Array = []
 
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
@@ -68,9 +70,10 @@ func generate_city():
 
 func get_tile_positions():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
-		for x in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
-			for y in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]:
+		for x in range(0,33):
+			for y in range(0,33):
 				dictionary_of_tile_sprites[tile] = Vector2(tile.x + x, tile.y + y)
+				list_of_tile_positions.append(Vector2(tile.x + x, tile.y + y))
 
 func _on_quit_button_up():
 	get_tree().quit()

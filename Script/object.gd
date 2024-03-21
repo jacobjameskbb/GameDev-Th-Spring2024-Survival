@@ -19,6 +19,8 @@ var hit_points = 200
 
 var is_on_beach = false
 
+var taking_damage = false
+
 func _ready():
 	if is_on_beach == false:
 		var random_objects = []
@@ -97,13 +99,22 @@ func _process(_delta):
 
 func _on_button_button_up():
 	if Global.Player.mouse_in_area:
-		take_damage()
+		if taking_damage == false:
+			take_damage()
 
 func take_damage():
+	taking_damage = true
+	if Global.Player.item_equipped == 'Axe':
+		if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
+			if get_node('/root/BaseGame/Player').get_child(3).is_playing() == false:
+				get_node('/root/BaseGame/Player').get_child(3).play('chopping')
+	if Global.Player.item_equipped == 'Pickaxe':
+		if Global.objects['Rock'] == is_object or Global.objects['Scrap pile'] == is_object:
+			if get_node('/root/BaseGame/Player').get_child(3).is_playing() == false:
+				get_node('/root/BaseGame/Player').get_child(3).play('mining')
 	await get_node('/root/BaseGame/Player').get_child(3).animation_finished
 	if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
-		if Global.Player.item_equipped == 'Axe':
-			hit_points += -10
+		hit_points += -10 * Global.Player.axe_level
 	if Global.objects['Rock'] == is_object:
-		if Global.Player.item_equipped == 'Pickaxe':
-			hit_points += -10
+		hit_points += -10 * Global.Player.pickaxe_level
+	taking_damage = false
