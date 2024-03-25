@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://cavain3bcxbei"
+path="res://.godot/imported/moss wood for houses.png-931e74e623775d8e9043580ec6730c7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/moss wood for houses.png"
+dest_files=["res://.godot/imported/moss wood for houses.png-931e74e623775d8e9043580ec6730c7b.ctex"]
 
 [params]
 

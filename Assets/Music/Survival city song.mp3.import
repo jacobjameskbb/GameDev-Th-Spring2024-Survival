@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn1gnve1ssyf5"
+path="res://.godot/imported/Survival city song.mp3-715f222ebc98504894d9f0fb1c008e12.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Survival city song.mp3"
+dest_files=["res://.godot/imported/Survival city song.mp3-715f222ebc98504894d9f0fb1c008e12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

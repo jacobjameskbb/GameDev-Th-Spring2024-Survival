@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://52ebtpei0hrg"
+path="res://.godot/imported/TheMostBeautifulBeingKnownToMankind 2.png-f141470904df8089050217d47261174f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/Enemies/TheMostBeautifulBeingKnownToMankind 2.png"
+dest_files=["res://.godot/imported/TheMostBeautifulBeingKnownToMankind 2.png-f141470904df8089050217d47261174f.ctex"]
 
 [params]
 

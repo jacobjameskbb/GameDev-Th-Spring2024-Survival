@@ -14,6 +14,8 @@ var pickaxe_level = 1
 
 var mouse_in_area = false
 
+var building = false
+
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	if input_direction == Vector2(0,1):

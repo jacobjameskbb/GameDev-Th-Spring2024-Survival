@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://52ebtpei0hrg"
-path="res://.godot/imported/TheMostBeautifulBeingKnownToMankind 2.png-5c061d4f2be7bacb0a054873d0466e2f.ctex"
+uid="uid://codva864leeqa"
+path="res://.godot/imported/ObeseInsect sprite.png-b89843e66c267b3b63b780c38fb0866b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/TheMostBeautifulBeingKnownToMankind 2.png"
-dest_files=["res://.godot/imported/TheMostBeautifulBeingKnownToMankind 2.png-5c061d4f2be7bacb0a054873d0466e2f.ctex"]
+source_file="res://Assets/Sprites/Enemies/ObeseInsect sprite.png"
+dest_files=["res://.godot/imported/ObeseInsect sprite.png-b89843e66c267b3b63b780c38fb0866b.ctex"]
 
 [params]
 

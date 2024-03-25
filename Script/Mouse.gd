@@ -13,8 +13,8 @@ func _process(_delta):
 					object_selected = 'GolfCart'
 				get_node('/root/BaseGame/Panel').open(object_selected)
 
-	check_position()
+	if get_node('/root/BaseGame/Player').building:
+		check_position()
 
 func check_position():
-	if Vector2(Vector2i(position)) in get_parent().list_of_tile_positions:
-		over_tile = get_parent().dictionary_of_tile_sprites.find_key(Vector2i(position))
+	over_tile = position.snapped(Vector2(32,32)) - Vector2(16,16)

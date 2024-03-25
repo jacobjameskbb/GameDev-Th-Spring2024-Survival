@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codva864leeqa"
-path="res://.godot/imported/ObeseInsect sprite.png-804cc356aa392f0b4cf01c8db046c3b9.ctex"
+uid="uid://bf37l5j6scbud"
+path="res://.godot/imported/BallBoi Roll 9.png-078a07738198c134f78184d50e0f850f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/ObeseInsect sprite.png"
-dest_files=["res://.godot/imported/ObeseInsect sprite.png-804cc356aa392f0b4cf01c8db046c3b9.ctex"]
+source_file="res://Assets/Sprites/Enemies/BallBoi Roll 9.png"
+dest_files=["res://.godot/imported/BallBoi Roll 9.png-078a07738198c134f78184d50e0f850f.ctex"]
 
 [params]
 

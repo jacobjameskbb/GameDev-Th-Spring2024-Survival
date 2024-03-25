@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://myxxe2yhbwau"
+path="res://.godot/imported/BallBoi Roll 6.png-9603dda74bc3844dd38144f547fdc433.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/Enemies/BallBoi Roll 6.png"
+dest_files=["res://.godot/imported/BallBoi Roll 6.png-9603dda74bc3844dd38144f547fdc433.ctex"]
 
 [params]
 
