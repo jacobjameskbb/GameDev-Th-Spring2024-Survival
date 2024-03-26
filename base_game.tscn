@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=52 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="14_olbxc"]
 [ext_resource type="Script" path="res://Script/Mouse.gd" id="16_an6iv"]
 [ext_resource type="Script" path="res://Script/GolfCart.gd" id="20_7hbqg"]
+[ext_resource type="Script" path="res://Script/Inventory.gd" id="20_kg070"]
 [ext_resource type="Script" path="res://Script/PopupPanel.gd" id="20_l38ed"]
 [ext_resource type="Script" path="res://Script/GolfCart2.gd" id="21_qoc0g"]
 [ext_resource type="Texture2D" uid="uid://oyjv0cq4w57i" path="res://Assets/Sprites/house.png" id="28_dq8xc"]
@@ -253,36 +254,37 @@ collision_layer = 1
 zoom = Vector2(1.25, 1.25)
 editor_draw_limits = true
 
-[node name="ToolBar" type="Control" parent="Player"]
-z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = -461.0
-offset_top = 136.0
-offset_right = 461.0
-offset_bottom = 259.0
-script = ExtResource("9_n2n2v")
-
-[node name="Inventory" type="ScrollContainer" parent="Player/ToolBar"]
+[node name="Inventory" type="ScrollContainer" parent="Player"]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.144
-anchor_bottom = 1.0
-offset_right = 0.231995
+z_index = 1
+offset_left = -461.0
+offset_top = -192.0
+offset_right = -333.0
+offset_bottom = 136.0
 horizontal_scroll_mode = 0
+script = ExtResource("20_kg070")
 
-[node name="Backround" type="ColorRect" parent="Player/ToolBar/Inventory"]
+[node name="Backround" type="ColorRect" parent="Player/Inventory"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0.254902, 0.564706, 0.862745)
 metadata/_edit_lock_ = true
 
-[node name="ItemGridContainer" type="GridContainer" parent="Player/ToolBar/Inventory"]
+[node name="ItemGridContainer" type="GridContainer" parent="Player/Inventory"]
 layout_mode = 2
 columns = 4
 metadata/_edit_lock_ = true
+
+[node name="ToolBar" type="Control" parent="Player"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -460.8
+offset_top = 136.0
+offset_right = 456.2
+offset_bottom = 259.0
+script = ExtResource("9_n2n2v")
 
 [node name="Axe" type="ColorRect" parent="Player/ToolBar"]
 layout_mode = 1

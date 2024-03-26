@@ -31,9 +31,9 @@ func _on_button_button_up():
 				Global.Player.inventory.append(is_resource)
 				var new_item = Global.inventory_item_scene.instantiate()
 				new_item.is_item = is_resource
-				get_node('/root/BaseGame/Player/ToolBar/Inventory/ItemGridContainer').add_child(new_item)
+				get_node('/root/BaseGame/Player/Inventory/ItemGridContainer').add_child(new_item)
 			else:
-				for child in get_node('/root/BaseGame/Player/ToolBar/Inventory/ItemGridContainer').get_children():
+				for child in get_node('/root/BaseGame/Player/Inventory/ItemGridContainer').get_children():
 					if child.is_item == is_resource:
 						child.item_amount += 1
 
