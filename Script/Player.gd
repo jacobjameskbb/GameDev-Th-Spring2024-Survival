@@ -25,7 +25,7 @@ func get_input(delta):
 	if input_direction == Vector2(0,0):
 		$AnimatedSprite2D.play('idle')
 
-	if Input.is_action_just_released("open_craft_menu"):
+	if Input.is_action_just_released("minimenu"):
 		open_craft_menu()
 
 	velocity = input_direction * speed * delta
@@ -51,14 +51,16 @@ func _on_held_item_animation_finished():
 		$HeldItem.animation = 'chopping_default'
 
 func open_craft_menu():
+	if $MiniMenu.visible:
+		$MiniMenu.visible = false
+	else:
+		$MiniMenu.visible = true
 	
 	
 	
 	
 	
-	
-	
-	
+	pass
 
 
 
