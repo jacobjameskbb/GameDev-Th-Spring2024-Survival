@@ -1,18 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnst35g5oxbt6"]
+[gd_scene load_steps=17 format=3 uid="uid://cegmgyon7vd4e"]
 
-[ext_resource type="Texture2D" uid="uid://hkjtkc08kohw" path="res://Assets/Sprites/icon.svg" id="1_463ai"]
+[ext_resource type="Texture2D" uid="uid://drpm0uirnqnkj" path="res://Assets/Sprites/Enemies/BallBoi2.png" id="1_nip7y"]
 [ext_resource type="Script" path="res://Script/enemy.gd" id="1_s4ggk"]
+[ext_resource type="Texture2D" uid="uid://dd3ab5tl3jqo4" path="res://Assets/Sprites/Enemies/BallBoi3.png" id="2_8pi6e"]
+[ext_resource type="Texture2D" uid="uid://dgpvi5ysftq2b" path="res://Assets/Sprites/Enemies/BallBoi.png" id="3_6cm5f"]
+[ext_resource type="Texture2D" uid="uid://d141ss7alsgqo" path="res://Assets/Sprites/Enemies/BallBoi Roll 1.png" id="4_mni0u"]
+[ext_resource type="Texture2D" uid="uid://djjpicwaapf2k" path="res://Assets/Sprites/Enemies/BallBoi Roll 2.png" id="5_ecoru"]
+[ext_resource type="Texture2D" uid="uid://dkiovtbdai3lw" path="res://Assets/Sprites/Enemies/BallBoi Roll 3.png" id="6_o66f0"]
+[ext_resource type="Texture2D" uid="uid://ciqnc0w04qb61" path="res://Assets/Sprites/Enemies/BallBoi Roll 4.png" id="7_dm0u1"]
+[ext_resource type="Texture2D" uid="uid://cxnn5rfuu3fps" path="res://Assets/Sprites/Enemies/BallBoi Roll 5.png" id="8_rw387"]
+[ext_resource type="Texture2D" uid="uid://myxxe2yhbwau" path="res://Assets/Sprites/Enemies/BallBoi Roll 6.png" id="9_lnoam"]
+[ext_resource type="Texture2D" uid="uid://djcqdbf7pwe20" path="res://Assets/Sprites/Enemies/BallBoi Roll 7.png" id="10_ngsf1"]
+[ext_resource type="Texture2D" uid="uid://20d4fjrevelv" path="res://Assets/Sprites/Enemies/BallBoi Roll 8.png" id="11_0peue"]
+[ext_resource type="Texture2D" uid="uid://bf37l5j6scbud" path="res://Assets/Sprites/Enemies/BallBoi Roll 9.png" id="12_nj02l"]
+[ext_resource type="Texture2D" uid="uid://8b2vyd7fwgh" path="res://Assets/Sprites/Enemies/BallBoi Roll 10.png" id="13_0oucx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhame"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nip7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8pi6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nip7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6cm5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mni0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ecoru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o66f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dm0u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rw387")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lnoam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ngsf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0peue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nj02l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0oucx")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgin0"]
+radius = 44.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_s4ggk")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-64, -48, -62, -56, -56, -62, -48, -64, 48, -64, 56, -62, 62, -56, 64, -48, 64, 48, 62, 56, 56, 62, 48, 64, -48, 64, -56, 62, -62, 56, -64, 48)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.3113e-06, 1.19209e-06)
+scale = Vector2(0.256, 0.256)
+sprite_frames = SubResource("SpriteFrames_yhame")
+frame_progress = 0.340158
 
-[node name="EnemySprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_463ai")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(0, 0, 192, -192, 232, -80, 248, 0, 232, 80, 192, 192)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qgin0")

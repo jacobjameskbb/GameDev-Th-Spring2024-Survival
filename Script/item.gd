@@ -21,8 +21,8 @@ func _on_button_button_up():
 		Global.Player.inventory.append(is_item)
 		var new_item = Global.inventory_item_scene.instantiate()
 		new_item.is_item = is_item
-		get_node('/root/BaseGame/Camera/Inventory/ItemGridContainer').add_child(new_item)
+		get_node('/root/BaseGame/Inventory/ScrollContainer/ItemGridContainer').add_child(new_item)
 	else:
-		for child in get_node('/root/BaseGame/Camera/Inventory/ItemGridContainer').get_children():
+		for child in get_node('/root/BaseGame/Player/Inventory/ScrollContainer/ItemGridContainer').get_children():
 			if child.is_item == is_item:
 				child.item_amount += 1

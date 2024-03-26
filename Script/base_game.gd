@@ -20,13 +20,10 @@ var current_beach_foliage = 0
 
 var time_step: float = 300.0
 
-var dictionary_of_tile_areas: Dictionary = {}
-
-var list_of_tile_positions: Array = []
-
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
-		island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
+		if tile not in [Vector2i(0,0),Vector2i(-1,0),Vector2i(0,-1),Vector2i(-1,-1)]:
+			island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 
 	for tile in $TileMap.get_used_cells_by_id(0,8):
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))

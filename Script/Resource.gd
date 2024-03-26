@@ -26,15 +26,21 @@ func spawn_in(came_from):
 	texture = Global.list_of_resources_sprites[is_resource]
 
 func _on_button_button_up():
-	if Global.Player.inventory.size() < Global.Player.max_inventory_size:
-			if is_resource not in Global.Player.inventory:
-				Global.Player.inventory.append(is_resource)
-				var new_item = Global.inventory_item_scene.instantiate()
-				new_item.is_item = is_resource
-				get_node('/root/BaseGame/Player/Inventory/ItemGridContainer').add_child(new_item)
-			else:
-				for child in get_node('/root/BaseGame/Player/Inventory/ItemGridContainer').get_children():
-					if child.is_item == is_resource:
-						child.item_amount += 1
+	if Global.Player.inventory.size() < (Global.Player.max_inventory_size + Global.Player.current_amount_of_items):
+		if is_resource not in Global.Player.inventory:
+			Global.Player.inventory.append(is_resource)
+			var new_item = Global.inventory_item_scene.instantiate()
+			new_item.is_item = is_resource
+			Global.Player.current_amount_of_items += 1
+			get_node('/root/BaseGame/Player/Inventory/ScrollContainer/ItemGridContainer').add_child(new_item)
+		else:
+			for child in get_node('/root/BaseGame/Player/Inventory/ScrollContainer/ItemGridContainer').get_children():
+				if child.is_item == is_resource:
+					Global.Player.inventory.append(is_resource)
+					Global.Player.current_amount_of_items += 1
+					child.item_amount += 1
+					break
+		queue_free()
 
-			queue_free()
+	else:
+		pass
