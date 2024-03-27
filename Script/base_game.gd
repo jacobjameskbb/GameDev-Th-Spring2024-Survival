@@ -70,20 +70,25 @@ func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
 	$Player/MTime.text = str(int($Player/MTime.text) + 1)
+
 	if int($Player/MTime.text) < 10:
 		$Player/MTime.text = str('0',$Player/MTime.text)
+
 	if int($Player/MTime.text) == 60:
 		$Player/MTime.text = str('00')
 		if int($Player/HTime.text) < 19:
 			$Player/HTime.text = str(int($Player/HTime.text) + 1)
 		else:
 			$Player/HTime.text = str(0)
+
 	if Global.after_noon == false:
 		time_step += 1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
+
 	if Global.after_noon == true:
 		time_step += -1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
+
 	if time_step == 600 or (time_step < 0):
 		if Global.after_noon == false:
 			Global.after_noon = true
@@ -92,7 +97,9 @@ func count_time():
 		if Global.after_noon == false:
 			Global.day += 1
 			$Player/Day_value_label.text = str(Global.day)
+
 	if time_step == 180 and Global.after_noon == true:
 		$DaySong.stop()
 		$BeginNight.play()
+
 	count_time()

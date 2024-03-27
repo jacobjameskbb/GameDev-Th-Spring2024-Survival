@@ -4,6 +4,8 @@ var attacking = false
 
 var wandering = true
 
+var target: Vector2
+
 @export var is_enemy = 0
 
 func _ready():
@@ -15,4 +17,5 @@ func _process(_delta):
 	if is_enemy == 0:
 		if wandering == true:
 			for possible_position in get_node('/root/BaseGame').island_area:
-				pass
+				target = possible_position
+

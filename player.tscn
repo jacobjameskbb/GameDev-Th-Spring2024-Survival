@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
-size = Vector2(23.5, 43)
+size = Vector2(23.5, 43.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dyfcg"]
 radius = 80.0062
@@ -115,7 +115,7 @@ script = ExtResource("1_1xnsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1
-position = Vector2(-0.25, 0)
+position = Vector2(-0.125, 0.125)
 shape = SubResource("RectangleShape2D_jcwqs")
 
 [node name="Area2D" type="Area2D" parent="."]
