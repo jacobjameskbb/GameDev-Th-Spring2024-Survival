@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=23 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -14,7 +14,10 @@
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
 [ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
+[ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
+[ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
+[ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43.5)
@@ -346,6 +349,19 @@ offset_right = -416.0
 offset_bottom = -212.0
 text = "00"
 horizontal_alignment = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 2
+offset_left = -118.0
+offset_top = 200.0
+offset_right = -78.0
+offset_bottom = 240.0
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("16_m0bi2")
+texture_over = ExtResource("17_nf2nt")
+texture_progress = ExtResource("17_1dyty")
 
 [connection signal="animation_finished" from="HeldItem" to="." method="_on_held_item_animation_finished"]
 [connection signal="button_up" from="ToolBar/Axe/Axe_sprite_button" to="ToolBar" method="_on_axe_sprite_button_button_up"]

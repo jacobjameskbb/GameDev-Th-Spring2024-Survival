@@ -8,6 +8,8 @@ var beach_area: PackedVector2Array = []
 
 var city_area: PackedVector2Array = []
 
+var building_position: PackedVector2Array = []
+
 var list_of_current_objects: Array = []
 
 const foliage_density = 600

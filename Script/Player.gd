@@ -10,6 +10,8 @@ var current_amount_of_items = 0
 
 var item_equipped
 
+var health = 100
+
 var axe_level = 1
 
 var pickaxe_level = 1
