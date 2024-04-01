@@ -350,7 +350,7 @@ offset_bottom = -212.0
 text = "00"
 horizontal_alignment = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="."]
 z_index = 2
 offset_left = -118.0
 offset_top = 200.0
