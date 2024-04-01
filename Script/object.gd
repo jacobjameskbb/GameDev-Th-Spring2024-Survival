@@ -41,8 +41,10 @@ func _ready():
 			for child in get_children():
 				child.scale.y /= 2
 				child.scale.x -= 0.25
+			$NavigationObstacle2D.vertices = [Vector2(-10,-8),Vector2(10,-8),Vector2(10,8),Vector2(-10,8)]
 			$StaticBody2D/CollisionShape2D.shape.size.y = 20
 			$StaticBody2D/CollisionShape2D.shape.size.x = 16
+			$NavigationObstacle2D.global_position += Vector2(0,16)
 			$StaticBody2D.global_position += Vector2(0,16)
 			$Button.global_position += Vector2(0,16)
 			$ProgressBar.position = Vector2(-12.5,16)

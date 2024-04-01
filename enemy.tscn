@@ -77,6 +77,17 @@ script = ExtResource("1_s4ggk")
 position = Vector2(1.3113e-06, 1.19209e-06)
 scale = Vector2(0.256, 0.256)
 sprite_frames = SubResource("SpriteFrames_yhame")
-frame_progress = 0.340158
+animation = &"rolling"
+frame_progress = 0.330433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 1000.0
+avoidance_enabled = true
+radius = 100.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

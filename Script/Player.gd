@@ -57,13 +57,3 @@ func open_craft_menu():
 		$MiniMenu.visible = false
 	else:
 		$MiniMenu.visible = true
-	
-	
-	
-	
-	
-	pass
-
-
-
-

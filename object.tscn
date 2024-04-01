@@ -36,4 +36,8 @@ mouse_filter = 2
 texture_under = ExtResource("3_t1utx")
 texture_progress = ExtResource("4_x68ea")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 30.0
+vertices = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
+
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
