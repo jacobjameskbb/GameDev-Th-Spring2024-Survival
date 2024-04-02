@@ -72,13 +72,15 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_s4ggk")
+is_enemy = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.3113e-06, 1.19209e-06)
 scale = Vector2(0.256, 0.256)
 sprite_frames = SubResource("SpriteFrames_yhame")
 animation = &"rolling"
-frame_progress = 0.330433
+frame = 7
+frame_progress = 0.813408
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -86,6 +88,7 @@ frame_progress = 0.330433
 path_max_distance = 1000.0
 avoidance_enabled = true
 radius = 100.0
+debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)

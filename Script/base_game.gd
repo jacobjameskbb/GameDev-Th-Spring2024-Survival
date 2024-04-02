@@ -12,7 +12,7 @@ var building_position: PackedVector2Array = []
 
 var list_of_current_objects: Array = []
 
-const foliage_density = 600
+const foliage_density = 0
 
 const beach_foliage_density = 15
 

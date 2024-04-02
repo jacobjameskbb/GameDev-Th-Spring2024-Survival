@@ -10,36 +10,49 @@ var path: PackedVector2Array = []
 
 var safe_velocity: Vector2 = Vector2(0,0)
 
+const speed = 200
+
+const accelaration = 5
+
 @export var is_enemy = 0
 
 func _ready():
-	if is_enemy == 0:
-		$CollisionShape2D.shape = CircleShape2D.new()
-		$CollisionShape2D.shape.radius = 44
+#	if is_enemy == 0:
+#		$CollisionShape2D.shape = CircleShape2D.new()
+#		$CollisionShape2D.shape.radius = 44
 
-	start_moving()
+	pass
 
 func start_moving():
 	var timer = get_tree().create_timer(1)
 	await timer.timeout
 	$NavigationAgent2D.target_position = get_node('/root/BaseGame').island_area[randi_range(0,get_node('/root/BaseGame').island_area.size() - 1)]
 
-func _physics_process(_delta):
+func _on_navigation_agent_2d_velocity_computed(svelocity):
+	safe_velocity = svelocity
+
+func _physics_process(delta):
 	if $RayCast2D.is_colliding():
 		can_see_player = false
 		wandering = true
 	else:
 		can_see_player = true
-		wandering = true
+		wandering = false
 		$AnimatedSprite2D.play('default')
 
-	if wandering == true and $NavigationAgent2D.is_target_reached():
-		$NavigationAgent2D.target_position = get_node('/root/BaseGame').island_area[randi_range(0,get_node('/root/BaseGame').island_area.size() - 1)]
+	if wandering == true:
+		if $NavigationAgent2D.:
+			$NavigationAgent2D.target_position = get_node('/root/BaseGame').island_area[randi_range(0,get_node('/root/BaseGame').island_area.size() - 1)]
 
 	$RayCast2D.target_position = -(position - Global.Player.position)
 
-	move_and_collide(safe_velocity)
+	var direction = Vector2()
+	direction = $NavigationAgent2D.get_next_path_position() - global_position
+	direction = direction.normalized() 
 
-func _on_navigation_agent_2d_velocity_computed(svelocity):
-	print(svelocity)
-	safe_velocity = svelocity
+	if safe_velocity == Vector2(0,0):
+		velocity = velocity.lerp(direction * speed, accelaration * delta)
+	else:
+		velocity = velocity.lerp(safe_velocity.normalized() * speed, accelaration * delta)
+
+	move_and_slide()
