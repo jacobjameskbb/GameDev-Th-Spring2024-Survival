@@ -144,7 +144,7 @@ animation = &"no_tool"
 speed_scale = 3.0
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(1.25, 1.25)
 editor_draw_limits = true
 
 [node name="ToolBar" type="Control" parent="."]
