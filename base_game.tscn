@@ -511,16 +511,7 @@ position = Vector2(6016, -640)
 texture = ExtResource("28_dq8xc")
 
 [node name="Enemy" parent="." instance=ExtResource("25_e8df4")]
-position = Vector2(1520, 144)
-
-[node name="Enemy2" parent="." instance=ExtResource("25_e8df4")]
-position = Vector2(1997, 51)
-
-[node name="Enemy3" parent="." instance=ExtResource("25_e8df4")]
-position = Vector2(1533, -91)
-
-[node name="Enemy4" parent="." instance=ExtResource("25_e8df4")]
-position = Vector2(2178, -102)
+position = Vector2(1495, -32)
 
 [connection signal="body_entered" from="GolfCart/Area2D2" to="GolfCart" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="GolfCart2/Area2D2" to="GolfCart2" method="_on_area_2d_2_body_entered"]

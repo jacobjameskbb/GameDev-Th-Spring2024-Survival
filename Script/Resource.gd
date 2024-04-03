@@ -26,7 +26,7 @@ func spawn_in(came_from):
 	texture = Global.list_of_resources_sprites[is_resource]
 
 func _on_button_button_up():
-	if Global.Player.inventory.size() < (Global.Player.max_inventory_size + Global.Player.current_amount_of_items):
+	if Global.Player.inventory.size() < Global.Player.max_inventory_size and Global.Player.current_amount_of_items < Global.Player.max_inventory_size:
 		if is_resource not in Global.Player.inventory:
 			Global.Player.inventory.append(is_resource)
 			var new_item = Global.inventory_item_scene.instantiate()

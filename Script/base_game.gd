@@ -2,12 +2,15 @@ extends Node
 
 @onready var object = preload("res://object.tscn")
 
+#The area of the island without objects
 var island_area: PackedVector2Array = []
 
+#The area of the beach without objects
 var beach_area: PackedVector2Array = []
 
 var city_area: PackedVector2Array = []
 
+#The positions of all player buildings
 var building_position: PackedVector2Array = []
 
 var list_of_current_objects: Array = []

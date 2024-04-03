@@ -100,7 +100,7 @@ func _process(_delta):
 		$ProgressBar.value = hit_points
 
 func _on_button_button_up():
-	if Global.Player.mouse_in_area:
+	if Global.Player.mouse_in_area and Global.Player.get_child(3).is_playing() == false:
 		if taking_damage == false:
 			if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
 				if Global.Player.item_equipped == 'Axe':

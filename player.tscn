@@ -1,11 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=27 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
 [ext_resource type="Texture2D" uid="uid://byc4vjbr5hofd" path="res://Assets/Sprites/WalkDown2.0 Army Guy.png" id="4_td54q"]
+[ext_resource type="Texture2D" uid="uid://iv71pyhb3jhu" path="res://Assets/Sprites/Hand.png" id="5_fnbhy"]
+[ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="5_g5433"]
 [ext_resource type="Texture2D" uid="uid://hm1lxcl4eyau" path="res://Assets/Sprites/Pickaxe down 1.png" id="6_0523c"]
+[ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="6_cqrjx"]
 [ext_resource type="Texture2D" uid="uid://b20beg2602ekn" path="res://Assets/Sprites/Pickaxe up 1.png" id="6_ljsw4"]
+[ext_resource type="Texture2D" uid="uid://cybynhc1kvdjb" path="res://Assets/Sprites/Water.png" id="8_8sqb8"]
 [ext_resource type="Texture2D" uid="uid://bofxt5rbn51v2" path="res://Assets/Sprites/Pickaxe down 2.png" id="8_dr48l"]
 [ext_resource type="Texture2D" uid="uid://q23n1oshjg7l" path="res://Assets/Sprites/Pickaxe down 3.png" id="9_4cumi"]
 [ext_resource type="Texture2D" uid="uid://b06muqmomrwjn" path="res://Assets/Sprites/Pickaxe up 2.png" id="10_ugbrg"]
@@ -52,13 +56,31 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0f1r"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fnbhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cqrjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_nf2nt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wb1h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8sqb8")
+}],
+"loop": false,
 "name": &"chopping",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g5433")
+}],
+"loop": false,
 "name": &"chopping_default",
 "speed": 5.0
 }, {

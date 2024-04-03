@@ -12,9 +12,9 @@ var item_equipped
 
 var health = 100
 
-var axe_level = 1
+var axe_level = 10
 
-var pickaxe_level = 1
+var pickaxe_level = 10
 
 var mouse_in_area = false
 
@@ -47,7 +47,7 @@ func _process(_delta):
 		mouse_in_area = false
 
 func _on_held_item_animation_finished():
-	if $HeldItem.animation == 'Mining':
+	if $HeldItem.animation == 'mining':
 		$HeldItem.animation = 'mining_default'
 	if $HeldItem.animation == 'chopping':
 		$HeldItem.animation = 'chopping_default'
