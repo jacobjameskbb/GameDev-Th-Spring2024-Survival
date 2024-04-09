@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyv0f1gbpjlxt"]
+[gd_scene load_steps=4 format=3 uid="uid://dyv0f1gbpjlxt"]
 
 [ext_resource type="Script" path="res://Script/Fence.gd" id="1_iblpx"]
+[ext_resource type="Texture2D" uid="uid://caxnqhovn7o0c" path="res://Assets/Sprites/fence.png" id="2_52r8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjc5w"]
-size = Vector2(32, 32)
+size = Vector2(22, 16)
 
 [node name="Fence" type="StaticBody2D"]
 script = ExtResource("1_iblpx")
@@ -12,3 +13,4 @@ script = ExtResource("1_iblpx")
 shape = SubResource("RectangleShape2D_rjc5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_52r8d")

@@ -8,10 +8,6 @@ extends Node
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rubble.png")
 	
-	
-	
-	
-	
 }
 
 @onready var objects: Dictionary = {
@@ -26,12 +22,15 @@ extends Node
 	'Rock' : preload("res://Assets/Sprites/rubble.png"),
 	'Scrap' : preload('res://Assets/Sprites/scrap.png')
 	
-	
-	
 }
 
 @onready var items_sprites: Dictionary = {
 	
+}
+
+@onready var dictionary_of_fences: Dictionary = {
+	'wooden_fence_side_view' : preload('res://Assets/Sprites/fence.png'),
+	'wooden_fence_front_view' : preload('res://Assets/Sprites/fence right side.png')
 	
 	
 	

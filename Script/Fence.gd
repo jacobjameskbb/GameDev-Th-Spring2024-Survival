@@ -1,9 +1,8 @@
 extends StaticBody2D
 
-var direction
+func spawn_in(type_of_fence, direction):
+	$Sprite2D.texture = type_of_fence
 
-var fences = ''
+	rotation = direction
 
-var list_of_fences: Array = []
-
-
+	pass
