@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bokm3k5h0iarq" path="res://Assets/Sprites/Pickaxe up 3.png" id="11_bbxf8"]
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
-[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
@@ -302,7 +302,6 @@ offset_bottom = 135.0
 text = "Settings"
 
 [node name="MiniMenu" type="Control" parent="."]
-visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
@@ -318,8 +317,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
 [node name="Inventory" type="Control" parent="MiniMenu/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MiniMenu/TabContainer/Inventory"]
@@ -337,7 +338,15 @@ columns = 4
 metadata/_edit_lock_ = true
 
 [node name="Crafting" type="Control" parent="MiniMenu/TabContainer"]
-visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MiniMenu/TabContainer/Crafting"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 353.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MiniMenu/TabContainer/Crafting/ScrollContainer"]
 layout_mode = 2
 
 [node name="Stats" type="Control" parent="MiniMenu/TabContainer"]
