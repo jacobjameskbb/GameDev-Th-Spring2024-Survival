@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 15000
 
-var inventory: Array = []
+var inventory: Dictionary = {}
 
 var max_inventory_size = 10
 

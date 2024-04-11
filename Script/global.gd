@@ -6,7 +6,14 @@ extends Node
 
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rubble.png")
+	'Rock' : preload("res://Assets/Sprites/rubble.png"),
+	'WoodFence' : preload("res://Assets/Sprites/fence.png"),
+	
+	
+	
+	
+	
+	
 	
 }
 
@@ -24,7 +31,16 @@ extends Node
 	
 }
 
-@onready var items_sprites: Dictionary = {
+var dictionary_of_items: Dictionary = {
+	'WoodFence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20},
+	'StoneFence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}},
+	
+	
+	
+	
+	
+	
+	
 	
 }
 

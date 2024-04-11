@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=30 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
 [ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
+[ext_resource type="PackedScene" uid="uid://b3tkmp0l5w6x7" path="res://craftable_item.tscn" id="22_5wfvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43.5)
@@ -176,7 +177,7 @@ frame_progress = 0.549962
 position = Vector2(-10, 3)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_b0f1r")
-animation = &"chopping"
+animation = &"no_tool"
 speed_scale = 3.0
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -317,10 +318,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
 
 [node name="Inventory" type="Control" parent="MiniMenu/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MiniMenu/TabContainer/Inventory"]
@@ -338,6 +337,7 @@ columns = 4
 metadata/_edit_lock_ = true
 
 [node name="Crafting" type="Control" parent="MiniMenu/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MiniMenu/TabContainer/Crafting"]
@@ -347,6 +347,9 @@ offset_bottom = 353.0
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MiniMenu/TabContainer/Crafting/ScrollContainer"]
+layout_mode = 2
+
+[node name="CraftableItem" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
 
 [node name="Stats" type="Control" parent="MiniMenu/TabContainer"]
