@@ -10,8 +10,13 @@ anchor_bottom = 0.099
 offset_right = -0.512001
 offset_bottom = -0.152008
 script = ExtResource("1_eue5p")
+item = "WoodFence"
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 0
+
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_up"]

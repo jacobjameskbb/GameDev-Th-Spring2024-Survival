@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8mu5s05ml3tr"]
+[gd_scene load_steps=5 format=3 uid="uid://c8mu5s05ml3tr"]
 
 [ext_resource type="Script" path="res://Script/inventory_item.gd" id="1_gf34x"]
-[ext_resource type="Texture2D" uid="uid://ddblstuc7rfpg" path="res://Assets/Sprites/plank of wood.png" id="1_jn8us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1qwuk"]
 font_size = 11
@@ -29,7 +28,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource("1_jn8us")
 expand_mode = 1
 
 [node name="Item_name" type="Label" parent="."]
