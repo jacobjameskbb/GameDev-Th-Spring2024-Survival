@@ -22,6 +22,7 @@ func _ready():
 	if is_enemy == 0:
 		$CollisionShape2D.shape = CircleShape2D.new()
 		$CollisionShape2D.shape.radius = 44
+		$NavigationAgent2D.avoidance_enabled = false
 
 func _on_navigation_agent_2d_velocity_computed(svelocity):
 	safe_velocity = svelocity

@@ -65,3 +65,6 @@ anchor_bottom = 1.25
 text = "x"
 label_settings = SubResource("LabelSettings_olw3n")
 horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="Sprite" to="." method="_on_sprite_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite" to="." method="_on_sprite_mouse_exited"]

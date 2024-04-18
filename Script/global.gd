@@ -4,6 +4,8 @@ extends Node
 
 @onready var Player = get_node('/root/BaseGame/Player')
 
+@onready var Mouse = get_node('/root/BaseGame/Mouse')
+
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rubble.png"),

@@ -108,3 +108,18 @@ func count_time():
 		$BeginNight.play()
 
 	count_time()
+
+func add_item_to_inventory(is_item):
+	if is_item not in Global.Player.inventory:
+		Global.Player.inventory[is_item] = 1
+		var new_item = Global.inventory_item_scene.instantiate()
+		new_item.is_item = is_item
+		Global.Player.current_amount_of_items += 1
+		get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').add_child(new_item)
+	else:
+		for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+			if child.is_item == is_item:
+				Global.Player.inventory[is_item] += 1
+				Global.Player.current_amount_of_items += 1
+				child.item_amount += 1
+				break

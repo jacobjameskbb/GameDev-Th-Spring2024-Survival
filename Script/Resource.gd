@@ -27,20 +27,7 @@ func spawn_in(came_from):
 
 func _on_button_button_up():
 	if Global.Player.inventory.size() < Global.Player.max_inventory_size and Global.Player.current_amount_of_items < Global.Player.max_inventory_size:
-		if is_resource not in Global.Player.inventory:
-			Global.Player.inventory[is_resource] = 1
-			var new_item = Global.inventory_item_scene.instantiate()
-			new_item.is_item = is_resource
-			Global.Player.current_amount_of_items += 1
-			get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').add_child(new_item)
-		else:
-			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
-				if child.is_item == is_resource:
-					Global.Player.inventory[is_resource] += 1
-					Global.Player.current_amount_of_items += 1
-					child.item_amount += 1
-					break
+		get_node('/root/BaseGame').add_item_to_inventory(is_resource)
 		queue_free()
-
 	else:
 		pass
