@@ -22,10 +22,16 @@ var building = false
 
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	if input_direction == Vector2(0,1):
-		$AnimatedSprite2D.play('down')
 	if input_direction == Vector2(0,0):
 		$AnimatedSprite2D.play('idle')
+	if input_direction == Vector2(0,1):
+		$AnimatedSprite2D.play('down')
+	if input_direction == Vector2(1,0):
+		$AnimatedSprite2D.play('right')
+	if input_direction == Vector2(-1,0):
+		$AnimatedSprite2D.play('left')
+	if input_direction == Vector2(0,-1):
+		$AnimatedSprite2D.play('up')
 
 	if Input.is_action_just_released("minimenu"):
 		open_craft_menu()

@@ -1,18 +1,23 @@
-[gd_scene load_steps=30 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=35 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
 [ext_resource type="Texture2D" uid="uid://i0glmsv2yho1" path="res://Assets/Sprites/Idle Army Guy.png" id="2_wb1h5"]
 [ext_resource type="Texture2D" uid="uid://byc4vjbr5hofd" path="res://Assets/Sprites/WalkDown2.0 Army Guy.png" id="4_td54q"]
 [ext_resource type="Texture2D" uid="uid://b2qbllwm8db7" path="res://Assets/Sprites/Held_Axe.png" id="5_cbkxe"]
+[ext_resource type="Texture2D" uid="uid://cfmsp0fafbu6l" path="res://Assets/Sprites/WalkLeft1.0 Army Guy.png" id="5_fefp0"]
+[ext_resource type="Texture2D" uid="uid://dblxvw171t2ao" path="res://Assets/Sprites/WalkLeft2.0 Army Guy.png" id="6_1kjjl"]
 [ext_resource type="Texture2D" uid="uid://hm1lxcl4eyau" path="res://Assets/Sprites/Pickaxe down 1.png" id="6_0523c"]
 [ext_resource type="Texture2D" uid="uid://b20beg2602ekn" path="res://Assets/Sprites/Pickaxe up 1.png" id="6_ljsw4"]
 [ext_resource type="Texture2D" uid="uid://dojtifr8p3qbm" path="res://Assets/Sprites/Axe down 1.png" id="6_wihtk"]
 [ext_resource type="Texture2D" uid="uid://ce1infbx4nlgm" path="res://Assets/Sprites/Axe down 2.png" id="7_7qlwf"]
+[ext_resource type="Texture2D" uid="uid://dmhedtg66u1l0" path="res://Assets/Sprites/WalkRight1.0 Army Guy.png" id="7_x032k"]
 [ext_resource type="Texture2D" uid="uid://bofxt5rbn51v2" path="res://Assets/Sprites/Pickaxe down 2.png" id="8_dr48l"]
+[ext_resource type="Texture2D" uid="uid://1k2x4bkefkhk" path="res://Assets/Sprites/WalkRight2.0 Army Guy.png" id="8_rxy07"]
 [ext_resource type="Texture2D" uid="uid://4elmgxii5e33" path="res://Assets/Sprites/Axe down 3.png" id="8_wqc1a"]
 [ext_resource type="Texture2D" uid="uid://q23n1oshjg7l" path="res://Assets/Sprites/Pickaxe down 3.png" id="9_4cumi"]
 [ext_resource type="Texture2D" uid="uid://cum4ifwj5gfds" path="res://Assets/Sprites/Axe up 1.png" id="9_g4nm2"]
+[ext_resource type="Texture2D" uid="uid://bt47sxiebr082" path="res://Assets/Sprites/WalkUp1.png" id="9_wf6ne"]
 [ext_resource type="Texture2D" uid="uid://c7tn5t3ud7ofm" path="res://Assets/Sprites/Axe up 2.png" id="10_lry0q"]
 [ext_resource type="Texture2D" uid="uid://b06muqmomrwjn" path="res://Assets/Sprites/Pickaxe up 2.png" id="10_ugbrg"]
 [ext_resource type="Texture2D" uid="uid://bokm3k5h0iarq" path="res://Assets/Sprites/Pickaxe up 3.png" id="11_bbxf8"]
@@ -54,6 +59,42 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fefp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1kjjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fefp0")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x032k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rxy07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x032k")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wf6ne")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
@@ -170,8 +211,7 @@ shape = SubResource("CircleShape2D_dyfcg")
 position = Vector2(-0.25, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_n38ow")
-animation = &"down"
-frame_progress = 0.549962
+animation = &"up"
 
 [node name="HeldItem" type="AnimatedSprite2D" parent="."]
 position = Vector2(-10, 3)
