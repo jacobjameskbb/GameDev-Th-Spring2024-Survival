@@ -2,29 +2,15 @@ extends Panel
 
 var currently_over
  
-func open(object_selected):
+func open(object_over):
 	position = get_node('/root/BaseGame/Mouse').global_position
+	currently_over = object_over
 	self.visible = true
-	if object_selected == 'GolfCart' and Global.in_city:
-		currently_over = object_selected
-		$Button.text = 'Travel to base'
-		$Button2.text = 'Check storage'
-	else:
-		currently_over = object_selected
-		$Button.text = 'Travel to town'
-		$Button2.text = 'Check storage'
+	for i in Global.dictionary_of_item_actions[object_over]:
+		var new_button = Button.new()
+		$ScrollContainer/GridContainer.add_child(new_button)
+		
 
 func close():
 	self.visible = false
-
-func _on_button_button_up():
-	if currently_over == 'GolfCart':
-		get_node('/root/BaseGame/Player').position = get_node(str('/root/BaseGame/Position',str(int(Global.in_city)))).position
-
-	self.close()
-
-func _on_button_2_button_up():
-	if currently_over == 'GolfCart':
-		pass
-
-	self.close()
+	currently_over = null

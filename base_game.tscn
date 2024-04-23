@@ -479,27 +479,24 @@ script = ExtResource("16_an6iv")
 shape = SubResource("CircleShape2D_pksym")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 offset_right = 78.0
 offset_bottom = 40.0
 script = ExtResource("20_l38ed")
 
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 0
-offset_right = 78.0
-offset_bottom = 20.0
-theme_override_font_sizes/font_size = 8
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
 
-[node name="Button2" type="Button" parent="Panel"]
-layout_mode = 0
-offset_top = 20.0
-offset_right = 77.0
-offset_bottom = 40.0
-theme_override_font_sizes/font_size = 8
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2750, -16)
-collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -521,5 +518,3 @@ position = Vector2(1495, -32)
 
 [connection signal="body_entered" from="GolfCart/Area2D2" to="GolfCart" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="GolfCart2/Area2D2" to="GolfCart2" method="_on_area_2d_2_body_entered"]
-[connection signal="button_up" from="Panel/Button" to="Panel" method="_on_button_button_up"]
-[connection signal="button_up" from="Panel/Button2" to="Panel" method="_on_button_2_button_up"]

@@ -13,8 +13,8 @@ func _ready():
 func _process(_delta):
 	$Item_amount.text = str(item_amount)
 	if mouse_in_area:
-		
-		pass
+		if is_item in Global.dictionary_of_item_actions.keys():
+			get_node('/root/BaseGame/Panel').open(is_item)
 
 func _on_sprite_mouse_entered():
 	mouse_in_area = true

@@ -9,13 +9,7 @@ extends Node
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rubble.png"),
-	'WoodFence' : preload("res://Assets/Sprites/fence.png"),
-	
-	
-	
-	
-	
-	
+	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
 	
 }
 
@@ -24,6 +18,7 @@ extends Node
 	'Rock' : preload("res://Assets/Sprites/rock.png"),
 	'Scrap pile' : preload("res://Assets/Sprites/Scrap pile.png"),
 	'Palm tree' : preload("res://Assets/Sprites/palm tree.png")
+	
 }
 
 @onready var list_of_resources_sprites: Dictionary = {
@@ -34,21 +29,26 @@ extends Node
 }
 
 var dictionary_of_items: Dictionary = {
-	'WoodFence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20},
-	'StoneFence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}},
-	
-	
-	
-	
-	
-	
-	
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20},
+	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}},
 	
 }
 
 @onready var dictionary_of_fences: Dictionary = {
 	'wooden_fence_side_view' : preload('res://Assets/Sprites/fence.png'),
 	'wooden_fence_front_view' : preload('res://Assets/Sprites/fence right side.png')
+	
+}
+
+var dictionary_of_item_actions: Dictionary = {
+	'Wooden Fence' : ['Place', 'Drop'],
+	'Stone Fence' : ['Place', 'Drop'],
+	
+	
+	
+	
+	
+	
 	
 	
 	
