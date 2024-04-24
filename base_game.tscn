@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=75 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b3sxrytvfopmc" path="res://Assets/Sprites/regular wood for houses.png" id="8_wiiqj"]
 [ext_resource type="Texture2D" uid="uid://cavain3bcxbei" path="res://Assets/Sprites/moss wood for houses.png" id="9_5i4bw"]
 [ext_resource type="Texture2D" uid="uid://p35vul0542r3" path="res://Assets/Sprites/Wood_wall.png" id="9_qns4a"]
-[ext_resource type="PackedScene" uid="uid://dyv0f1gbpjlxt" path="res://Fence.tscn" id="10_5m228"]
+[ext_resource type="Texture2D" uid="uid://caxnqhovn7o0c" path="res://Assets/Sprites/fence.png" id="10_8ly18"]
 [ext_resource type="Texture2D" uid="uid://5fjyv0o24afc" path="res://Assets/Sprites/sand daytime.png" id="10_8uxyx"]
 [ext_resource type="Texture2D" uid="uid://d07chu2ntqcwn" path="res://Assets/Sprites/Golf_Cart.png" id="10_rgkby"]
 [ext_resource type="Texture2D" uid="uid://cakv5odu0spvw" path="res://Assets/Sprites/sand and grass corner.png" id="14_lkcpf"]
@@ -212,9 +212,25 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjc5w"]
+size = Vector2(22, 16)
+
+[sub_resource type="PackedScene" id="PackedScene_n7jcg"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Fence", "StaticBody2D", "CollisionShape2D", "shape", "Sprite2D", "texture"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 1, 3, 0, 0, 0, 0, 4, 4, -1, 1, 5, 1, 0),
+"variants": [SubResource("RectangleShape2D_rjc5w"), ExtResource("10_8ly18")],
+"version": 3
+}
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3oiio"]
 resource_name = "Fence"
-scenes/1/scene = ExtResource("10_5m228")
+scenes/1/scene = SubResource("PackedScene_n7jcg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pf2gx"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -480,8 +496,13 @@ shape = SubResource("CircleShape2D_pksym")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
-offset_right = 80.0
-offset_bottom = 40.0
+z_index = 2
+anchors_preset = -1
+anchor_right = 0.076
+anchor_bottom = 0.099
+offset_right = 0.447998
+offset_bottom = -0.152008
+mouse_filter = 1
 script = ExtResource("20_l38ed")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
@@ -504,6 +525,14 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_tkijs")
 metadata/_edit_lock_ = true
 
+[node name="PlacingSprite" type="Sprite2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PlacingSprite"]
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0, 1, 0, 0.490196)
+
 [node name="Position1" type="Marker2D" parent="."]
 position = Vector2(1682, -116)
 
@@ -519,3 +548,5 @@ position = Vector2(1495, -32)
 
 [connection signal="body_entered" from="GolfCart/Area2D2" to="GolfCart" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="GolfCart2/Area2D2" to="GolfCart2" method="_on_area_2d_2_body_entered"]
+[connection signal="mouse_entered" from="Panel" to="Panel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="Panel" method="_on_mouse_exited"]

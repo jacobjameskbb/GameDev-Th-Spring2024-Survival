@@ -11,7 +11,7 @@ var beach_area: PackedVector2Array = []
 var city_area: PackedVector2Array = []
 
 #The positions of all player buildings
-var building_position: PackedVector2Array = []
+var building_positions: PackedVector2Array = []
 
 var list_of_current_objects: Array = []
 
@@ -25,16 +25,18 @@ var current_beach_foliage = 0
 
 var time_step: float = 300.0
 
+signal LMB
+
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
 		if tile not in [Vector2i(0,0),Vector2i(-1,0),Vector2i(0,-1),Vector2i(-1,-1)]:
 			island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
-
+	
 	for tile in $TileMap.get_used_cells_by_id(0,8):
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))
-
+	
 	generate_foliage()
-
+	
 	count_time()
 
 func generate_foliage():
@@ -75,25 +77,25 @@ func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
 	$Player/MTime.text = str(int($Player/MTime.text) + 1)
-
+	
 	if int($Player/MTime.text) < 10:
 		$Player/MTime.text = str('0',$Player/MTime.text)
-
+	
 	if int($Player/MTime.text) == 60:
 		$Player/MTime.text = str('00')
 		if int($Player/HTime.text) < 19:
 			$Player/HTime.text = str(int($Player/HTime.text) + 1)
 		else:
 			$Player/HTime.text = str(0)
-
+	
 	if Global.after_noon == false:
 		time_step += 1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
-
+	
 	if Global.after_noon == true:
 		time_step += -1.0
 		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
-
+	
 	if time_step == 600 or (time_step < 0):
 		if Global.after_noon == false:
 			Global.after_noon = true
@@ -102,12 +104,55 @@ func count_time():
 		if Global.after_noon == false:
 			Global.day += 1
 			$Player/Day_value_label.text = str(Global.day)
-
+	
 	if time_step == 180 and Global.after_noon == true:
 		$DaySong.stop()
 		$BeginNight.play()
-
+	
 	count_time()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("LMB"):
+		LMB.emit()
+	if $PlacingSprite.visible:
+		$PlacingSprite.position = Global.Mouse.over_tile
+		if $PlacingSprite.position not in island_area and $PlacingSprite.position not in beach_area:
+			$PlacingSprite/ColorRect.color.g = 0
+			$PlacingSprite/ColorRect.color.r = 1
+		else:
+			$PlacingSprite/ColorRect.color.g = 1
+			$PlacingSprite/ColorRect.color.r = 0
+
+func place_object(object_placed):
+	if object_placed in Global.list_of_buildings:
+		$PlacingSprite.visible = true
+		$PlacingSprite.texture = Global.item_sprites[object_placed]
+		
+		await LMB
+		
+		$PlacingSprite.visible = false
+		
+		var new_building = Global.Building_scene.instantiate()
+		new_building.position = Global.Mouse.over_tile
+		
+		
+		self.add_child(new_building)
+	
+	if object_placed in Global.list_of_resources:
+		
+		
+		
+		
+		
+		pass
+	
+	if object_placed in Global.list_of_items:
+		
+		
+		
+		
+		
+		pass
 
 func add_item_to_inventory(is_item):
 	if is_item not in Global.Player.inventory:
@@ -123,3 +168,5 @@ func add_item_to_inventory(is_item):
 				Global.Player.current_amount_of_items += 1
 				child.item_amount += 1
 				break
+
+

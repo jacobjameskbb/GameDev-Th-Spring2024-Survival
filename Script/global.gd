@@ -2,13 +2,17 @@ extends Node
 
 @onready var inventory_item_scene = preload('res://inventory_item.tscn')
 
+@onready var Button_scene = preload("res://panel_button.tscn")
+
 @onready var Player = get_node('/root/BaseGame/Player')
 
 @onready var Mouse = get_node('/root/BaseGame/Mouse')
 
+@onready var Building_scene = preload("res://building.tscn")
+
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rubble.png"),
+	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
 	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
 	
 }
@@ -23,36 +27,40 @@ extends Node
 
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
-	'Rock' : preload("res://Assets/Sprites/rubble.png"),
+	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
 	'Scrap' : preload('res://Assets/Sprites/scrap.png')
 	
 }
 
 var dictionary_of_items: Dictionary = {
-	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20},
-	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}},
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20, 'Need_CTable' : false},
+	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 40, 'Need_CTable' : false},
 	
 }
 
-@onready var dictionary_of_fences: Dictionary = {
-	'wooden_fence_side_view' : preload('res://Assets/Sprites/fence.png'),
-	'wooden_fence_front_view' : preload('res://Assets/Sprites/fence right side.png')
+var list_of_buildings: Array = [
+	'Wooden Fence',
+	'Stone Fence',
 	
-}
+]
+
+var list_of_items: Array = [
+	
+]
+
+var list_of_resources: Array = [
+	'Plank',
+	'Rock',
+	'Scrap',
+	
+]
 
 var dictionary_of_item_actions: Dictionary = {
 	'Wooden Fence' : ['Place', 'Drop'],
 	'Stone Fence' : ['Place', 'Drop'],
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	'Plank' : ['Drop'],
+	'Rock' : ['Drop'],
+	'GolfCart' : ['Travel to the city', 'Check storage']
 }
 
 #is in the city or not
