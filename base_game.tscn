@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cetgqhx7vy3pq" path="res://Assets/Sprites/Bridge_wall.png" id="4_vm25b"]
 [ext_resource type="Texture2D" uid="uid://bjgn4rtm1ctn3" path="res://Assets/Sprites/grass and sand tile.png" id="4_wuvdr"]
 [ext_resource type="Texture2D" uid="uid://btt0qte457oae" path="res://Assets/Sprites/swampy water.png" id="4_xigqp"]
-[ext_resource type="Texture2D" uid="uid://c64f74v0cjwxs" path="res://Assets/Sprites/road.png" id="5_ni4v6"]
+[ext_resource type="Texture2D" uid="uid://c64f74v0cjwxs" path="res://Assets/Sprites/Road.png" id="5_ni4v6"]
 [ext_resource type="Texture2D" uid="uid://bjcrlrowbv8lf" path="res://Assets/Sprites/Road_with_strip.png" id="6_6omen"]
 [ext_resource type="Texture2D" uid="uid://cmbvs63smgk47" path="res://Assets/Sprites/nasty city tile.png" id="7_78npc"]
 [ext_resource type="Texture2D" uid="uid://bhkgplektgb2p" path="res://Assets/Sprites/Wood_floor.png" id="8_j3tyn"]
@@ -479,7 +479,8 @@ script = ExtResource("16_an6iv")
 shape = SubResource("CircleShape2D_pksym")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 78.0
+visible = false
+offset_right = 80.0
 offset_bottom = 40.0
 script = ExtResource("20_l38ed")
 

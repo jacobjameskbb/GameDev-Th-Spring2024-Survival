@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=36 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -22,8 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://b06muqmomrwjn" path="res://Assets/Sprites/Pickaxe up 2.png" id="10_ugbrg"]
 [ext_resource type="Texture2D" uid="uid://bokm3k5h0iarq" path="res://Assets/Sprites/Pickaxe up 3.png" id="11_bbxf8"]
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
+[ext_resource type="Texture2D" uid="uid://cadt1vgg2mrmc" path="res://Assets/Sprites/Axe up 3.png" id="13_8bb0w"]
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
-[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/axe.png" id="14_xk33i"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
@@ -105,6 +106,24 @@ animations = [{
 "texture": ExtResource("5_cbkxe")
 }, {
 "duration": 1.0,
+"texture": ExtResource("9_g4nm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lry0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8bb0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lry0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g4nm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cbkxe")
+}, {
+"duration": 1.0,
 "texture": ExtResource("6_wihtk")
 }, {
 "duration": 1.0,
@@ -112,21 +131,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_wqc1a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_7qlwf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_wihtk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_cbkxe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_g4nm2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_lry0q")
 }],
 "loop": false,
 "name": &"chopping",
