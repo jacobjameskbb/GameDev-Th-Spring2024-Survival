@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8j3hg8yuepe4"
-path="res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"
+uid="uid://dn0ydltjilw83"
+path="res://.godot/imported/WalkUp3.png-59cf2a4bbea0d1786d9e42cbb16c5234.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/axe.png"
-dest_files=["res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"]
+source_file="res://Assets/Sprites/WalkUp3.png"
+dest_files=["res://.godot/imported/WalkUp3.png-59cf2a4bbea0d1786d9e42cbb16c5234.ctex"]
 
 [params]
 

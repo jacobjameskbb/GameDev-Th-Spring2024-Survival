@@ -114,7 +114,8 @@ func count_time():
 func _process(_delta):
 	if Input.is_action_just_pressed("LMB"):
 		LMB.emit()
-	if $PlacingSprite.visible:
+	if $PlacingSprite.visible == true:
+		print(Global.Mouse.over_tile)
 		$PlacingSprite.position = Global.Mouse.over_tile
 		if $PlacingSprite.position not in island_area and $PlacingSprite.position not in beach_area:
 			$PlacingSprite/ColorRect.color.g = 0
@@ -127,14 +128,16 @@ func place_object(object_placed):
 	if object_placed in Global.list_of_buildings:
 		$PlacingSprite.visible = true
 		$PlacingSprite.texture = Global.item_sprites[object_placed]
+		Global.Player.building = true
 		
 		await LMB
 		
+		Global.Player.building = false
 		$PlacingSprite.visible = false
 		
 		var new_building = Global.Building_scene.instantiate()
 		new_building.position = Global.Mouse.over_tile
-		
+		new_building.texture = Global.dictionary_of_items[object_placed]
 		
 		self.add_child(new_building)
 	

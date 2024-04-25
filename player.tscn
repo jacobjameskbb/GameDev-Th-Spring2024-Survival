@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=38 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -19,12 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://cum4ifwj5gfds" path="res://Assets/Sprites/Axe up 1.png" id="9_g4nm2"]
 [ext_resource type="Texture2D" uid="uid://bt47sxiebr082" path="res://Assets/Sprites/WalkUp1.png" id="9_wf6ne"]
 [ext_resource type="Texture2D" uid="uid://c7tn5t3ud7ofm" path="res://Assets/Sprites/Axe up 2.png" id="10_lry0q"]
+[ext_resource type="Texture2D" uid="uid://rqu56n72oatw" path="res://Assets/Sprites/WalkUp2.png" id="10_m12hg"]
 [ext_resource type="Texture2D" uid="uid://b06muqmomrwjn" path="res://Assets/Sprites/Pickaxe up 2.png" id="10_ugbrg"]
+[ext_resource type="Texture2D" uid="uid://dn0ydltjilw83" path="res://Assets/Sprites/WalkUp3.png" id="11_5obr0"]
 [ext_resource type="Texture2D" uid="uid://bokm3k5h0iarq" path="res://Assets/Sprites/Pickaxe up 3.png" id="11_bbxf8"]
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
 [ext_resource type="Texture2D" uid="uid://cadt1vgg2mrmc" path="res://Assets/Sprites/Axe up 3.png" id="13_8bb0w"]
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
-[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
@@ -93,6 +95,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_wf6ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_m12hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5obr0")
 }],
 "loop": true,
 "name": &"up",
@@ -215,7 +223,7 @@ shape = SubResource("CircleShape2D_dyfcg")
 position = Vector2(-0.25, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_n38ow")
-animation = &"down"
+animation = &"up"
 speed_scale = 1.5
 
 [node name="HeldItem" type="AnimatedSprite2D" parent="."]
@@ -399,6 +407,10 @@ layout_mode = 2
 
 [node name="CraftableItem" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
+
+[node name="CraftableItem2" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
+layout_mode = 2
+item = "Stone Fence"
 
 [node name="Stats" type="Control" parent="MiniMenu/TabContainer"]
 visible = false
