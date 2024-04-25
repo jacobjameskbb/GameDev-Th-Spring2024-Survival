@@ -32,6 +32,12 @@ extends Node
 	
 }
 
+var dictionary_of_building_shapes = {
+	'Wooden Fence' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32)},
+	'Stone Fence' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32)},
+	
+}
+
 var dictionary_of_items: Dictionary = {
 	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20, 'Need_CTable' : false},
 	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 40, 'Need_CTable' : false},

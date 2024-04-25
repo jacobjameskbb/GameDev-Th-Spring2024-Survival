@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=74 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -24,7 +24,6 @@
 [ext_resource type="Script" path="res://Script/GolfCart.gd" id="20_7hbqg"]
 [ext_resource type="Script" path="res://Script/PopupPanel.gd" id="20_l38ed"]
 [ext_resource type="Script" path="res://Script/GolfCart2.gd" id="21_qoc0g"]
-[ext_resource type="PackedScene" uid="uid://cegmgyon7vd4e" path="res://enemy.tscn" id="25_e8df4"]
 [ext_resource type="Texture2D" uid="uid://oyjv0cq4w57i" path="res://Assets/Sprites/house.png" id="28_dq8xc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0qwq7"]
@@ -533,7 +532,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-color = Color(0, 1, 0, 0.490196)
+color = Color(0, 1, 0, 0.294118)
 
 [node name="Position1" type="Marker2D" parent="."]
 position = Vector2(1682, -116)
@@ -544,9 +543,6 @@ position = Vector2(6074, 24)
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(6016, -640)
 texture = ExtResource("28_dq8xc")
-
-[node name="Enemy" parent="." instance=ExtResource("25_e8df4")]
-position = Vector2(1495, -32)
 
 [connection signal="body_entered" from="GolfCart/Area2D2" to="GolfCart" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="GolfCart2/Area2D2" to="GolfCart2" method="_on_area_2d_2_body_entered"]

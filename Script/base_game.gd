@@ -117,7 +117,7 @@ func _process(_delta):
 	if $PlacingSprite.visible == true:
 		print(Global.Mouse.over_tile)
 		$PlacingSprite.position = Global.Mouse.over_tile
-		if $PlacingSprite.position not in island_area and $PlacingSprite.position not in beach_area:
+		if $PlacingSprite.position not in island_area:
 			$PlacingSprite/ColorRect.color.g = 0
 			$PlacingSprite/ColorRect.color.r = 1
 		else:
@@ -135,11 +135,12 @@ func place_object(object_placed):
 		Global.Player.building = false
 		$PlacingSprite.visible = false
 		
-		var new_building = Global.Building_scene.instantiate()
-		new_building.position = Global.Mouse.over_tile
-		new_building.texture = Global.dictionary_of_items[object_placed]
-		
-		self.add_child(new_building)
+		if $PlacingSprite.position in island_area:
+			var new_building = Global.Building_scene.instantiate()
+			new_building.position = Global.Mouse.over_tile
+			new_building.texture = Global.item_sprites[object_placed]
+			new_building.building_type = object_placed
+			self.add_child(new_building)
 	
 	if object_placed in Global.list_of_resources:
 		

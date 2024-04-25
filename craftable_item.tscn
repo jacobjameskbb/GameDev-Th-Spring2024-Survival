@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3tkmp0l5w6x7"]
+[gd_scene load_steps=3 format=3 uid="uid://b3tkmp0l5w6x7"]
 
 [ext_resource type="Script" path="res://Script/craftable_item.gd" id="1_eue5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6syx"]
+size = Vector2(64, 64)
 
 [node name="CraftableItem" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -21,5 +24,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 0
+
+[node name="Area2D" type="Area2D" parent="." groups=["CraftableItem"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_f6syx")
 
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_up"]

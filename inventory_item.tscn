@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8mu5s05ml3tr"]
+[gd_scene load_steps=6 format=3 uid="uid://c8mu5s05ml3tr"]
 
 [ext_resource type="Script" path="res://Script/inventory_item.gd" id="1_gf34x"]
 
@@ -12,6 +12,9 @@ font_color = Color(0, 1, 1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_olw3n"]
 font_size = 11
 font_color = Color(0, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1d00"]
+size = Vector2(64, 64)
 
 [node name="Inventory_item" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -67,6 +70,12 @@ anchor_bottom = 1.25
 text = "x"
 label_settings = SubResource("LabelSettings_olw3n")
 horizontal_alignment = 2
+
+[node name="Area2D" type="Area2D" parent="." groups=["Inventory_item"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_g1d00")
 
 [connection signal="mouse_entered" from="Sprite" to="." method="_on_sprite_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite" to="." method="_on_sprite_mouse_exited"]
