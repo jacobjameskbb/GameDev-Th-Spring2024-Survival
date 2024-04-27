@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=70 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -9,14 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cetgqhx7vy3pq" path="res://Assets/Sprites/Bridge_wall.png" id="4_vm25b"]
 [ext_resource type="Texture2D" uid="uid://bjgn4rtm1ctn3" path="res://Assets/Sprites/grass and sand tile.png" id="4_wuvdr"]
 [ext_resource type="Texture2D" uid="uid://btt0qte457oae" path="res://Assets/Sprites/swampy water.png" id="4_xigqp"]
-[ext_resource type="Texture2D" uid="uid://c64f74v0cjwxs" path="res://Assets/Sprites/road.png" id="5_ni4v6"]
+[ext_resource type="Texture2D" uid="uid://c64f74v0cjwxs" path="res://Assets/Sprites/Road.png" id="5_ni4v6"]
 [ext_resource type="Texture2D" uid="uid://bjcrlrowbv8lf" path="res://Assets/Sprites/Road_with_strip.png" id="6_6omen"]
 [ext_resource type="Texture2D" uid="uid://cmbvs63smgk47" path="res://Assets/Sprites/nasty city tile.png" id="7_78npc"]
 [ext_resource type="Texture2D" uid="uid://bhkgplektgb2p" path="res://Assets/Sprites/Wood_floor.png" id="8_j3tyn"]
 [ext_resource type="Texture2D" uid="uid://b3sxrytvfopmc" path="res://Assets/Sprites/regular wood for houses.png" id="8_wiiqj"]
 [ext_resource type="Texture2D" uid="uid://cavain3bcxbei" path="res://Assets/Sprites/moss wood for houses.png" id="9_5i4bw"]
 [ext_resource type="Texture2D" uid="uid://p35vul0542r3" path="res://Assets/Sprites/Wood_wall.png" id="9_qns4a"]
-[ext_resource type="Texture2D" uid="uid://caxnqhovn7o0c" path="res://Assets/Sprites/fence.png" id="10_8ly18"]
 [ext_resource type="Texture2D" uid="uid://5fjyv0o24afc" path="res://Assets/Sprites/sand daytime.png" id="10_8uxyx"]
 [ext_resource type="Texture2D" uid="uid://d07chu2ntqcwn" path="res://Assets/Sprites/Golf_Cart.png" id="10_rgkby"]
 [ext_resource type="Texture2D" uid="uid://cakv5odu0spvw" path="res://Assets/Sprites/sand and grass corner.png" id="14_lkcpf"]
@@ -211,26 +210,6 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjc5w"]
-size = Vector2(22, 16)
-
-[sub_resource type="PackedScene" id="PackedScene_n7jcg"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Fence", "StaticBody2D", "CollisionShape2D", "shape", "Sprite2D", "texture"),
-"node_count": 3,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 1, 3, 0, 0, 0, 0, 4, 4, -1, 1, 5, 1, 0),
-"variants": [SubResource("RectangleShape2D_rjc5w"), ExtResource("10_8ly18")],
-"version": 3
-}
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3oiio"]
-resource_name = "Fence"
-scenes/1/scene = SubResource("PackedScene_n7jcg")
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pf2gx"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -408,7 +387,6 @@ sources/9 = SubResource("TileSetAtlasSource_ae3ve")
 sources/11 = SubResource("TileSetAtlasSource_0fmyl")
 sources/12 = SubResource("TileSetAtlasSource_cujip")
 sources/13 = SubResource("TileSetAtlasSource_i6ec8")
-sources/14 = SubResource("TileSetScenesCollectionSource_3oiio")
 pattern_0 = SubResource("TileMapPattern_0qwq7")
 pattern_1 = SubResource("TileMapPattern_42j0k")
 

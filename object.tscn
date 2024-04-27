@@ -23,6 +23,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+mouse_filter = 1
 texture_normal = ExtResource("2_8o43i")
 ignore_texture_size = true
 
