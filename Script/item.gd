@@ -1,7 +1,7 @@
 extends Sprite2D
 
 var items: Array = [
-	
+	'Ammo'
 	
 	
 	
@@ -17,12 +17,8 @@ func _ready():
 	texture = Global.items_sprites[is_item]
 
 func _on_button_button_up():
-	if is_item not in Global.Player.inventory:
-		Global.Player.inventory.append(is_item)
-		var new_item = Global.inventory_item_scene.instantiate()
-		new_item.is_item = is_item
-		get_node('/root/BaseGame/Inventory/ScrollContainer/ItemGridContainer').add_child(new_item)
+	if Global.Player.inventory.size() < Global.Player.max_inventory_size and Global.Player.current_amount_of_items < Global.Player.max_inventory_size:
+		get_node('/root/BaseGame').add_item_to_inventory(is_item)
+		queue_free()
 	else:
-		for child in get_node('/root/BaseGame/Player/Inventory/ScrollContainer/ItemGridContainer').get_children():
-			if child.is_item == is_item:
-				child.item_amount += 1
+		pass

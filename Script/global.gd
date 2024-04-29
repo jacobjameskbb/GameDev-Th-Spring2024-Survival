@@ -25,6 +25,8 @@ extends Node
 	
 }
 
+@onready var resource_scene = preload("res://resource.tscn")
+
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),

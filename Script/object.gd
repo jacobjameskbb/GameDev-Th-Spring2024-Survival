@@ -9,8 +9,6 @@ var only_beach: Array = [
 	'Palm tree'
 ]
 
-@onready var resource_scene = preload("res://resource.tscn")
-
 var is_object
 
 var max_health = 200
@@ -75,7 +73,7 @@ func _ready():
 
 func _process(_delta):
 	if hit_points <= 0:
-		var new_resource = resource_scene.instantiate()
+		var new_resource = Global.resource_scene.instantiate()
 		get_node('/root/BaseGame').add_child(new_resource)
 		new_resource.position = position
 		if Global.objects['Tree'] == is_object:

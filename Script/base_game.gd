@@ -143,12 +143,21 @@ func place_object(object_placed):
 			self.add_child(new_building)
 	
 	if object_placed in Global.list_of_resources:
+		var new_resource = Global.resource_scene.instantiate()
+		get_node('/root/BaseGame').add_child(new_resource)
+		new_resource.position = Global.Player.position
+		if Global.objects['Tree'] == object_placed:
+			new_resource.spawn_in('tree')
+		if Global.objects['Rock'] == object_placed:
+			new_resource.spawn_in('rock')
+		if Global.objects['Scrap pile'] == object_placed:
+			new_resource.spawn_in('scrap pile')
+		if Global.objects['Palm tree'] == object_placed:
+			new_resource.spawn_in('palm tree')
 		
 		
 		
 		
-		
-		pass
 	
 	if object_placed in Global.list_of_items:
 		
