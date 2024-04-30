@@ -5,7 +5,7 @@ var over_tile: Vector2
 func _process(_delta):
 	position = get_global_mouse_position()
 	
-	if Input.is_action_just_released('RMB'):
+	if Input.is_action_just_released('LMB'):
 		for area in get_overlapping_areas():
 			if area.is_in_group('Selectable'):
 				var object_selected

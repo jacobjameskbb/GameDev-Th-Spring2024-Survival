@@ -37,6 +37,8 @@ func _ready():
 	
 	generate_foliage()
 	
+	island_area.append_array([Vector2i(0,0) * 32 + Vector2i(16,16),Vector2i(-1,0) * 32 + Vector2i(16,16),Vector2i(0,-1) * 32 + Vector2i(16,16),Vector2i(-1,-1) * 32 + Vector2i(16,16)])
+	
 	count_time()
 
 func generate_foliage():
@@ -139,20 +141,12 @@ func place_object(object_placed, being_affected):
 			new_building.texture = Global.item_sprites[object_placed]
 			new_building.building_type = object_placed
 			self.add_child(new_building)
-			if Global.Player.inventory[object_placed] == 0:
-				for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
-					if child.is_item == object_placed:
-						Global.Player.inventory[object_placed] -= 1
-						Global.Player.current_amount_of_items -= 1
-						child.item_amount -= 1
-						break
-			else:
-				for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
-					if child.is_item == object_placed:
-						Global.Player.inventory[object_placed] -= 1
-						Global.Player.current_amount_of_items -= 1
-						child.item_amount -= 1
-						break
+			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+				if child.is_item == object_placed:
+					Global.Player.inventory[object_placed] -= 1
+					Global.Player.current_amount_of_items -= 1
+					child.item_amount -= 1
+					break
 	
 	if being_affected == 'Dropping':
 		if object_placed in Global.list_of_resources:
@@ -190,7 +184,7 @@ func place_object(object_placed, being_affected):
 		pass
 
 func add_item_to_inventory(is_item):
-	if is_item not in Global.Player.inventory:
+	if (is_item in Global.Player.inventory) == false:
 		Global.Player.inventory[is_item] = 1
 		var new_item = Global.inventory_item_scene.instantiate()
 		new_item.is_item = is_item
@@ -203,5 +197,3 @@ func add_item_to_inventory(is_item):
 				Global.Player.current_amount_of_items += 1
 				child.item_amount += 1
 				break
-
-

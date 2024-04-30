@@ -66,10 +66,7 @@ func _process(_delta):
 		if Global.objects['Palm tree'] == is_object:
 			new_resource.spawn_in(random_palm_tree_drop())
 
-		if Global.objects['Tree'] == is_object:
-			get_node('/root/BaseGame').island_area.append(position + Vector2(0,16))
-		else:
-			get_node('/root/BaseGame').island_area.append(position)
+		get_node('/root/BaseGame').island_area.append(position)
 		queue_free()
 
 	if hit_points != max_health and $ProgressBar.visible == false:
@@ -79,7 +76,8 @@ func _process(_delta):
 		$ProgressBar.value = hit_points
 
 func random_palm_tree_drop(): 
-	if 1 == randi_range(0,3):
+	var random_number = randi_range(0,3)
+	if 1 == random_number:
 		return 'Coconut'
 	else:
 		return 'Plank'

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var items: Array = [
+var random_items: Array = [
 	'Ammo'
 	
 	
@@ -10,10 +10,7 @@ var items: Array = [
 var is_item
 
 func make_new_random_item():
-	var random_items: Array = []
-	for i in items:
-		random_items.append(i)
-	is_item = items[randi_range(0,random_items.size() - 1)]
+	is_item = random_items[randi_range(0,random_items.size() - 1)]
 	texture = Global.items_sprites[is_item]
 
 func spawn_in(item):
