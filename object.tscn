@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2bdo"]
 size = Vector2(32, 32)
 
-[node name="object" type="Sprite2D" groups=["Object"]]
+[node name="object" type="Node2D" groups=["Object"]]
 y_sort_enabled = true
 script = ExtResource("1_ioerv")
 
@@ -26,6 +26,7 @@ offset_bottom = 16.0
 mouse_filter = 1
 texture_normal = ExtResource("2_8o43i")
 ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 visible = false
@@ -40,5 +41,7 @@ texture_progress = ExtResource("4_x68ea")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 15.0
 vertices = PackedVector2Array(0, -8, 8, 0, 0, 8, -8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

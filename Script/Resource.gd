@@ -3,9 +3,6 @@ extends Sprite2D
 var is_resource
 
 func spawn_in(resource):
-	if resource == 'Plank':
-		position.y += 16
-
 	is_resource = resource
 	texture = Global.list_of_resources_sprites[is_resource]
 

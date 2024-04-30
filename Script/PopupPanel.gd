@@ -15,7 +15,6 @@ func _process(_delta):
 	
 	if mouse_in_panel == false and self.visible:
 		if Input.is_action_just_pressed("LMB") or Input.is_action_just_pressed('RMB'):
-			
 			self.close()
 
 func open(object_over):

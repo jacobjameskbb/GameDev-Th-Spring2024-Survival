@@ -70,9 +70,6 @@ func pick_random_beach_foliage_position():
 func generate_city():
 	pass
 
-func _on_quit_button_up():
-	get_tree().quit()
-
 func count_time():
 	await $Timer.timeout
 	Global.current_time += 1
@@ -124,10 +121,12 @@ func _process(_delta):
 			$PlacingSprite/ColorRect.color.r = 0
 
 func place_object(object_placed, being_affected):
+	
 	if object_placed in Global.list_of_buildings and being_affected == 'Placing':
-		$PlacingSprite.visible = true
-		$PlacingSprite.texture = Global.item_sprites[object_placed]
 		Global.Player.building = true
+		$PlacingSprite.texture = Global.item_sprites[object_placed]
+		$PlacingSprite.visible = true
+		$PlacingSprite.position = Global.Mouse.over_tile
 		
 		await LMB
 		

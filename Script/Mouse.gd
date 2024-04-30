@@ -15,8 +15,6 @@ func _process(_delta):
 	
 	if get_node('/root/BaseGame/Player').building:
 		check_position()
-	
-	
 
 func check_position():
 	over_tile = position.snapped(Vector2(32,32)) - Vector2(16,16)

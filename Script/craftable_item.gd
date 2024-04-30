@@ -4,7 +4,7 @@ extends Control
 
 var has_enough_resources = false
 
-var resources_passed = []
+var resources_passed = 0
 
 var crafting = false
 
@@ -12,30 +12,34 @@ var timer
 
 func _process(_delta):
 	if timer != null:
-		if timer.time_left < 100:
-			Global.Player.get_child(14).value = Global.dictionary_of_items[item]['Time'] - timer.time_left
+		if Global.dictionary_of_items[item]['Time'] - timer.time_left < Global.dictionary_of_items[item]['Time']:
+			Global.Player.get_child(14).value = float(Global.dictionary_of_items[item]['Time'] - timer.time_left)
 
 func _ready():
 	$TextureButton.texture_normal = Global.item_sprites[item]
 
 func _on_texture_button_up():
 	if not crafting:
+		timer = get_tree().create_timer(Global.dictionary_of_items[item]['Time'])
+		await timer.timeout
+		
 		for resource_needed in Global.dictionary_of_items[item]['Cost'].keys():
 			if Global.Player.inventory.has(resource_needed):
 				if Global.Player.inventory[resource_needed] >= Global.dictionary_of_items[item]['Cost'][resource_needed]:
-					resources_passed.append(resource_needed)
+					resources_passed += 1
 		
-		if resources_passed in Global.dictionary_of_items[item]['Cost']:
+		if resources_passed >= Global.dictionary_of_items[item]['Cost'].size():
 			has_enough_resources = true
 		
 		if has_enough_resources:
-			timer = get_tree().create_timer(Global.dictionary_of_items[item]['Time'])
 			Global.Player.get_child(14).visible = true
 			Global.Player.get_child(14).max_value = Global.dictionary_of_items[item]['Time']
-			await timer.timeout
 			Global.Player.get_child(14).visible = false
 			timer = null
 			craft_item()
+		
+		resources_passed = 0
+		has_enough_resources = false
 
 func craft_item():
 	for resource_needed in Global.dictionary_of_items[item]['Cost'].keys():
@@ -57,5 +61,4 @@ func craft_item():
 					break
 	
 	get_node('/root/BaseGame').add_item_to_inventory(item)
-	resources_passed = 0
-	has_enough_resources = false
+

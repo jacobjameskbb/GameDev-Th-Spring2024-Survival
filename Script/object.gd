@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var only_city: Array = [
 	'Scrap pile',
@@ -33,21 +33,9 @@ func _ready():
 		is_object = Global.objects[random_objects[randi_range(0,random_objects.size() - 1)]]
 
 		if Global.objects['Tree'] == is_object:
-			position += Vector2(0,-16)
-			scale.y *= 2
-			scale.x += 0.25
-			for child in get_children():
-				child.scale.y /= 2
-				child.scale.x -= 0.25
-			$NavigationObstacle2D.vertices = [Vector2(-10,-8),Vector2(10,-8),Vector2(10,8),Vector2(-10,8)]
-			$StaticBody2D/CollisionShape2D.shape.size.y = 20
-			$StaticBody2D/CollisionShape2D.shape.size.x = 16
-			$NavigationObstacle2D.global_position += Vector2(0,16)
-			$StaticBody2D.global_position += Vector2(0,16)
-			$Button.global_position += Vector2(0,16)
-			$ProgressBar.position = Vector2(-12.5,16)
-			$ProgressBar.size = Vector2(32,2)
-			$ProgressBar.scale = Vector2(0.825,0.5)
+			$Sprite2D.position += Vector2(0,-16)
+			$Sprite2D.scale.y += 1
+			$Sprite2D.scale.x += 0.25
 
 		if Global.objects['Rock'] == is_object:
 			hit_points *= 2
@@ -58,17 +46,10 @@ func _ready():
 
 	else:
 		is_object = Global.objects['Palm tree']
-		position += Vector2(0,-16)
-		scale.y *= 2
-		for child in get_children():
-			child.scale.y /= 2
-		$StaticBody2D/CollisionShape2D.shape.size.y = 20
-		$StaticBody2D/CollisionShape2D.shape.size.x = 16
-		$StaticBody2D.global_position += Vector2(0,16)
-		$Button.global_position += Vector2(0,16)
-		$ProgressBar.position = Vector2(-16,16)
+		$Sprite2D.position += Vector2(0,-16)
+		$Sprite2D.scale.y *= 2
 
-	texture = is_object
+	$Sprite2D.texture = is_object
 	$ProgressBar.max_value = hit_points
 
 func _process(_delta):

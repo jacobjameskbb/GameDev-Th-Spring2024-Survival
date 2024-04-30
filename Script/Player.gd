@@ -63,3 +63,6 @@ func open_craft_menu():
 		$MiniMenu.visible = false
 	else:
 		$MiniMenu.visible = true
+
+func _on_quit_button_up():
+	get_tree().quit()
