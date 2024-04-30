@@ -27,6 +27,8 @@ extends Node
 
 @onready var resource_scene = preload("res://resource.tscn")
 
+@onready var item_scene = preload("res://item.tscn")
+
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
@@ -41,8 +43,8 @@ var dictionary_of_building_shapes = {
 }
 
 var dictionary_of_items: Dictionary = {
-	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 20, 'Need_CTable' : false},
-	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 40, 'Need_CTable' : false},
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 1}, 'Time' : 1, 'Need_CTable' : false},
+	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 1}, 'Time' : 2, 'Need_CTable' : false},
 	
 }
 

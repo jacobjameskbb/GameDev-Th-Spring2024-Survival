@@ -11,7 +11,11 @@ func _ready():
 	$Item_name.text = is_item
 
 func _process(_delta):
+	if self.item_amount == 0:
+		self.queue_free()
+	
 	$Item_amount.text = str(item_amount)
+	
 	if mouse_in_area:
 		if is_item in Global.dictionary_of_item_actions.keys() and Input.is_action_pressed("RMB") and get_node('/root/BaseGame/Panel').is_open == false:
 			get_node('/root/BaseGame/Panel').open(is_item)

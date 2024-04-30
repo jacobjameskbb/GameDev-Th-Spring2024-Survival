@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=40 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
 [ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
 [ext_resource type="PackedScene" uid="uid://b3tkmp0l5w6x7" path="res://craftable_item.tscn" id="22_5wfvl"]
+[ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="34_tgl7y"]
+[ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43.5)
@@ -223,7 +225,7 @@ shape = SubResource("CircleShape2D_dyfcg")
 position = Vector2(-0.25, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_n38ow")
-animation = &"up"
+animation = &"idle"
 speed_scale = 1.5
 
 [node name="HeldItem" type="AnimatedSprite2D" parent="."]
@@ -388,7 +390,7 @@ horizontal_scroll_mode = 0
 
 [node name="ItemGridContainer" type="GridContainer" parent="MiniMenu/TabContainer/Inventory/ScrollContainer"]
 layout_mode = 2
-columns = 4
+columns = 3
 metadata/_edit_lock_ = true
 
 [node name="Crafting" type="Control" parent="MiniMenu/TabContainer"]
@@ -404,6 +406,7 @@ horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MiniMenu/TabContainer/Crafting/ScrollContainer"]
 layout_mode = 2
+columns = 3
 
 [node name="CraftableItem" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
@@ -470,6 +473,16 @@ nine_patch_stretch = true
 texture_under = ExtResource("16_m0bi2")
 texture_over = ExtResource("17_nf2nt")
 texture_progress = ExtResource("17_1dyty")
+
+[node name="CraftingProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = -24.0
+nine_patch_stretch = true
+texture_under = ExtResource("34_tgl7y")
+texture_progress = ExtResource("35_l6wyn")
 
 [connection signal="animation_finished" from="HeldItem" to="." method="_on_held_item_animation_finished"]
 [connection signal="button_up" from="ToolBar/Axe/Axe_sprite_button" to="ToolBar" method="_on_axe_sprite_button_button_up"]

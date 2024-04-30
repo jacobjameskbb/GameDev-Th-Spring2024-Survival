@@ -77,13 +77,13 @@ func _process(_delta):
 		get_node('/root/BaseGame').add_child(new_resource)
 		new_resource.position = position
 		if Global.objects['Tree'] == is_object:
-			new_resource.spawn_in('tree')
+			new_resource.spawn_in('Plank')
 		if Global.objects['Rock'] == is_object:
-			new_resource.spawn_in('rock')
+			new_resource.spawn_in('Rock')
 		if Global.objects['Scrap pile'] == is_object:
-			new_resource.spawn_in('scrap pile')
+			new_resource.spawn_in('Scrap')
 		if Global.objects['Palm tree'] == is_object:
-			new_resource.spawn_in('palm tree')
+			new_resource.spawn_in(random_palm_tree_drop())
 
 		if Global.objects['Tree'] == is_object:
 			get_node('/root/BaseGame').island_area.append(position + Vector2(0,16))
@@ -96,6 +96,12 @@ func _process(_delta):
 
 	if hit_points != $ProgressBar.value:
 		$ProgressBar.value = hit_points
+
+func random_palm_tree_drop(): 
+	if 1 == randi_range(0,3):
+		return 'Coconut'
+	else:
+		return 'Plank'
 
 func _on_button_button_up():
 	if Global.Player.mouse_in_area and Global.Player.get_child(3).is_playing() == false:

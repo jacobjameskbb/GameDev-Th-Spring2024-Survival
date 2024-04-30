@@ -115,7 +115,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("LMB"):
 		LMB.emit()
 	if $PlacingSprite.visible == true:
-		print(Global.Mouse.over_tile)
 		$PlacingSprite.position = Global.Mouse.over_tile
 		if $PlacingSprite.position not in island_area:
 			$PlacingSprite/ColorRect.color.g = 0
@@ -124,8 +123,8 @@ func _process(_delta):
 			$PlacingSprite/ColorRect.color.g = 1
 			$PlacingSprite/ColorRect.color.r = 0
 
-func place_object(object_placed):
-	if object_placed in Global.list_of_buildings:
+func place_object(object_placed, being_affected):
+	if object_placed in Global.list_of_buildings and being_affected == 'Placing':
 		$PlacingSprite.visible = true
 		$PlacingSprite.texture = Global.item_sprites[object_placed]
 		Global.Player.building = true
@@ -141,23 +140,47 @@ func place_object(object_placed):
 			new_building.texture = Global.item_sprites[object_placed]
 			new_building.building_type = object_placed
 			self.add_child(new_building)
+			if Global.Player.inventory[object_placed] == 0:
+				for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+					if child.is_item == object_placed:
+						Global.Player.inventory[object_placed] -= 1
+						Global.Player.current_amount_of_items -= 1
+						child.item_amount -= 1
+						break
+			else:
+				for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+					if child.is_item == object_placed:
+						Global.Player.inventory[object_placed] -= 1
+						Global.Player.current_amount_of_items -= 1
+						child.item_amount -= 1
+						break
 	
-	if object_placed in Global.list_of_resources:
-		var new_resource = Global.resource_scene.instantiate()
-		get_node('/root/BaseGame').add_child(new_resource)
-		new_resource.position = Global.Player.position
-		if Global.objects['Tree'] == object_placed:
-			new_resource.spawn_in('tree')
-		if Global.objects['Rock'] == object_placed:
-			new_resource.spawn_in('rock')
-		if Global.objects['Scrap pile'] == object_placed:
-			new_resource.spawn_in('scrap pile')
-		if Global.objects['Palm tree'] == object_placed:
-			new_resource.spawn_in('palm tree')
+	if being_affected == 'Dropping':
+		if object_placed in Global.list_of_resources:
+			var new_resource = Global.resource_scene.instantiate()
+			get_node('/root/BaseGame').add_child(new_resource)
+			new_resource.position = Global.Player.position
+			new_resource.spawn_in(object_placed)
+		else:
+			var new_item = Global.item_scene.instantiate()
+			get_node('/root/BaseGame').add_child(new_item)
+			new_item.position = Global.Player.position
+			new_item.spawn_in(object_placed)
 		
-		
-		
-		
+		if Global.Player.inventory[object_placed] == 1:
+			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+				if child.is_item == object_placed:
+					Global.Player.inventory.erase(object_placed)
+					Global.Player.current_amount_of_items -= 1
+					child.item_amount -= 1
+					break
+		else:
+			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+				if child.is_item == object_placed:
+					Global.Player.inventory[object_placed] -= 1
+					Global.Player.current_amount_of_items -= 1
+					child.item_amount -= 1
+					break
 	
 	if object_placed in Global.list_of_items:
 		
