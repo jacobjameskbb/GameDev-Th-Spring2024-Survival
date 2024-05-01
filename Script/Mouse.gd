@@ -7,7 +7,7 @@ func _process(_delta):
 	
 	if Input.is_action_just_released('LMB'):
 		for area in get_overlapping_areas():
-			if area.is_in_group('Selectable'):
+			if area.is_in_group('Selectable') and get_node('/root/BaseGame/Panel').is_open == false:
 				var object_selected
 				
 				for group in area.get_groups():

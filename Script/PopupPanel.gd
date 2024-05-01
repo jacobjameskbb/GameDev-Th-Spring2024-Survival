@@ -8,6 +8,8 @@ var button_text_list: Array = []
 
 var is_open = false
 
+var closing = false
+
 var mouse_in_panel = false
 
 func _process(_delta):
@@ -20,26 +22,33 @@ func _process(_delta):
 	
 
 func open(object_over):
-	is_open = true
-	current_position = -(Global.Player.position - Global.Mouse.position)
-	for child in $ScrollContainer/GridContainer.get_children():
-		child.queue_free()
-	position = Global.Mouse.global_position
-	currently_over = object_over
-	self.visible = true
-	for i in Global.dictionary_of_item_actions[object_over]:
-		var new_button = Global.Button_scene.instantiate()
-		$ScrollContainer/GridContainer.add_child(new_button)
-		new_button.set_name(str(i))
-		new_button.text = str(i)
-		button_text_list.append(str(i))
-		new_button.Cbutton_up.connect(_button_input)
-		new_button.set_custom_minimum_size(Vector2(80,16))
+	if closing == false:
+		is_open = true
+		current_position = -(Global.Player.position - Global.Mouse.position)
+		for child in $ScrollContainer/GridContainer.get_children():
+			child.queue_free()
+		position = Global.Mouse.global_position
+		currently_over = object_over
+		self.visible = true
+		for i in Global.dictionary_of_item_actions[object_over]:
+			var new_button = Global.Button_scene.instantiate()
+			$ScrollContainer/GridContainer.add_child(new_button)
+			new_button.set_name(str(i))
+			new_button.text = str(i)
+			button_text_list.append(str(i))
+			new_button.Cbutton_up.connect(_button_input)
+			new_button.set_custom_minimum_size(Vector2(80,16))
 
 func close():
+	closing = true
 	self.visible = false
 	is_open = false
 	currently_over = null
+	
+	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
+	
+	closing = false
 
 func _button_input(button_pressed):
 	if button_pressed.text == 'Place':
