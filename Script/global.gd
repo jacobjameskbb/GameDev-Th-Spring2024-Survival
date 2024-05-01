@@ -29,6 +29,15 @@ extends Node
 
 @onready var item_scene = preload("res://item.tscn")
 
+@onready var house_scene = preload("res://house.tscn")
+
+@onready var house_sprites = [
+	preload("res://Assets/Sprites/building.png"),
+	preload("res://Assets/Sprites/building 1.png")
+]
+
+@onready var large_house = preload("res://Assets/Sprites/Abandoned house.png")
+
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
@@ -70,7 +79,8 @@ var dictionary_of_item_actions: Dictionary = {
 	'Stone Fence' : ['Place', 'Drop'],
 	'Plank' : ['Drop'],
 	'Rock' : ['Drop'],
-	'GolfCart' : ['Travel to the city', 'Check storage']
+	'GolfCartB' : ['Travel to city', 'Check storage'],
+	'GolfCartT' : ['Travel to base', 'Check storage'],
 }
 
 #is in the city or not

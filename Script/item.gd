@@ -1,9 +1,7 @@
 extends Sprite2D
 
 var random_items: Array = [
-	'Ammo'
-	
-	
+	'Ammo',
 	
 ]
 

@@ -24,7 +24,7 @@ func open(object_over):
 	current_position = -(Global.Player.position - Global.Mouse.position)
 	for child in $ScrollContainer/GridContainer.get_children():
 		child.queue_free()
-	position = get_node('/root/BaseGame/Mouse').global_position
+	position = Global.Mouse.global_position
 	currently_over = object_over
 	self.visible = true
 	for i in Global.dictionary_of_item_actions[object_over]:
@@ -43,15 +43,24 @@ func close():
 
 func _button_input(button_pressed):
 	if button_pressed.text == 'Place':
-		get_node('/root/BaseGame').place_object(currently_over,'Placing')
+		get_parent().place_object(currently_over,'Placing')
 
 	if button_pressed.text == 'Drop':
-		get_node('/root/BaseGame').place_object(currently_over,'Dropping')
+		get_parent().place_object(currently_over,'Dropping')
 
 	if button_pressed.text == 'Use':
 		pass
 
-	close()
+	if button_pressed.text == 'Travel to city':
+		get_parent().generate_city()
+
+	if button_pressed.text == 'Check storage':
+		pass
+
+	if button_pressed.text == 'Travel to base':
+		get_parent().generate_foliage()
+
+	self.close()
 
 func _on_mouse_entered():
 	mouse_in_panel = true

@@ -9,11 +9,14 @@ func _process(_delta):
 		for area in get_overlapping_areas():
 			if area.is_in_group('Selectable'):
 				var object_selected
-				if area.is_in_group('GolfCart'):
-					object_selected = 'GolfCart'
+				
+				for group in area.get_groups():
+					if group in Global.dictionary_of_item_actions.keys():
+						object_selected = group
+				
 				get_node('/root/BaseGame/Panel').open(object_selected)
 	
-	if get_node('/root/BaseGame/Player').building:
+	if Global.Player.building:
 		check_position()
 
 func check_position():

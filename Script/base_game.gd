@@ -23,32 +23,36 @@ var current_foliage = 0
 
 var current_beach_foliage = 0
 
+var house_density = 30
+
+var current_house_density = 0
+
 var time_step: float = 300.0
 
 signal LMB
 
 func _ready():
 	for tile in $TileMap.get_used_cells_by_id(0,0):
-		if tile not in [Vector2i(0,0),Vector2i(-1,0),Vector2i(0,-1),Vector2i(-1,-1)]:
-			island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
+		island_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 	
 	for tile in $TileMap.get_used_cells_by_id(0,8):
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 	
 	generate_foliage()
 	
-	island_area.append_array([Vector2i(0,0) * 32 + Vector2i(16,16),Vector2i(-1,0) * 32 + Vector2i(16,16),Vector2i(0,-1) * 32 + Vector2i(16,16),Vector2i(-1,-1) * 32 + Vector2i(16,16)])
-	
 	count_time()
 
 func generate_foliage():
+	
+	Global.in_city = false
+	
 	while current_foliage < foliage_density:
 		var new_object = object.instantiate()
 		new_object.position = pick_random_foliage_position()
 		list_of_current_objects.append(new_object)
 		current_foliage += 1
 		add_child(new_object)
-
+	
 	while current_beach_foliage < beach_foliage_density:
 		var new_object = object.instantiate()
 		new_object.position = pick_random_beach_foliage_position()
@@ -56,6 +60,8 @@ func generate_foliage():
 		list_of_current_objects.append(new_object)
 		current_beach_foliage += 1
 		add_child(new_object)
+	
+	Global.Player.position = $Position1.position
 
 func pick_random_foliage_position():
 	var position_picked
@@ -70,7 +76,15 @@ func pick_random_beach_foliage_position():
 	return position_picked
 
 func generate_city():
-	pass
+	
+	Global.in_city = true
+	
+	while current_house_density < house_density:
+		
+		current_house_density += 1
+	
+	
+	Global.Player.position = $Position0.position
 
 func count_time():
 	await $Timer.timeout
@@ -144,6 +158,8 @@ func place_object(object_placed, being_affected):
 			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
 				if child.is_item == object_placed:
 					Global.Player.inventory[object_placed] -= 1
+					if Global.Player.inventory[object_placed] == 0:
+						Global.Player.inventory.erase(object_placed)
 					Global.Player.current_amount_of_items -= 1
 					child.item_amount -= 1
 					break
