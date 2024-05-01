@@ -36,13 +36,14 @@ func _ready():
 			$Sprite2D.position += Vector2(0,-16)
 			$Sprite2D.scale.y += 1
 			$Sprite2D.scale.x += 0.25
+			$StaticBody2D/CollisionShape2D.scale = Vector2(0.5,0.75)
 
 		if Global.objects['Rock'] == is_object:
 			hit_points *= 2
 			max_health *= 2
 			$StaticBody2D/CollisionShape2D.shape = CircleShape2D.new()
 			$StaticBody2D/CollisionShape2D.shape.radius = 9.5
-			$StaticBody2D/CollisionShape2D.position.y += 1
+			$Sprite2D.position.y += -1
 
 	else:
 		is_object = Global.objects['Palm tree']

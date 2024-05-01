@@ -43,8 +43,8 @@ var dictionary_of_building_shapes = {
 }
 
 var dictionary_of_items: Dictionary = {
-	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 5, 'Need_CTable' : false},
-	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10, 'Need_CTable' : false},
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 5.0, 'Need_CTable' : false},
+	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
 	
 }
 
