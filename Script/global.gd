@@ -14,7 +14,8 @@ extends Node
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
 	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
-	'Stone Fence' : preload("res://Assets/Sprites/cobblestone wall.png")
+	'Stone Fence' : preload("res://Assets/Sprites/cobblestone wall.png"),
+	'Ammo' : preload("res://Assets/Sprites/Ammo.png"),
 }
 
 @onready var objects: Dictionary = {

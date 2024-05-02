@@ -18,8 +18,6 @@ func _process(_delta):
 	if mouse_in_panel == false and self.visible:
 		if Input.is_action_just_pressed("LMB") or Input.is_action_just_pressed('RMB'):
 			self.close()
-	
-	
 
 func open(object_over):
 	if closing == false:
@@ -45,7 +43,7 @@ func close():
 	is_open = false
 	currently_over = null
 	
-	var timer = get_tree().create_timer(0.5)
+	var timer = get_tree().create_timer(0.00001)
 	await timer.timeout
 	
 	closing = false

@@ -127,6 +127,13 @@ func count_time():
 func _process(_delta):
 	if Input.is_action_just_pressed("LMB"):
 		LMB.emit()
+	
+	if Input.is_action_just_pressed("RMB") and Global.Player.building:
+		Global.Player.building = false
+		$PlacingSprite.visible = false
+		
+		
+	
 	if $PlacingSprite.visible == true:
 		$PlacingSprite.position = Global.Mouse.over_tile
 		if $PlacingSprite.position not in island_area:
@@ -146,10 +153,9 @@ func place_object(object_placed, being_affected):
 		
 		await LMB
 		
-		Global.Player.building = false
-		$PlacingSprite.visible = false
+
 		
-		if $PlacingSprite.position in island_area:
+		if $PlacingSprite.position in island_area and Global.Player.building:
 			var new_building = Global.Building_scene.instantiate()
 			new_building.position = Global.Mouse.over_tile
 			new_building.texture = Global.item_sprites[object_placed]
@@ -163,6 +169,9 @@ func place_object(object_placed, being_affected):
 					Global.Player.current_amount_of_items -= 1
 					child.item_amount -= 1
 					break
+	
+		Global.Player.building = false
+		$PlacingSprite.visible = false
 	
 	if being_affected == 'Dropping':
 		if object_placed in Global.list_of_resources:
