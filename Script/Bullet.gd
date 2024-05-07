@@ -6,4 +6,4 @@ func _ready():
 	pass
 
 func _process(delta):
-	self.transform.origin.x +=  SPEED * delta
+	self.position += transform.x * 1000 * delta
