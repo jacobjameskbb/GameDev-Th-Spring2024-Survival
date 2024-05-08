@@ -10,6 +10,14 @@ extends Node
 
 @onready var Building_scene = preload("res://building.tscn")
 
+@onready var resource_scene = preload("res://resource.tscn")
+
+@onready var item_scene = preload("res://item.tscn")
+
+@onready var house_scene = preload("res://house.tscn")
+
+@onready var large_house = preload("res://Assets/Sprites/Abandoned house.png")
+
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
@@ -26,18 +34,10 @@ extends Node
 	
 }
 
-@onready var resource_scene = preload("res://resource.tscn")
-
-@onready var item_scene = preload("res://item.tscn")
-
-@onready var house_scene = preload("res://house.tscn")
-
 @onready var house_sprites = [
 	preload("res://Assets/Sprites/building.png"),
 	preload("res://Assets/Sprites/building 1.png")
 ]
-
-@onready var large_house = preload("res://Assets/Sprites/Abandoned house.png")
 
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),

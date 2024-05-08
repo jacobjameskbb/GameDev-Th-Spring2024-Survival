@@ -10,6 +10,8 @@ var beach_area: PackedVector2Array = []
 
 var city_area: PackedVector2Array = []
 
+var item_spawn_area: PackedVector2Array = []
+
 #The positions of all player buildings
 var building_positions: PackedVector2Array = []
 
@@ -19,11 +21,15 @@ const foliage_density = 350
 
 const beach_foliage_density = 15
 
+const house_density = 30
+
+const item_amount = 30
+
 var current_foliage = 0
 
 var current_beach_foliage = 0
 
-var house_density = 30
+var current_amount_of_items = 0
 
 var current_house_density = 0
 
@@ -37,6 +43,9 @@ func _ready():
 	
 	for tile in $TileMap.get_used_cells_by_id(0,8):
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))
+	
+	for tile in $TileMap.get_used_cells_by_id(0,11):
+		item_spawn_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 	
 	generate_foliage()
 	
@@ -83,8 +92,20 @@ func generate_city():
 		
 		current_house_density += 1
 	
+	while current_amount_of_items < item_amount:
+		var new_item = Global.item_scene.instantiate()
+		new_item.position = pick_random_item_position()
+		self.add_child(new_item)
+		new_item.make_new_random_item()
+		current_amount_of_items += 1
 	
 	Global.Player.position = $Position0.position
+
+func pick_random_item_position():
+	var new_position
+	new_position = item_spawn_area[randi_range(0,item_spawn_area.size() - 1)]
+	item_spawn_area.remove_at(item_spawn_area.find(new_position))
+	return new_position
 
 func count_time():
 	await $Timer.timeout
