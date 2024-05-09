@@ -18,6 +18,8 @@ extends Node
 
 @onready var large_house = preload("res://Assets/Sprites/Abandoned house.png")
 
+@onready var bullet_scene = preload("res://bullet.tscn")
+
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
