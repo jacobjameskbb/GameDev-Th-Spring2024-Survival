@@ -416,7 +416,6 @@ size = Vector2(128, 544)
 script = ExtResource("1_oglgy")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
 autostart = true
 
 [node name="DaySong" type="AudioStreamPlayer" parent="."]
