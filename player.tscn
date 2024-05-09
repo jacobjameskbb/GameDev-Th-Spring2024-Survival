@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 [ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="36_k46ry"]
 [ext_resource type="Script" path="res://Script/Gun.gd" id="37_rhnuy"]
-[ext_resource type="Texture2D" uid="uid://bgk6au3mxsajx" path="res://Assets/Sprites/Clock body2.png" id="38_xla82"]
+[ext_resource type="Texture2D" uid="uid://b4ciix1nf5t8r" path="res://Assets/Sprites/rustyclock.png" id="38_yrpgb"]
 [ext_resource type="Texture2D" uid="uid://da7w41dcrt7le" path="res://Assets/Sprites/Clock hand.png" id="39_sausv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
@@ -470,7 +470,7 @@ script = ExtResource("37_rhnuy")
 z_index = 5
 position = Vector2(-334, -166)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("38_xla82")
+texture = ExtResource("38_yrpgb")
 
 [node name="ClockHand" type="Sprite2D" parent="."]
 z_index = 5
