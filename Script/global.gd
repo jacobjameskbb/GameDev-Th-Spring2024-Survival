@@ -93,9 +93,9 @@ var dictionary_of_item_actions: Dictionary = {
 #is in the city or not
 var in_city = false
 
-var current_time = 0
+var current_time = 100
 
-var current_day = 180
+var current_day = 0
 
 var after_noon = false
 

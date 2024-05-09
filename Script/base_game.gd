@@ -51,7 +51,7 @@ func _ready():
 	
 	generate_foliage()
 	
-	#count_time()
+	new_count_time()
 
 func generate_foliage():
 	
@@ -123,28 +123,30 @@ func new_count_time():
 	
 	$Player/Day_label.text = "Day : " + str(Global.current_day)
 	
-	var day_progress = (Global.current_time % 300) / 300
+	var day_progress = float(Global.current_time % 300) / 300
+	print(day_progress)
 	
 	$Player/ClockHand.rotation = day_progress * 2 * PI
 	
-	if day_progress >= 150 and $DaySong.is_playing():
+	if day_progress >= 0.5 and $DaySong.is_playing():
 		$DaySong.stop()
 		$BeginNight.play()
-	elif day_progress <= 150 and $BeginNight.is_playing:
+		
+	elif day_progress < 0.5 and $BeginNight.is_playing():
 		$DaySong.play()
 		$BeginNight.stop()
 		
-	if day_progress >= 0 and day_progress <= 90:
+	if day_progress >= 0 and day_progress <= 0.3:
 		$CanvasModulate.set_color(Color(1,1,1,1))
 		
-	if day_progress >= 90 and day_progress <= 150:
-		$CanvasModulate.set_color(Color((1 - 0.01013*(day_progress - 90)),(1 - 0.01013*(day_progress - 90)),(1 - 0.01013*(day_progress - 90)),1))
+	if day_progress >= 0.3 and day_progress <= 0.5:
+		$CanvasModulate.set_color(Color((1 - 2.02666*(day_progress - 0.3)),(1 - 2.02666*(day_progress - 0.3)),(1 - 2.02666*(day_progress - 0.3)),1))
 		
-	if day_progress >= 150 and day_progress <= 240:
+	if day_progress >= 0.5 and day_progress <= 0.8:
 		$CanvasModulate.set_color(Color(0.392, 0.392, 0.392, 1))
 		
-	if day_progress >= 240 and day_progress <= 300:
-		$CanvasModulate.set_color(Color((0.392 + 0.01013*(day_progress - 240)),(0.392 + 0.01013*(day_progress - 240)),(0.392 + 0.01013*(day_progress - 240)),1))
+	if day_progress >= 0.8 and day_progress <= 1:
+		$CanvasModulate.set_color(Color((0.392 + 2.02666*(day_progress - 0.8)),(0.392 + 2.02666*(day_progress - 0.8)),(0.392 + 2.02666*(day_progress - 0.8)),1))
 		
 
 func count_time():
