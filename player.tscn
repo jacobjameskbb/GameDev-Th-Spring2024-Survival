@@ -427,45 +427,11 @@ layout_mode = 2
 
 [node name="Day_label" type="Label" parent="."]
 z_index = 2
-offset_left = -384.0
-offset_top = -216.0
-offset_right = -349.0
-offset_bottom = -193.0
-text = "Day:"
-
-[node name="Day_value_label" type="Label" parent="."]
-z_index = 2
-offset_left = -349.0
-offset_top = -216.0
-offset_right = -339.0
-offset_bottom = -193.0
-text = "0"
-
-[node name="HTime" type="Label" parent="."]
-z_index = 2
-offset_left = -384.0
-offset_top = -192.0
-offset_right = -365.0
-offset_bottom = -169.0
-text = "6"
-horizontal_alignment = 2
-
-[node name="colon" type="Label" parent="."]
-z_index = 2
-offset_left = -364.0
-offset_top = -192.0
-offset_right = -359.0
-offset_bottom = -169.0
-text = ":"
-
-[node name="MTime" type="Label" parent="."]
-z_index = 2
-offset_left = -358.0
-offset_top = -192.0
-offset_right = -339.0
-offset_bottom = -169.0
-text = "00"
-horizontal_alignment = 2
+offset_left = -356.0
+offset_top = -134.0
+offset_right = -296.0
+offset_bottom = -111.0
+text = "Day : 1"
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 z_index = 2

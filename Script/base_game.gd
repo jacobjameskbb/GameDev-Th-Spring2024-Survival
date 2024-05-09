@@ -51,7 +51,7 @@ func _ready():
 	
 	generate_foliage()
 	
-	count_time()
+	#count_time()
 
 func generate_foliage():
 	
@@ -116,6 +116,34 @@ func pick_random_city_position():
 	new_position = city_area[randi_range(0,city_area.size() - 1)]
 	city_area.remove_at(city_area.find(new_position))
 	return new_position
+
+func new_count_time():
+	Global.current_time += 1
+	Global.current_day = floor(Global.current_time / 300) + 1
+	
+	$Player/Day_label.text = "Day : " + str(Global.current_day)
+	
+	var day_progress = (Global.current_time % 300) / 300
+	
+	if day_progress >= 180:
+		$DaySong.stop()
+		$BeginNight.play()
+	else:
+		$DaySong.play()
+		$BeginNight.stop()
+		
+	if day_progress >= 0 and day_progress <= 90:
+		$CanvasModulate.set_color(Color(1,1,1,1))
+		
+	if day_progress >= 90 and day_progress <= 150:
+		$CanvasModulate.set_color(Color((1 - 0.01013*(day_progress - 90)),(1 - 0.01013*(day_progress - 90)),(1 - 0.01013*(day_progress - 90)),1))
+		
+	if day_progress >= 150 and day_progress <= 240:
+		$CanvasModulate.set_color(Color(0.392, 0.392, 0.392, 1))
+		
+	if day_progress >= 240 and day_progress <= 300:
+		$CanvasModulate.set_color(Color((0.392 + 0.01013*(day_progress - 240)),(0.392 + 0.01013*(day_progress - 240)),(0.392 + 0.01013*(day_progress - 240)),1))
+		
 
 func count_time():
 	await $Timer.timeout
