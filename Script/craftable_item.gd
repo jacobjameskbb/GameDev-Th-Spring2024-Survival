@@ -27,7 +27,7 @@ func _on_texture_button_up():
 	if resources_passed >= Global.dictionary_of_items[item]['Cost'].size():
 		has_enough_resources = true
 	
-	if crafting == false:
+	if crafting == false and has_enough_resources == true:
 		if (Global.dictionary_of_items[item]['Need_CTable'] == true and Global.Player.in_crafting_area == true) == true or Global.dictionary_of_items[item]['Need_CTable'] == false:
 			crafting = true
 			Global.Player.crafting = true
@@ -42,10 +42,11 @@ func _on_texture_button_up():
 				timer = null
 				craft_item()
 			
-			crafting = false
-			Global.Player.crafting = false
-			resources_passed = 0
-			has_enough_resources = false
+	
+	crafting = false
+	Global.Player.crafting = false
+	resources_passed = 0
+	has_enough_resources = false
 
 func craft_item():
 	for resource_needed in Global.dictionary_of_items[item]['Cost'].keys():

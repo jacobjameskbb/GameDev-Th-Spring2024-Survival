@@ -57,12 +57,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(_delta):
+	mouse_in_area = false
 	
 	for i in $Area2D.get_overlapping_areas():
 		if i.is_in_group('Mouse'):
 			mouse_in_area = true
-		else:
-			mouse_in_area = false
 		
 		if i.is_in_group('Crafting_area'):
 			in_crafting_area = true

@@ -19,7 +19,7 @@ func _ready():
 		var new_crafting_area_collision = CollisionShape2D.new()
 		new_crafting_area.add_child(new_crafting_area_collision)
 		new_crafting_area.add_to_group('Crafting_area')
-		new_crafting_area_collision.shape = Global.dictionary_of_building_shapes[building_type]['Crafting_range_shape']
+		new_crafting_area_collision.shape = Global.dictionary_of_building_shapes[building_type]['Crafting_range_shape'].new()
 		new_crafting_area_collision.shape.radius = Global.dictionary_of_building_shapes[building_type]['Crafting_radius']
 		self.add_child(new_crafting_area)
 
