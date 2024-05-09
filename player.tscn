@@ -42,7 +42,7 @@
 size = Vector2(23.5, 43.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dyfcg"]
-radius = 80.0062
+radius = 80.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n38ow"]
 animations = [{
@@ -411,10 +411,15 @@ columns = 3
 
 [node name="CraftableItem" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
+item = "Wooden Fence"
 
 [node name="CraftableItem2" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
 item = "Stone Fence"
+
+[node name="CraftableItem3" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
+layout_mode = 2
+item = "Crafting Table"
 
 [node name="Stats" type="Control" parent="MiniMenu/TabContainer"]
 visible = false
@@ -487,6 +492,7 @@ texture_under = ExtResource("34_tgl7y")
 texture_progress = ExtResource("35_l6wyn")
 
 [node name="Gun" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_k46ry")
 offset = Vector2(50, 0)

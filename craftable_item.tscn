@@ -14,7 +14,6 @@ offset_right = -0.512001
 offset_bottom = -0.152008
 mouse_filter = 1
 script = ExtResource("1_eue5p")
-item = "Wooden Fence"
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1

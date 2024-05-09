@@ -20,39 +20,58 @@ var mouse_in_area = false
 
 var building = false
 
-func get_input(delta):
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	if input_direction == Vector2(0,0):
-		$AnimatedSprite2D.play('idle')
-	if input_direction == Vector2(0,1):
-		$AnimatedSprite2D.play('down')
-	if input_direction == Vector2(1,0):
-		$AnimatedSprite2D.play('right')
-	if input_direction == Vector2(-1,0):
-		$AnimatedSprite2D.play('left')
-	if input_direction == Vector2(0,-1):
-		$AnimatedSprite2D.play('up')
+var crafting = false
 
+var in_crafting_area = false
+
+func get_input(delta):
+	
 	if Input.is_action_just_released("minimenu"):
 		open_craft_menu()
-
-	velocity = input_direction * speed * delta
+	
+	if building == false and crafting == false:
+		var input_direction = Input.get_vector("left", "right", "up", "down")
+		
+		if input_direction == Vector2(0,0):
+			$AnimatedSprite2D.play('idle')
+		
+		if input_direction == Vector2(0,1):
+			$AnimatedSprite2D.play('down')
+		
+		if input_direction == Vector2(1,0):
+			$AnimatedSprite2D.play('right')
+		
+		if input_direction == Vector2(-1,0):
+			$AnimatedSprite2D.play('left')
+		
+		if input_direction == Vector2(0,-1):
+			$AnimatedSprite2D.play('up')
+		
+		velocity = input_direction * speed * delta
+	else:
+		velocity = Vector2(0,0)
+		$AnimatedSprite2D.play('idle')
 
 func _physics_process(delta):
 	get_input(delta)
 	move_and_slide()
 
 func _process(_delta):
-	var mouse_in_area_ = false
 	
 	for i in $Area2D.get_overlapping_areas():
 		if i.is_in_group('Mouse'):
-			mouse_in_area_ = true
+			mouse_in_area = true
+		else:
+			mouse_in_area = false
+		
+		if i.is_in_group('Crafting_area'):
+			in_crafting_area = true
+		else:
+			in_crafting_area = false
 	
-	if mouse_in_area_ == true:
-		mouse_in_area = true
-	else:
-		mouse_in_area = false
+	for i in inventory.keys():
+		if inventory[i] <= 0:
+			inventory.erase(i)
 
 func _on_held_item_animation_finished():
 	if $HeldItem.animation == 'mining':

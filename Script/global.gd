@@ -21,9 +21,11 @@ extends Node
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
+	'Scrap' : preload("res://Assets/Sprites/scrap.png"),
 	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
 	'Stone Fence' : preload("res://Assets/Sprites/cobblestone wall.png"),
 	'Ammo' : preload("res://Assets/Sprites/Ammo.png"),
+	'Crafting Table' : preload("res://Assets/Sprites/Crafting Table.png")
 }
 
 @onready var objects: Dictionary = {
@@ -49,19 +51,19 @@ extends Node
 var dictionary_of_building_shapes = {
 	'Wooden Fence' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32)},
 	'Stone Fence' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32)},
-	
+	'Crafting Table' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32), 'Crafting_range_shape' : CircleShape2D, 'Crafting_radius' : 48.0,}
 }
 
 var dictionary_of_items: Dictionary = {
 	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 5.0, 'Need_CTable' : false},
 	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
-	
+	'Crafting Table' : {'Health' : 50, 'Cost' : {'Plank' : 3, 'Rock' : 2, 'Scrap' : 1}, 'Time' : 20.0, 'Need_CTable' : false},
 }
 
 var list_of_buildings: Array = [
 	'Wooden Fence',
 	'Stone Fence',
-	
+	'Crafting Table',
 ]
 
 var list_of_items: Array = [
@@ -80,8 +82,10 @@ var dictionary_of_item_actions: Dictionary = {
 	'Stone Fence' : ['Place', 'Drop'],
 	'Plank' : ['Drop'],
 	'Rock' : ['Drop'],
+	'Scrap' : ['Drop'],
 	'GolfCartB' : ['Travel to city', 'Check storage'],
 	'GolfCartT' : ['Travel to base', 'Check storage'],
+	'Crafting Table': ['Place','Drop'],
 }
 
 #is in the city or not

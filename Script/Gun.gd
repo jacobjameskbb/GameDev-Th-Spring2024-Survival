@@ -11,7 +11,7 @@ func _process(_delta):
 			new_bullet.position = Global.Player.position
 			new_bullet.rotation = rotation
 			get_parent().inventory['Ammo'] += -1
-			Global.Player.current_amount_of_items -= 1
+			Global.Player.current_amount_of_items += -1
 			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
 				if child.is_item == 'Ammo':
 					child.item_amount -= 1

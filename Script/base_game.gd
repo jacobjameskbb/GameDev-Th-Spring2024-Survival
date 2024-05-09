@@ -10,8 +10,6 @@ var beach_area: PackedVector2Array = []
 
 var city_area: PackedVector2Array = []
 
-var item_spawn_area: PackedVector2Array = []
-
 #The positions of all player buildings
 var building_positions: PackedVector2Array = []
 
@@ -24,6 +22,10 @@ const beach_foliage_density = 15
 const house_density = 30
 
 const item_amount = 30
+
+const city_object_density = 10
+
+var current_city_object_density = 0
 
 var current_foliage = 0
 
@@ -45,7 +47,7 @@ func _ready():
 		beach_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 	
 	for tile in $TileMap.get_used_cells_by_id(0,11):
-		item_spawn_area.append(Vector2(tile * 32 + Vector2i(16,16)))
+		city_area.append(Vector2(tile * 32 + Vector2i(16,16)))
 	
 	generate_foliage()
 	
@@ -94,17 +96,25 @@ func generate_city():
 	
 	while current_amount_of_items < item_amount:
 		var new_item = Global.item_scene.instantiate()
-		new_item.position = pick_random_item_position()
+		new_item.position = pick_random_city_position()
 		self.add_child(new_item)
 		new_item.make_new_random_item()
 		current_amount_of_items += 1
 	
+	while current_city_object_density < city_object_density:
+		var new_object = object.instantiate()
+		new_object.position = pick_random_city_position()
+		list_of_current_objects.append(new_object)
+		current_foliage += 1
+		add_child(new_object)
+		current_city_object_density += 1
+	
 	Global.Player.position = $Position0.position
 
-func pick_random_item_position():
+func pick_random_city_position():
 	var new_position
-	new_position = item_spawn_area[randi_range(0,item_spawn_area.size() - 1)]
-	item_spawn_area.remove_at(item_spawn_area.find(new_position))
+	new_position = city_area[randi_range(0,city_area.size() - 1)]
+	city_area.remove_at(city_area.find(new_position))
 	return new_position
 
 func count_time():
@@ -220,14 +230,6 @@ func place_object(object_placed, being_affected):
 					Global.Player.current_amount_of_items -= 1
 					child.item_amount -= 1
 					break
-	
-	if object_placed in Global.list_of_items:
-		
-		
-		
-		
-		
-		pass
 
 func add_item_to_inventory(is_item):
 	if (is_item in Global.Player.inventory) == false:

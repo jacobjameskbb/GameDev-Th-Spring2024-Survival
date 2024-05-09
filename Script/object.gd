@@ -94,18 +94,25 @@ func _on_button_button_up():
 					take_damage()
 
 func take_damage():
+	
 	taking_damage = true
+	
 	if Global.Player.item_equipped == 'Axe':
 		if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
 			if get_node('/root/BaseGame/Player').get_child(3).is_playing() == false:
 				get_node('/root/BaseGame/Player').get_child(3).play('chopping')
+	
 	if Global.Player.item_equipped == 'Pickaxe':
 		if Global.objects['Rock'] == is_object or Global.objects['Scrap pile'] == is_object:
 			if get_node('/root/BaseGame/Player').get_child(3).is_playing() == false:
 				get_node('/root/BaseGame/Player').get_child(3).play('mining')
+	
 	await get_node('/root/BaseGame/Player').get_child(3).animation_finished
+	
 	if Global.objects['Tree'] == is_object or Global.objects['Palm tree'] == is_object:
 		hit_points += -10 * Global.Player.axe_level
-	if Global.objects['Rock'] == is_object:
+	
+	if Global.objects['Rock'] == is_object or Global.objects['Scrap pile'] == is_object:
 		hit_points += -10 * Global.Player.pickaxe_level
+	
 	taking_damage = false
