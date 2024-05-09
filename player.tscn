@@ -467,11 +467,13 @@ offset = Vector2(50, 0)
 script = ExtResource("37_rhnuy")
 
 [node name="ClockFace" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(-334, -166)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("38_yger8")
 
 [node name="ClockHand" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(-334, -167)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("39_sausv")

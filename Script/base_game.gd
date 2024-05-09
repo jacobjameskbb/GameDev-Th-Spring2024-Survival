@@ -125,10 +125,12 @@ func new_count_time():
 	
 	var day_progress = (Global.current_time % 300) / 300
 	
-	if day_progress >= 180:
+	$Player/ClockHand.rotation = day_progress * 2 * PI
+	
+	if day_progress >= 150 and $DaySong.is_playing():
 		$DaySong.stop()
 		$BeginNight.play()
-	else:
+	elif day_progress <= 150 and $BeginNight.is_playing:
 		$DaySong.play()
 		$BeginNight.stop()
 		

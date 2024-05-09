@@ -95,6 +95,8 @@ var in_city = false
 
 var current_time = 0
 
+var current_day = 180
+
 var after_noon = false
 
 var day = 0
