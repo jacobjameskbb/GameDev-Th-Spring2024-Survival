@@ -1,13 +1,11 @@
 extends Sprite2D
 
-@onready var bullet_scene = preload("res://bullet.tscn")
-
 func _process(_delta):
 	look_at(Global.Mouse.position)
 	
 	if Input.is_action_just_pressed("LMB") and visible and get_parent().inventory.has('Ammo'):
 		if get_parent().inventory['Ammo'] > 0:
-			var new_bullet = bullet_scene.instantiate()
+			var new_bullet = Global.bullet_scene.instantiate()
 			new_bullet.position = Global.Player.position
 			new_bullet.rotation = rotation
 			get_parent().inventory['Ammo'] += -1

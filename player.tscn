@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=44 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 [ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="36_k46ry"]
 [ext_resource type="Script" path="res://Script/Gun.gd" id="37_rhnuy"]
+[ext_resource type="Texture2D" uid="uid://ur3k1bttquc8" path="res://Assets/Sprites/Clock body.png" id="38_yger8"]
+[ext_resource type="Texture2D" uid="uid://da7w41dcrt7le" path="res://Assets/Sprites/Clock hand.png" id="39_sausv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwqs"]
 size = Vector2(23.5, 43.5)
@@ -427,45 +429,11 @@ layout_mode = 2
 
 [node name="Day_label" type="Label" parent="."]
 z_index = 2
-offset_left = -384.0
-offset_top = -216.0
-offset_right = -349.0
-offset_bottom = -193.0
-text = "Day:"
-
-[node name="Day_value_label" type="Label" parent="."]
-z_index = 2
-offset_left = -349.0
-offset_top = -216.0
-offset_right = -339.0
-offset_bottom = -193.0
-text = "0"
-
-[node name="HTime" type="Label" parent="."]
-z_index = 2
-offset_left = -384.0
-offset_top = -192.0
-offset_right = -365.0
-offset_bottom = -169.0
-text = "6"
-horizontal_alignment = 2
-
-[node name="colon" type="Label" parent="."]
-z_index = 2
-offset_left = -364.0
-offset_top = -192.0
-offset_right = -359.0
-offset_bottom = -169.0
-text = ":"
-
-[node name="MTime" type="Label" parent="."]
-z_index = 2
-offset_left = -358.0
-offset_top = -192.0
-offset_right = -339.0
-offset_bottom = -169.0
-text = "00"
-horizontal_alignment = 2
+offset_left = -363.0
+offset_top = -131.0
+offset_right = -303.0
+offset_bottom = -108.0
+text = "Day : 1"
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 z_index = 2
@@ -497,6 +465,16 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_k46ry")
 offset = Vector2(50, 0)
 script = ExtResource("37_rhnuy")
+
+[node name="ClockFace" type="Sprite2D" parent="."]
+position = Vector2(-334, -166)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("38_yger8")
+
+[node name="ClockHand" type="Sprite2D" parent="."]
+position = Vector2(-334, -167)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("39_sausv")
 
 [connection signal="animation_finished" from="HeldItem" to="." method="_on_held_item_animation_finished"]
 [connection signal="button_up" from="ToolBar/Axe/Axe_sprite_button" to="ToolBar" method="_on_axe_sprite_button_button_up"]
