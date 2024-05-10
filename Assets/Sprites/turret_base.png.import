@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8j3hg8yuepe4"
-path="res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"
+uid="uid://dohigb5af446l"
+path="res://.godot/imported/turret_base.png-09789d6875fdd430a165963e070f858f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/axe.png"
-dest_files=["res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"]
+source_file="res://Assets/Sprites/turret_base.png"
+dest_files=["res://.godot/imported/turret_base.png-09789d6875fdd430a165963e070f858f.ctex"]
 
 [params]
 

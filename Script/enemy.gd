@@ -28,7 +28,7 @@ func _on_navigation_agent_2d_velocity_computed(svelocity):
 	safe_velocity = svelocity
 
 func _physics_process(delta):
-	if $RayCast2D.is_colliding():
+	if $RayCast2D.is_colliding() and $RayCast2D.get_collider().is_in_group('Player'):
 		can_see_player = false
 		wandering = true
 	else:

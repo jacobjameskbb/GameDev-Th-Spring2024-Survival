@@ -6,6 +6,8 @@ var target
 
 var firing = false
 
+var health = 100
+
 func _ready():
 	pass
 
@@ -16,8 +18,12 @@ func _process(delta):
 	else:
 		$TurretBarrel.rotation_degrees = (target.position - self.position).get_angle()
 	
-	if attacking and firing == false:
-		self.fire() 
+	if $RayCast2D.is_colliding():
+		if attacking and firing == false and $RayCast2D.get_collider().is_in_group('Enemy'):
+			self.fire() 
+	
+	if target != null:
+		$RayCast2D.target_position = -(position - target.position)
 
 func fire():
 	firing = true
