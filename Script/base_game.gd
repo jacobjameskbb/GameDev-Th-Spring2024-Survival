@@ -124,7 +124,7 @@ func new_count_time():
 	$Player/Day_label.text = "Day : " + str(Global.current_day)
 	
 	var day_progress = float(Global.current_time % 300) / 300
-	print(day_progress)
+#	print(day_progress)
 	
 	$Player/ClockHand.rotation = day_progress * 2 * PI
 	
@@ -194,8 +194,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("RMB") and Global.Player.building:
 		Global.Player.building = false
 		$PlacingSprite.visible = false
-		
-		
 	
 	if $PlacingSprite.visible == true:
 		$PlacingSprite.position = Global.Mouse.over_tile
@@ -215,8 +213,6 @@ func place_object(object_placed, being_affected):
 		$PlacingSprite.position = Global.Mouse.over_tile
 		
 		await LMB
-		
-
 		
 		if $PlacingSprite.position in island_area and Global.Player.building:
 			var new_building = Global.Building_scene.instantiate()

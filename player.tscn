@@ -207,7 +207,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Attackable", "Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_1xnsh")

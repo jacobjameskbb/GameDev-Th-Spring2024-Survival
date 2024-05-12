@@ -50,6 +50,7 @@ func _ready():
 		$Sprite2D.position += Vector2(0,-16)
 		$Sprite2D.scale.y *= 2
 
+	$StaticBody2D.fix_health()
 	$Sprite2D.texture = is_object
 	$ProgressBar.max_value = hit_points
 

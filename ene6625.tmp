@@ -74,7 +74,7 @@ animations = [{
 radius = 255.159
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrok4"]
-radius = 279.0
+radius = 128.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 0

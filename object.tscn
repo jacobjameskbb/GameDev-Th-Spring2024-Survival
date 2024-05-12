@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://if4fjdf57ais"]
+[gd_scene load_steps=7 format=3 uid="uid://if4fjdf57ais"]
 
 [ext_resource type="Script" path="res://Script/object.gd" id="1_ioerv"]
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="2_8o43i"]
+[ext_resource type="Script" path="res://Script/ObjectStaticBody.gd" id="2_ghf60"]
 [ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="3_t1utx"]
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="4_x68ea"]
 
@@ -12,7 +13,8 @@ size = Vector2(32, 32)
 y_sort_enabled = true
 script = ExtResource("1_ioerv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Attackable"]]
+script = ExtResource("2_ghf60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_b2bdo")

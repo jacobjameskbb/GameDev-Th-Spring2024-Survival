@@ -20,12 +20,15 @@ texture = ExtResource("2_4tx4l")
 texture = ExtResource("3_kmq0q")
 offset = Vector2(16, 0)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Attackable", "Turret"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_nrftm")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_awo7f")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
