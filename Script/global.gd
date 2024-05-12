@@ -20,6 +20,8 @@ extends Node
 
 @onready var bullet_scene = preload("res://bullet.tscn")
 
+@onready var turret_scene = preload("res://turret.tscn")
+
 @onready var item_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
@@ -27,14 +29,15 @@ extends Node
 	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
 	'Stone Fence' : preload("res://Assets/Sprites/cobblestone wall.png"),
 	'Ammo' : preload("res://Assets/Sprites/Ammo.png"),
-	'Crafting Table' : preload("res://Assets/Sprites/Crafting Table.png")
+	'Crafting Table' : preload("res://Assets/Sprites/Crafting Table.png"),
+	'Turret' : preload("res://Assets/Sprites/turret.png"),
 }
 
 @onready var objects: Dictionary = {
 	'Tree' : preload("res://Assets/Sprites/Tree.png"),
 	'Rock' : preload("res://Assets/Sprites/rock.png"),
 	'Scrap pile' : preload("res://Assets/Sprites/Scrap pile.png"),
-	'Palm tree' : preload("res://Assets/Sprites/palm tree.png")
+	'Palm tree' : preload("res://Assets/Sprites/palm tree.png"),
 	
 }
 
@@ -57,9 +60,10 @@ var dictionary_of_building_shapes = {
 }
 
 var dictionary_of_items: Dictionary = {
-	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 3}, 'Time' : 5.0, 'Need_CTable' : false},
-	'Stone Fence' : {'Health' : 350, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 0}, 'Time' : 2.0, 'Need_CTable' : false},
+	'Stone Fence' : {'Health' : 450, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
 	'Crafting Table' : {'Health' : 50, 'Cost' : {'Plank' : 3, 'Rock' : 2, 'Scrap' : 1}, 'Time' : 20.0, 'Need_CTable' : false},
+	'Turret' : {'Cost' : {'Plank' : 2, 'Rock' : 1, 'Scrap' : 3}, 'Time' : 10.0, 'Need_CTable' : true},
 }
 
 var list_of_buildings: Array = [
@@ -88,6 +92,7 @@ var dictionary_of_item_actions: Dictionary = {
 	'GolfCartB' : ['Travel to city', 'Check storage'],
 	'GolfCartT' : ['Travel to base', 'Check storage'],
 	'Crafting Table': ['Place','Drop'],
+	'Turret' : ['Place','Drop'],
 }
 
 #is in the city or not

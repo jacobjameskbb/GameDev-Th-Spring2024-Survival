@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8j3hg8yuepe4"
-path="res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"
+uid="uid://dkyayj3m35bdd"
+path="res://.godot/imported/turret_barrel.png-2477c769b0b1bb2902195eef67c947af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/axe.png"
-dest_files=["res://.godot/imported/axe.png-fae13bc7673de1408c47493465e4d4d7.ctex"]
+source_file="res://Assets/Sprites/turret_barrel.png"
+dest_files=["res://.godot/imported/turret_barrel.png-2477c769b0b1bb2902195eef67c947af.ctex"]
 
 [params]
 

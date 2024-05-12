@@ -232,6 +232,29 @@ func place_object(object_placed, being_affected):
 		Global.Player.building = false
 		$PlacingSprite.visible = false
 	
+	if being_affected == 'Placing' and object_placed == 'Turret':
+		Global.Player.building = true
+		$PlacingSprite.texture = Global.item_sprites[object_placed]
+		$PlacingSprite.visible = true
+		$PlacingSprite.position = Global.Mouse.over_tile
+		
+		await LMB
+		
+		var new_turret = Global.turret_scene.instantiate()
+		new_turret.position = Global.Mouse.over_tile
+		self.add_child(new_turret)
+		for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+			if child.is_item == object_placed:
+				Global.Player.inventory[object_placed] -= 1
+				if Global.Player.inventory[object_placed] == 0:
+					Global.Player.inventory.erase(object_placed)
+				Global.Player.current_amount_of_items -= 1
+				child.item_amount -= 1
+				break
+		
+		Global.Player.building = false
+		$PlacingSprite.visible = false
+	
 	if being_affected == 'Dropping':
 		if object_placed in Global.list_of_resources:
 			var new_resource = Global.resource_scene.instantiate()
