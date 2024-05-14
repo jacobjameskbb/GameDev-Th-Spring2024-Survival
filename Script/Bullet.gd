@@ -10,4 +10,5 @@ func _on_area_2d_body_entered(body):
 		body.health += -10
 	
 	if body.is_in_group('Turret') == false:
+		print('ding')
 		self.queue_free()

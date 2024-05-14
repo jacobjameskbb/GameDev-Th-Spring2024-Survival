@@ -23,7 +23,7 @@ func _on_texture_button_up():
 			if Global.Player.inventory.has(resource_needed):
 				if Global.Player.inventory[resource_needed] >= Global.dictionary_of_items[item]['Cost'][resource_needed]:
 					resources_passed += 1
-		
+	
 	if resources_passed >= Global.dictionary_of_items[item]['Cost'].size():
 		has_enough_resources = true
 	
@@ -34,8 +34,10 @@ func _on_texture_button_up():
 			timer = get_tree().create_timer(Global.dictionary_of_items[item]['Time'])
 			Global.Player.get_child(10).visible = true
 			Global.Player.get_child(10).max_value = Global.dictionary_of_items[item]['Time']
+			get_node('/root/BaseGame').is_crafting = true
 			
 			await timer.timeout
+			
 			
 			if has_enough_resources:
 				Global.Player.get_child(10).visible = false
@@ -43,6 +45,7 @@ func _on_texture_button_up():
 				craft_item()
 			
 	
+	get_node('/root/BaseGame').is_crafting = false
 	crafting = false
 	Global.Player.crafting = false
 	resources_passed = 0

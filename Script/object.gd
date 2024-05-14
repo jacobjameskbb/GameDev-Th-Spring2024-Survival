@@ -71,7 +71,13 @@ func _process(_delta):
 			if Global.objects['Palm tree'] == is_object:
 				new_resource.spawn_in(random_palm_tree_drop())
 		
-		get_node('/root/BaseGame').island_area.append(position)
+		if Global.objects['Palm tree'] != is_object:
+			get_node('/root/BaseGame').island_area.append(position)
+			get_node('/root/BaseGame').current_foliage += -1
+		else:
+			get_node('/root/BaseGame').current_beach_foliage += -1
+			get_node('/root/BaseGame').beach_area.append(position)
+		
 		queue_free()
 	
 	if hit_points != max_health and $ProgressBar.visible == false:

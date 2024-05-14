@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 15000
 
-var inventory: Dictionary = {'Turret' : 10}
+var inventory: Dictionary = {}
 
 var max_inventory_size = 10
 
@@ -77,7 +77,7 @@ func _process(_delta):
 			inventory.erase(i)
 
 func death():
-	self.queue_free()
+	pass
 
 func _on_held_item_animation_finished():
 	if $HeldItem.animation == 'mining':

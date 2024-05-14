@@ -37,6 +37,8 @@ var current_house_density = 0
 
 var time_step: float = 300.0
 
+var is_crafting = false
+
 signal LMB
 
 func _ready():
@@ -137,7 +139,7 @@ func new_count_time():
 	if day_progress >= 0.75 and $BeginNight.is_playing() == false:
 		pass
 	
-	if day_progress >  0.25 and day_progress < 0.75 and $DaySong.is_playing() == false:
+	if day_progress > 0 and day_progress < 0.75 and $DaySong.is_playing() == false:
 		$DaySong.play()
 		$BeginNight.stop()
 	
@@ -177,7 +179,7 @@ func _process(_delta):
 
 func place_object(object_placed, being_affected):
 	
-	if object_placed in Global.list_of_buildings and being_affected == 'Placing':
+	if object_placed in Global.list_of_buildings and being_affected == 'Placing' and is_crafting == false:
 		Global.Player.building = true
 		$PlacingSprite.texture = Global.item_sprites[object_placed]
 		$PlacingSprite.visible = true
@@ -203,7 +205,7 @@ func place_object(object_placed, being_affected):
 		Global.Player.building = false
 		$PlacingSprite.visible = false
 	
-	if being_affected == 'Placing' and object_placed == 'Turret':
+	if being_affected == 'Placing' and object_placed == 'Turret' and is_crafting == false:
 		Global.Player.building = true
 		$PlacingSprite.texture = Global.item_sprites[object_placed]
 		$PlacingSprite.visible = true
@@ -227,7 +229,7 @@ func place_object(object_placed, being_affected):
 		Global.Player.building = false
 		$PlacingSprite.visible = false
 	
-	if being_affected == 'Dropping':
+	if being_affected == 'Dropping' and is_crafting == false:
 		if object_placed in Global.list_of_resources:
 			var new_resource = Global.resource_scene.instantiate()
 			get_node('/root/BaseGame').add_child(new_resource)

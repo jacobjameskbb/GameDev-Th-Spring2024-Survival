@@ -116,6 +116,8 @@ func attack():
 			if is_enemy == 0:
 				if target.is_in_group('Object'):
 					target.health += -100
+				else:
+					target.health += -10
 			else:
 				target.health += -10
 			

@@ -46,14 +46,14 @@ extends Node
 
 @onready var house_sprites = [
 	preload("res://Assets/Sprites/building.png"),
-	preload("res://Assets/Sprites/building 1.png")
+	preload("res://Assets/Sprites/building 1.png"),
 ]
 
 @onready var list_of_resources_sprites: Dictionary = {
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
-	'Scrap' : preload('res://Assets/Sprites/scrap.png')
-	
+	'Scrap' : preload('res://Assets/Sprites/scrap.png'),
+	'Coconut' : preload("res://Assets/Sprites/rock.png"),
 }
 
 
@@ -79,14 +79,14 @@ var list_of_buildings: Array = [
 ]
 
 var list_of_items: Array = [
-	
+	'Ammo',
 ]
 
 var list_of_resources: Array = [
 	'Plank',
 	'Rock',
 	'Scrap',
-	
+	'Coconut',
 ]
 
 var dictionary_of_item_actions: Dictionary = {
@@ -99,6 +99,8 @@ var dictionary_of_item_actions: Dictionary = {
 	'GolfCartT' : ['Travel to base', 'Check storage'],
 	'Crafting Table': ['Place','Drop'],
 	'Turret' : ['Place','Drop'],
+	'Ammo' : ['Drop'],
+	'Coconut' : ['Drop']
 }
 
 #is in the city or not

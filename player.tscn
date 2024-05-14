@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
 [ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
 [ext_resource type="PackedScene" uid="uid://b3tkmp0l5w6x7" path="res://craftable_item.tscn" id="22_5wfvl"]
-[ext_resource type="PackedScene" uid="uid://c8mu5s05ml3tr" path="res://inventory_item.tscn" id="30_65kdu"]
+[ext_resource type="Texture2D" uid="uid://bxu7tancef76i" path="res://Assets/Sprites/shotgun.png" id="29_8y0in"]
 [ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="34_tgl7y"]
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 [ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="36_k46ry"]
@@ -312,6 +312,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("29_8y0in")
+ignore_texture_size = true
+stretch_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="Menu" type="Control" parent="."]
@@ -393,11 +396,6 @@ layout_mode = 2
 columns = 3
 metadata/_edit_lock_ = true
 
-[node name="Inventory_item" parent="MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer" instance=ExtResource("30_65kdu")]
-layout_mode = 2
-is_item = "Turret"
-item_amount = 10
-
 [node name="Crafting" type="Control" parent="MiniMenu/TabContainer"]
 visible = false
 layout_mode = 2
@@ -459,6 +457,7 @@ texture_progress = ExtResource("17_1dyty")
 
 [node name="CraftingProgressBar" type="TextureProgressBar" parent="."]
 visible = false
+z_index = 1
 offset_left = -40.0
 offset_top = -32.0
 offset_right = 40.0

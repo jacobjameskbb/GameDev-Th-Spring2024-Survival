@@ -12,4 +12,3 @@ func _process(_delta):
 			health = get_parent().hit_points
 		else:
 			get_parent().hit_points = health
-	
