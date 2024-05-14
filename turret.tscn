@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7usjpwq8wfj"]
+[gd_scene load_steps=7 format=3 uid="uid://7usjpwq8wfj"]
 
 [ext_resource type="Script" path="res://Script/Turret.gd" id="1_2p658"]
 [ext_resource type="Texture2D" uid="uid://dohigb5af446l" path="res://Assets/Sprites/turret_base.png" id="2_vamco"]
 [ext_resource type="Texture2D" uid="uid://dkyayj3m35bdd" path="res://Assets/Sprites/turret_barrel.png" id="3_7pjra"]
+[ext_resource type="Script" path="res://Script/ObjectStaticBody.gd" id="4_5qqtd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nrftm"]
 radius = 16.0
@@ -20,6 +21,7 @@ texture = ExtResource("2_vamco")
 texture = ExtResource("3_7pjra")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("4_5qqtd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_nrftm")

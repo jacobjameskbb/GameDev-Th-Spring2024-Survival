@@ -16,6 +16,8 @@ extends Node
 
 @onready var house_scene = preload("res://house.tscn")
 
+@onready var enemy_scene = preload("res://enemy.tscn")
+
 @onready var large_house = preload("res://Assets/Sprites/Abandoned house.png")
 
 @onready var bullet_scene = preload("res://bullet.tscn")
@@ -53,6 +55,9 @@ extends Node
 	'Scrap' : preload('res://Assets/Sprites/scrap.png')
 	
 }
+
+
+var types_of_enemies = 1
 
 var dictionary_of_building_shapes = {
 	'Wooden Fence' : {'Shape' : RectangleShape2D, 'Size' : Vector2(32,32)},
@@ -99,7 +104,7 @@ var dictionary_of_item_actions: Dictionary = {
 #is in the city or not
 var in_city = false
 
-var current_time = 100
+var current_time = 0
 
 var current_day = 0
 

@@ -147,13 +147,16 @@ func new_count_time():
 		$CanvasModulate.set_color(Color(1 - (day_progress - 0.5), 1 - (day_progress - 0.5), 1 - (day_progress - 0.5), 1))
 
 func spawn_enemies(difficulty):
+	var amount_of_monsters = difficulty + 1
 	
-	
-	
-	
-	
-	
-	pass
+	for i in amount_of_monsters:
+		var new_monster = Global.enemy_scene.instantiate()
+		
+		new_monster.position = beach_area[randi_range(0,beach_area.size() - 1)]
+		
+		new_monster.is_enemy = randi_range(0,Global.types_of_enemies)
+		
+		self.add_child(new_monster)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("LMB"):
