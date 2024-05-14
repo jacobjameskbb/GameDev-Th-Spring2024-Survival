@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=76 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cy5uagrqddbm5" path="res://Assets/Sprites/building.png" id="25_60wyf"]
 [ext_resource type="Texture2D" uid="uid://cl5nqkvtpwf31" path="res://Assets/Sprites/building 1.png" id="26_onljv"]
 [ext_resource type="Texture2D" uid="uid://dag1tid81n716" path="res://Assets/Sprites/Abandoned house.png" id="27_jv5sl"]
-[ext_resource type="PackedScene" uid="uid://cegmgyon7vd4e" path="res://enemy.tscn" id="28_qls63"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0qwq7"]
 tile_data = PackedInt32Array(0, 3, 0, 65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 327680, 4, 0, 393216, 4, 0, 458752, 4, 0, 524288, 5, 0, 589824, 4, 0, 655360, 4, 0, 720896, 4, 0, 786432, 4, 0, 851968, 4, 0, 917504, 4, 0, 983040, 4, 0, 1048576, 3, 0, 1, 3, 0, 65537, 4, 0, 131073, 4, 0, 196609, 4, 0, 262145, 4, 0, 327681, 4, 0, 393217, 4, 0, 458753, 4, 0, 524289, 5, 0, 589825, 4, 0, 655361, 4, 0, 720897, 4, 0, 786433, 4, 0, 851969, 4, 0, 917505, 4, 0, 983041, 4, 0, 1048577, 3, 0, 2, 3, 0, 65538, 4, 0, 131074, 4, 0, 196610, 4, 0, 262146, 4, 0, 327682, 4, 0, 393218, 4, 0, 458754, 4, 0, 524290, 5, 0, 589826, 4, 0, 655362, 4, 0, 720898, 4, 0, 786434, 4, 0, 851970, 4, 0, 917506, 4, 0, 983042, 4, 0, 1048578, 3, 0, 3, 3, 0, 65539, 4, 0, 131075, 4, 0, 196611, 4, 0, 262147, 4, 0, 327683, 4, 0, 393219, 4, 0, 458755, 4, 0, 524291, 5, 0, 589827, 4, 0, 655363, 4, 0, 720899, 4, 0, 786435, 4, 0, 851971, 4, 0, 917507, 4, 0, 983043, 4, 0, 1048579, 3, 0, 4, 3, 0, 65540, 4, 0, 131076, 4, 0, 196612, 4, 0, 262148, 4, 0, 327684, 4, 0, 393220, 4, 0, 458756, 4, 0, 524292, 4, 0, 589828, 4, 0, 655364, 4, 0, 720900, 4, 0, 786436, 4, 0, 851972, 4, 0, 917508, 4, 0, 983044, 4, 0, 1048580, 3, 0, 5, 3, 0, 65541, 4, 0, 131077, 4, 0, 196613, 4, 0, 262149, 4, 0, 327685, 4, 0, 393221, 4, 0, 458757, 4, 0, 524293, 4, 0, 589829, 4, 0, 655365, 4, 0, 720901, 4, 0, 786437, 4, 0, 851973, 4, 0, 917509, 4, 0, 983045, 4, 0, 1048581, 3, 0)
@@ -443,6 +442,8 @@ autoplay = true
 [node name="BeginNight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xxieq")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -575,9 +576,6 @@ texture = ExtResource("27_jv5sl")
 position = Vector2(5807, -319.5)
 scale = Vector2(0.435644, 0.5)
 texture = ExtResource("24_7m82y")
-
-[node name="Enemy" parent="." instance=ExtResource("28_qls63")]
-position = Vector2(1456, -184)
 
 [connection signal="timeout" from="Timer" to="." method="new_count_time"]
 [connection signal="body_entered" from="GolfCart/Area2D2" to="GolfCart" method="_on_area_2d_2_body_entered"]

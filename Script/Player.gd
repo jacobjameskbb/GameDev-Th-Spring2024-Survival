@@ -57,6 +57,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(_delta):
+	$HealthBar.value = health
+	
+	if health <= 0:
+		self.death()
 	
 	mouse_in_area = false
 	in_crafting_area = false
@@ -72,6 +76,9 @@ func _process(_delta):
 	for i in inventory.keys():
 		if inventory[i] <= 0:
 			inventory.erase(i)
+
+func death():
+	self.queue_free()
 
 func _on_held_item_animation_finished():
 	if $HeldItem.animation == 'mining':

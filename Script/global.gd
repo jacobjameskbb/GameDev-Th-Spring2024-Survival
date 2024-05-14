@@ -26,6 +26,7 @@ extends Node
 	'Plank' : preload("res://Assets/Sprites/plank of wood.png"),
 	'Rock' : preload("res://Assets/Sprites/rock - Copy.png"),
 	'Scrap' : preload("res://Assets/Sprites/scrap.png"),
+	'Coconut' : preload('res://Assets/Sprites/rock.png'),
 	'Wooden Fence' : preload("res://Assets/Sprites/fence.png"),
 	'Stone Fence' : preload("res://Assets/Sprites/cobblestone wall.png"),
 	'Ammo' : preload("res://Assets/Sprites/Ammo.png"),
@@ -60,7 +61,7 @@ var dictionary_of_building_shapes = {
 }
 
 var dictionary_of_items: Dictionary = {
-	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 0}, 'Time' : 2.0, 'Need_CTable' : false},
+	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 2}, 'Time' : 2.0, 'Need_CTable' : false},
 	'Stone Fence' : {'Health' : 450, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
 	'Crafting Table' : {'Health' : 50, 'Cost' : {'Plank' : 3, 'Rock' : 2, 'Scrap' : 1}, 'Time' : 20.0, 'Need_CTable' : false},
 	'Turret' : {'Cost' : {'Plank' : 2, 'Rock' : 1, 'Scrap' : 3}, 'Time' : 10.0, 'Need_CTable' : true},

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var attacking = false
 
+var currently_attacking = false
+
 var wandering = false
 
 var can_see_player = false
@@ -32,42 +34,50 @@ func _on_navigation_agent_2d_velocity_computed(svelocity):
 	safe_velocity = svelocity
 
 func _physics_process(delta):
-#	if $RayCast2D.is_colliding():
-#		can_see_player = false
-#	else:
-#		can_see_player = true
+	if $RayCast2D.is_colliding():
+		can_see_player = false
+	else:
+		can_see_player = true
+	
+	if currently_attacking == false and $AnimatedSprite2D.is_playing() == false:
+		$AnimatedSprite2D.play('default')
 	
 	for body in possible_targets:
 		if is_instance_valid(body) == false:
 			possible_targets.erase(body)
 	
-	for body in $LineOfSight.get_overlapping_bodies():
+	for body in $RangeOfSight.get_overlapping_bodies():
 		if body not in possible_targets and body.is_in_group('Attackable'):
 			possible_targets.append(body)
 	
 	for body in possible_targets:
-		if body not in $LineOfSight.get_overlapping_bodies():
+		if body not in $RangeOfSight.get_overlapping_bodies():
 			possible_targets.erase(body)
 	
 	if possible_targets.is_empty() == false:
-		var current_target = possible_targets[0]
+		var closest_target = possible_targets[0]
 		
-		for btarget in possible_targets:
-			print(current_target, ' /// ', current_target.global_position)
-			print(self.position.distance_to(current_target.position))
-			if self.position.distance_to(btarget.position) < self.position.distance_to(current_target.position):
-				current_target = btarget
-				print('ding')
+		for test_target in possible_targets:
+			
+			if self.position.distance_to(test_target.position) < self.position.distance_to(closest_target.position):
+				print(closest_target, test_target)
+				closest_target = test_target
+				print('///')
+				print(closest_target, test_target)
 		
-		target = current_target
+		target = closest_target
+	
+	elif can_see_player:
+		target = Global.Player
+	
 	else:
 		target = null
 	
 	if target != null:
 		wandering = false
 		attacking = true
-		$NavigationAgent2D.target_position = target.position
-		if target in $AttackRange.get_overlapping_bodies():
+		$NavigationAgent2D.target_position = target.global_position
+		if target in $AttackRange.get_overlapping_bodies() and currently_attacking == false:
 			attack()
 	
 	if wandering == true:
@@ -93,11 +103,23 @@ func _physics_process(delta):
 	
 
 func attack():
+	currently_attacking = true
+	
 	if ($AnimatedSprite2D.is_playing() and $AnimatedSprite2D.animation == "attacking") == false:
 		$AnimatedSprite2D.play("attacking")
 	
-	target.health += -10
+	await $AnimatedSprite2D.animation_finished
 	
+	target.health += -10
+	currently_attacking = false
 
 func _on_navigation_agent_2d_target_reached():
 	wandering_target_set = false
+
+func _on_range_of_sight_body_entered(body):
+	if body not in possible_targets and body.is_in_group('Attackable'):
+		possible_targets.append(body)
+
+func _on_range_of_sight_body_exited(body):
+	if body in possible_targets:
+		possible_targets.erase(body)

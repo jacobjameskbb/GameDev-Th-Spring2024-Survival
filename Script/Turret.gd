@@ -9,7 +9,9 @@ var firing = false
 var health = 100
 
 func _ready():
-	pass
+	get_parent().island_area.remove_at(get_parent().island_area.find(position))
+
+	get_parent().building_positions.append(position)
 
 func _process(delta):
 	

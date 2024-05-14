@@ -119,6 +119,7 @@ func pick_random_city_position():
 
 func new_count_time():
 	Global.current_time += 1
+	
 	Global.current_day = floor(Global.current_time / 300) + 1
 	
 	$Player/Day_label.text = "Day : " + str(Global.current_day)
@@ -128,64 +129,31 @@ func new_count_time():
 	
 	$Player/ClockHand.rotation = day_progress * 2 * PI
 	
-	if day_progress >= 0.5 and $DaySong.is_playing():
+	if day_progress == 0.75:
 		$DaySong.stop()
 		$BeginNight.play()
-		
-	elif day_progress < 0.5 and $BeginNight.is_playing():
+		spawn_enemies(Global.current_day)
+	
+	if day_progress >= 0.75 and $BeginNight.is_playing() == false:
+		pass
+	
+	if day_progress >  0.25 and day_progress < 0.75 and $DaySong.is_playing() == false:
 		$DaySong.play()
 		$BeginNight.stop()
-		
-	if day_progress >= 0 and day_progress <= 0.3:
-		$CanvasModulate.set_color(Color(1,1,1,1))
-		
-	if day_progress >= 0.3 and day_progress <= 0.5:
-		$CanvasModulate.set_color(Color((1 - 2.02666*(day_progress - 0.3)),(1 - 2.02666*(day_progress - 0.3)),(1 - 2.02666*(day_progress - 0.3)),1))
-		
-	if day_progress >= 0.5 and day_progress <= 0.8:
-		$CanvasModulate.set_color(Color(0.392, 0.392, 0.392, 1))
-		
-	if day_progress >= 0.8 and day_progress <= 1:
-		$CanvasModulate.set_color(Color((0.392 + 2.02666*(day_progress - 0.8)),(0.392 + 2.02666*(day_progress - 0.8)),(0.392 + 2.02666*(day_progress - 0.8)),1))
-		
+	
+	if day_progress >= 0 and day_progress < 0.5:
+		$CanvasModulate.set_color(Color(day_progress + 0.5, day_progress + 0.5, day_progress + 0.5, 1))
+	else:
+		$CanvasModulate.set_color(Color(1 - (day_progress - 0.5), 1 - (day_progress - 0.5), 1 - (day_progress - 0.5), 1))
 
-func count_time():
-	await $Timer.timeout
-	Global.current_time += 1
-	$Player/MTime.text = str(int($Player/MTime.text) + 1)
+func spawn_enemies(difficulty):
 	
-	if int($Player/MTime.text) < 10:
-		$Player/MTime.text = str('0',$Player/MTime.text)
 	
-	if int($Player/MTime.text) == 60:
-		$Player/MTime.text = str('00')
-		if int($Player/HTime.text) < 19:
-			$Player/HTime.text = str(int($Player/HTime.text) + 1)
-		else:
-			$Player/HTime.text = str(0)
 	
-	if Global.after_noon == false:
-		time_step += 1.0
-		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
 	
-	if Global.after_noon == true:
-		time_step += -1.0
-		$CanvasModulate.set_color(Color((0.392 + time_step/1200.0),(0.392 + time_step/1200.0),(0.392 + time_step/1200.0),1))
 	
-	if time_step == 600 or (time_step < 0):
-		if Global.after_noon == false:
-			Global.after_noon = true
-		else:
-			Global.after_noon = false
-		if Global.after_noon == false:
-			Global.day += 1
-			$Player/Day_value_label.text = str(Global.day)
 	
-	if time_step == 180 and Global.after_noon == true:
-		$DaySong.stop()
-		$BeginNight.play()
-	
-	count_time()
+	pass
 
 func _process(_delta):
 	if Input.is_action_just_pressed("LMB"):

@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_0oucx")
 }],
-"loop": true,
+"loop": false,
 "name": &"attacking",
 "speed": 15.0
 }, {
@@ -74,7 +74,7 @@ animations = [{
 radius = 255.159
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrok4"]
-radius = 279.0
+radius = 92.0217
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 0
@@ -85,25 +85,29 @@ script = ExtResource("1_s4ggk")
 position = Vector2(1.3113e-06, 1.19209e-06)
 scale = Vector2(0.256, 0.256)
 sprite_frames = SubResource("SpriteFrames_yhame")
-animation = &"attacking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 64.0
+path_postprocessing = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
 
-[node name="LineOfSight" type="Area2D" parent="."]
+[node name="RangeOfSight" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LineOfSight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeOfSight"]
 shape = SubResource("CircleShape2D_nmhjv")
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_xrok4")
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="body_entered" from="RangeOfSight" to="." method="_on_range_of_sight_body_entered"]
+[connection signal="body_exited" from="RangeOfSight" to="." method="_on_range_of_sight_body_exited"]
