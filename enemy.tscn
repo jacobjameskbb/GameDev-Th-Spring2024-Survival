@@ -77,11 +77,10 @@ radius = 255.159
 radius = 92.0217
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
-collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_s4ggk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BallBoi_Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.3113e-06, 1.19209e-06)
 scale = Vector2(0.256, 0.256)
 sprite_frames = SubResource("SpriteFrames_yhame")

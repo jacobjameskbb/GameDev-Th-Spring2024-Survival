@@ -9,7 +9,7 @@
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awo7f"]
-radius = 256.125
+radius = 384.0
 
 [node name="Turret" type="Node2D" groups=["Turret"]]
 script = ExtResource("1_2p658")

@@ -19,6 +19,8 @@ var is_on_beach = false
 
 var taking_damage = false
 
+var destroyed_by_player = false
+
 func _ready():
 	if is_on_beach == false:
 		var random_objects = []
@@ -56,24 +58,25 @@ func _ready():
 
 func _process(_delta):
 	if hit_points <= 0:
-		var new_resource = Global.resource_scene.instantiate()
-		get_node('/root/BaseGame').add_child(new_resource)
-		new_resource.position = position
-		if Global.objects['Tree'] == is_object:
-			new_resource.spawn_in('Plank')
-		if Global.objects['Rock'] == is_object:
-			new_resource.spawn_in('Rock')
-		if Global.objects['Scrap pile'] == is_object:
-			new_resource.spawn_in('Scrap')
-		if Global.objects['Palm tree'] == is_object:
-			new_resource.spawn_in(random_palm_tree_drop())
-
+		if destroyed_by_player:
+			var new_resource = Global.resource_scene.instantiate()
+			get_node('/root/BaseGame').add_child(new_resource)
+			new_resource.position = position
+			if Global.objects['Tree'] == is_object:
+				new_resource.spawn_in('Plank')
+			if Global.objects['Rock'] == is_object:
+				new_resource.spawn_in('Rock')
+			if Global.objects['Scrap pile'] == is_object:
+				new_resource.spawn_in('Scrap')
+			if Global.objects['Palm tree'] == is_object:
+				new_resource.spawn_in(random_palm_tree_drop())
+		
 		get_node('/root/BaseGame').island_area.append(position)
 		queue_free()
-
+	
 	if hit_points != max_health and $ProgressBar.visible == false:
 		$ProgressBar.visible = true
-
+	
 	if hit_points != $ProgressBar.value:
 		$ProgressBar.value = hit_points
 
@@ -116,4 +119,5 @@ func take_damage():
 	if Global.objects['Rock'] == is_object or Global.objects['Scrap pile'] == is_object:
 		hit_points += -10 * Global.Player.pickaxe_level
 	
+	destroyed_by_player = true
 	taking_damage = false

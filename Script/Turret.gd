@@ -16,30 +16,42 @@ func _ready():
 	get_parent().building_positions.append(position)
 
 func _process(delta):
+	if list_of_targets.is_empty() == false:
+		attacking = true
+	else:
+		attacking = false
 	
 	for body in list_of_targets:
 		if is_instance_valid(body) == false:
 			list_of_targets.erase(body)
 	
-	if attacking == false:
-		$TurretBarrel.rotation_degrees += 100 * delta
-	else:
-		$TurretBarrel.rotation_degrees = (target.position - self.position).get_angle()
-	
 	if $RayCast2D.is_colliding():
-		if attacking and firing == false and $RayCast2D.get_collider().is_in_group('Enemy'):
+		if attacking == true and firing == false and $RayCast2D.get_collider().is_in_group('Enemy'):
 			self.fire() 
 	
-	for body in $Area2D.get_overlapping_areas():
+	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group('Enemy'):
 			list_of_targets.append(body)
 	
 	for body in list_of_targets:
-		if body not in $Area2D.get_overlapping_areas():
+		if body not in $Area2D.get_overlapping_bodies():
 			list_of_targets.erase(body)
+	
+	if list_of_targets.is_empty() != true:
+		var current_target = list_of_targets[0]
+	
+		for body in list_of_targets:
+			if self.position.distance_to(body.position) < self.position.distance_to(current_target.position):
+				current_target = body
+	
+		target = current_target
 	
 	if target != null:
 		$RayCast2D.target_position = -(position - target.position)
+		if attacking == false:
+			$TurretBarrel.rotation_degrees += 100 * delta
+		else:
+			$TurretBarrel.rotation_degrees = (target.position - self.position).angle()
 
 func fire():
 	firing = true

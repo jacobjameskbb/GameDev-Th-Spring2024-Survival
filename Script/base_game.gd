@@ -154,7 +154,7 @@ func spawn_enemies(difficulty):
 		
 		new_monster.position = beach_area[randi_range(0,beach_area.size() - 1)]
 		
-		new_monster.is_enemy = randi_range(0,Global.types_of_enemies)
+		new_monster.is_enemy = randi_range(0,Global.types_of_enemies - 1)
 		
 		self.add_child(new_monster)
 
@@ -211,17 +211,18 @@ func place_object(object_placed, being_affected):
 		
 		await LMB
 		
-		var new_turret = Global.turret_scene.instantiate()
-		new_turret.position = Global.Mouse.over_tile
-		self.add_child(new_turret)
-		for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
-			if child.is_item == object_placed:
-				Global.Player.inventory[object_placed] -= 1
-				if Global.Player.inventory[object_placed] == 0:
-					Global.Player.inventory.erase(object_placed)
-				Global.Player.current_amount_of_items -= 1
-				child.item_amount -= 1
-				break
+		if $PlacingSprite.position in island_area and Global.Player.building:
+			var new_turret = Global.turret_scene.instantiate()
+			new_turret.position = Global.Mouse.over_tile
+			self.add_child(new_turret)
+			for child in get_node('/root/BaseGame/Player/MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer').get_children():
+				if child.is_item == object_placed:
+					Global.Player.inventory[object_placed] -= 1
+					if Global.Player.inventory[object_placed] == 0:
+						Global.Player.inventory.erase(object_placed)
+					Global.Player.current_amount_of_items -= 1
+					child.item_amount -= 1
+					break
 		
 		Global.Player.building = false
 		$PlacingSprite.visible = false

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 15000
 
-var inventory: Dictionary = {}
+var inventory: Dictionary = {'Turret' : 10}
 
 var max_inventory_size = 10
 
@@ -71,7 +71,6 @@ func _process(_delta):
 		
 		if i.is_in_group('Crafting_area'):
 			in_crafting_area = true
-		
 	
 	for i in inventory.keys():
 		if inventory[i] <= 0:

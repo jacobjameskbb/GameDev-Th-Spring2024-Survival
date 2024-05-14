@@ -13,7 +13,7 @@ size = Vector2(32, 32)
 y_sort_enabled = true
 script = ExtResource("1_ioerv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Attackable"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Attackable", "Object"]]
 script = ExtResource("2_ghf60")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

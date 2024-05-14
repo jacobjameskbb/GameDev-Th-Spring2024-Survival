@@ -45,8 +45,8 @@ func _physics_process(delta):
 	else:
 		can_see_player = true
 	
-	if currently_attacking == false and $AnimatedSprite2D.is_playing() == false:
-		$AnimatedSprite2D.play('default')
+	if currently_attacking == false and get_child(is_enemy).is_playing() == false:
+		get_child(is_enemy).play('default')
 	
 	for body in possible_targets:
 		if is_instance_valid(body) == false:
@@ -64,12 +64,8 @@ func _physics_process(delta):
 		var closest_target = possible_targets[0]
 		
 		for test_target in possible_targets:
-			
 			if self.position.distance_to(test_target.position) < self.position.distance_to(closest_target.position):
-				print(closest_target, test_target)
 				closest_target = test_target
-				print('///')
-				print(closest_target, test_target)
 		
 		target = closest_target
 	
@@ -83,7 +79,7 @@ func _physics_process(delta):
 		wandering = false
 		attacking = true
 		$NavigationAgent2D.target_position = target.global_position
-		if target in $AttackRange.get_overlapping_bodies() and currently_attacking == false:
+		if (target in $AttackRange.get_overlapping_bodies()) == true and currently_attacking == false:
 			attack()
 	
 	if wandering == true:
@@ -106,18 +102,27 @@ func _physics_process(delta):
 	
 	if Vector2(Vector2i(self.position)) in path:
 		path.remove_at(path.find(Vector2(Vector2i(self.position))))
-	
 
 func attack():
-	currently_attacking = true
-	
-	if ($AnimatedSprite2D.is_playing() and $AnimatedSprite2D.animation == "attacking") == false:
-		$AnimatedSprite2D.play("attacking")
-	
-	await $AnimatedSprite2D.animation_finished
-	
-	target.health += -10
-	currently_attacking = false
+	if target != null:
+		currently_attacking = true
+		
+		if (get_child(is_enemy).is_playing() and get_child(is_enemy).animation == "attacking") == false:
+			get_child(is_enemy).play("attacking")
+		
+		await get_child(is_enemy).animation_finished
+		
+		if target != null:
+			if is_enemy == 0:
+				if target.is_in_group('Object'):
+					target.health += -100
+			else:
+				target.health += -10
+			
+			if target.is_in_group('Object'):
+				target.get_parent().destroyed_by_player = false
+		
+		currently_attacking = false
 
 func _on_navigation_agent_2d_target_reached():
 	wandering_target_set = false

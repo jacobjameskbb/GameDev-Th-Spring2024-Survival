@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://vbtqarv47q7u"]
+[gd_scene load_steps=45 format=3 uid="uid://vbtqarv47q7u"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_1xnsh"]
 [ext_resource type="Texture2D" uid="uid://bvx8rhfk0r2vc" path="res://Assets/Sprites/WalkDown1.0 Army Guy.png" id="2_o7mfy"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
 [ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
 [ext_resource type="PackedScene" uid="uid://b3tkmp0l5w6x7" path="res://craftable_item.tscn" id="22_5wfvl"]
+[ext_resource type="PackedScene" uid="uid://c8mu5s05ml3tr" path="res://inventory_item.tscn" id="30_65kdu"]
 [ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="34_tgl7y"]
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 [ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="36_k46ry"]
@@ -355,7 +356,6 @@ offset_bottom = 135.0
 text = "Settings"
 
 [node name="MiniMenu" type="Control" parent="."]
-visible = false
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
@@ -392,6 +392,11 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 columns = 3
 metadata/_edit_lock_ = true
+
+[node name="Inventory_item" parent="MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer" instance=ExtResource("30_65kdu")]
+layout_mode = 2
+is_item = "Turret"
+item_amount = 10
 
 [node name="Crafting" type="Control" parent="MiniMenu/TabContainer"]
 visible = false

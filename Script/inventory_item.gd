@@ -1,8 +1,8 @@
 extends Control
 
-var is_item
+@export var is_item: String
 
-var item_amount: int = 1
+@export var item_amount: int = 1
 
 var mouse_in_area = false
 
