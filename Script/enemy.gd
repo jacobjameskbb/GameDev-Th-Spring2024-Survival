@@ -27,10 +27,24 @@ const accelaration = 5
 @export var is_enemy = 0
 
 func _ready():
-	if is_enemy == 0:
-		$CollisionShape2D.shape = CircleShape2D.new()
-		$CollisionShape2D.shape.radius = 44
-		$NavigationAgent2D.avoidance_enabled = false
+	
+	$CollisionShape2D.shape = Global.dictionary_of_enemy_stats[is_enemy]['Shape'].new()
+	$AttackRange/CollisionShape2D.shape.radius = Global.dictionary_of_enemy_stats[is_enemy]['Attack_range']
+	
+	self.set_collision_layer_value(1 , Global.dictionary_of_enemy_stats[is_enemy]['uses_first_collision_layer'])
+	
+	self.set_collision_mask_value(1 , Global.dictionary_of_enemy_stats[is_enemy]['uses_first_collision_layer'])
+	
+	if $CollisionShape2D.shape.get_class() == 'CircleShape2D':
+		$CollisionShape2D.shape.radius = Global.dictionary_of_enemy_stats[is_enemy]['Size']
+	
+	elif $CollisionShape2D.shape.get_class() == 'CapsuleShape2D':
+		$CollisionShape2D.shape.radius = Global.dictionary_of_enemy_stats[is_enemy]['Size'].x
+		$CollisionShape2D.shape.height = Global.dictionary_of_enemy_stats[is_enemy]['Size'].y
+	
+	$CollisionShape2D.position += Global.dictionary_of_enemy_stats[is_enemy]['collision_offset']
+	
+	get_child(is_enemy).visible = true
 
 func _on_navigation_agent_2d_velocity_computed(svelocity):
 	safe_velocity = svelocity
@@ -68,12 +82,11 @@ func _physics_process(delta):
 				closest_target = test_target
 		
 		target = closest_target
-	
-	elif can_see_player:
-		target = Global.Player
-	
 	else:
 		target = null
+	
+	if can_see_player:
+		target = Global.Player
 	
 	if target != null:
 		wandering = false
@@ -112,14 +125,11 @@ func attack():
 		
 		await get_child(is_enemy).animation_finished
 		
-		if target != null:
-			if is_enemy == 0:
-				if target.is_in_group('Object'):
-					target.health += -100
-				else:
-					target.health += -10
+		if target != null and target in $AttackRange.get_overlapping_bodies():
+			if target.is_in_group('Object'):
+				target.health = 0
 			else:
-				target.health += -10
+				target.health += -10 * (int(is_enemy / 2.0) + 1)
 			
 			if target.is_in_group('Object'):
 				target.get_parent().destroyed_by_player = false

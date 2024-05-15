@@ -124,6 +124,12 @@ func new_count_time():
 	
 	Global.current_day = floor(Global.current_time / 300) + 1
 	
+	if Global.current_time == 600:
+		Global.types_of_enemies += 1
+	
+	if Global.current_time == 900:
+		Global.types_of_enemies += 1
+	
 	$Player/Day_label.text = "Day : " + str(Global.current_day)
 	
 	var day_progress = float(Global.current_time % 300) / 300

@@ -61,7 +61,7 @@ func _process(_delta):
 		if destroyed_by_player:
 			var new_resource = Global.resource_scene.instantiate()
 			get_node('/root/BaseGame').add_child(new_resource)
-			new_resource.position = position
+			new_resource.position = position - Vector2(20,20)
 			if Global.objects['Tree'] == is_object:
 				new_resource.spawn_in('Plank')
 			if Global.objects['Rock'] == is_object:
@@ -74,6 +74,9 @@ func _process(_delta):
 		if Global.objects['Palm tree'] != is_object:
 			get_node('/root/BaseGame').island_area.append(position)
 			get_node('/root/BaseGame').current_foliage += -1
+		elif Global.objects['Scrap pile'] == is_object:
+			get_node('/root/BaseGame').city_area.append(self.position)
+			get_node('/root/BaseGame').current_amount_of_items += -1
 		else:
 			get_node('/root/BaseGame').current_beach_foliage += -1
 			get_node('/root/BaseGame').beach_area.append(position)
@@ -87,7 +90,7 @@ func _process(_delta):
 		$ProgressBar.value = hit_points
 
 func random_palm_tree_drop(): 
-	var random_number = randi_range(0,3)
+	var random_number = randi_range(0,1)
 	if 1 == random_number:
 		return 'Coconut'
 	else:

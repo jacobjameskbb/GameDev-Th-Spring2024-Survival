@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://2us3thieuk22"
+path="res://.godot/imported/coconut.png-5e43ccff08853a0452c810af3094e958.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/coconut.png"
+dest_files=["res://.godot/imported/coconut.png-5e43ccff08853a0452c810af3094e958.ctex"]
 
 [params]
 

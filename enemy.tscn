@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cegmgyon7vd4e"]
+[gd_scene load_steps=31 format=3 uid="uid://cegmgyon7vd4e"]
 
 [ext_resource type="Texture2D" uid="uid://drpm0uirnqnkj" path="res://Assets/Sprites/Enemies/BallBoi2.png" id="1_nip7y"]
 [ext_resource type="Script" path="res://Script/enemy.gd" id="1_s4ggk"]
@@ -14,6 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://20d4fjrevelv" path="res://Assets/Sprites/Enemies/BallBoi Roll 8.png" id="11_0peue"]
 [ext_resource type="Texture2D" uid="uid://bf37l5j6scbud" path="res://Assets/Sprites/Enemies/BallBoi Roll 9.png" id="12_nj02l"]
 [ext_resource type="Texture2D" uid="uid://8b2vyd7fwgh" path="res://Assets/Sprites/Enemies/BallBoi Roll 10.png" id="13_0oucx"]
+[ext_resource type="Texture2D" uid="uid://jh2k4uarxq75" path="res://Assets/Sprites/Enemies/Agony.png" id="15_y8rgv"]
+[ext_resource type="Texture2D" uid="uid://cwsh22drdtts4" path="res://Assets/Sprites/Enemies/Agony 1.png" id="16_8g8vk"]
+[ext_resource type="Texture2D" uid="uid://bwfci4ppqwrcr" path="res://Assets/Sprites/Enemies/Agony 2.png" id="17_qp7tx"]
+[ext_resource type="Texture2D" uid="uid://d1qxe2u2cvq1b" path="res://Assets/Sprites/Enemies/Bannana whale 0.png" id="18_3jusn"]
+[ext_resource type="Texture2D" uid="uid://c5ufo2g3wnk1a" path="res://Assets/Sprites/Enemies/Bannana whale 1.png" id="19_2slle"]
+[ext_resource type="Texture2D" uid="uid://xxg2ixbj3l5e" path="res://Assets/Sprites/Enemies/Bannana whale 2.png" id="20_xpf2a"]
+[ext_resource type="Texture2D" uid="uid://btmrrc7g6ehg4" path="res://Assets/Sprites/Enemies/Bannana whale 3.png" id="21_7dqcc"]
+[ext_resource type="Texture2D" uid="uid://bwk3p7glxvfvn" path="res://Assets/Sprites/Enemies/Bannana whale 4.png" id="22_06sk7"]
+[ext_resource type="Texture2D" uid="uid://b6mg270yo1wve" path="res://Assets/Sprites/Enemies/Bannana whale 5.png" id="23_36o3h"]
+[ext_resource type="Texture2D" uid="uid://den4aghlvb1w1" path="res://Assets/Sprites/Enemies/Bannana whale 6.png" id="24_ob0v5"]
+[ext_resource type="Texture2D" uid="uid://b0d7ack7voqq0" path="res://Assets/Sprites/Enemies/Bannana whale 7.png" id="25_4qfm4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhame"]
 animations = [{
@@ -70,20 +81,117 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcgl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_y8rgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8g8vk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qp7tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8g8vk")
+}],
+"loop": false,
+"name": &"attacking",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_y8rgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8g8vk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qp7tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8g8vk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6dqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_2slle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xpf2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7dqcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_06sk7")
+}],
+"loop": false,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_3jusn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2slle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xpf2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7dqcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_06sk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_36o3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ob0v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4qfm4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmhjv"]
 radius = 255.159
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrok4"]
-radius = 74.0608
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 2
 collision_mask = 3
 script = ExtResource("1_s4ggk")
 
-[node name="BallBoi_Animation" type="AnimatedSprite2D" parent="."]
+[node name="BallBoiAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1.3113e-06, 1.19209e-06)
 scale = Vector2(0.256, 0.256)
 sprite_frames = SubResource("SpriteFrames_yhame")
+
+[node name="AgonyAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_pcgl3")
+animation = &"attacking"
+
+[node name="BannanaWhaleAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_q6dqa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -96,15 +204,19 @@ target_position = Vector2(0, 0)
 
 [node name="RangeOfSight" type="Area2D" parent="."]
 collision_mask = 3
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeOfSight"]
 shape = SubResource("CircleShape2D_nmhjv")
+metadata/_edit_lock_ = true
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_mask = 3
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_xrok4")
+metadata/_edit_lock_ = true
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

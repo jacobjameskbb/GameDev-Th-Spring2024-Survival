@@ -1,18 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://f47oj3myqy7i"]
 
+[ext_resource type="Texture2D" uid="uid://ddblstuc7rfpg" path="res://Assets/Sprites/plank of wood.png" id="1_0h18k"]
 [ext_resource type="Script" path="res://Script/Resource.gd" id="1_rvmbj"]
-[ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="2_n2xqm"]
 
-[node name="Resource" type="Sprite2D" groups=["Pickup_able", "Resource"]]
+[node name="Resource" type="TextureButton" groups=["Pickup_able", "Resource"]]
+z_index = -1
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_0h18k")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_rvmbj")
 
-[node name="Button" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(32, 32)
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-texture_normal = ExtResource("2_n2xqm")
-ignore_texture_size = true
-
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="." to="." method="_on_button_button_up"]

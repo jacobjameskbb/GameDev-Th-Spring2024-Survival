@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
 [ext_resource type="Texture2D" uid="uid://cadt1vgg2mrmc" path="res://Assets/Sprites/Axe up 3.png" id="13_8bb0w"]
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
-[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/axe.png" id="14_xk33i"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
@@ -245,7 +245,7 @@ zoom = Vector2(1.5, 1.5)
 editor_draw_limits = true
 
 [node name="ToolBar" type="Control" parent="."]
-z_index = 1
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = -384.0
@@ -318,7 +318,7 @@ stretch_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="Menu" type="Control" parent="."]
-z_index = 2
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = -64.0
@@ -359,7 +359,7 @@ offset_bottom = 135.0
 text = "Settings"
 
 [node name="MiniMenu" type="Control" parent="."]
-z_index = 2
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 128.0
@@ -422,10 +422,6 @@ item = "Wooden Fence"
 layout_mode = 2
 item = "Stone Fence"
 
-[node name="CraftableItem3" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
-layout_mode = 2
-item = "Crafting Table"
-
 [node name="CraftableItem4" parent="MiniMenu/TabContainer/Crafting/ScrollContainer/GridContainer" instance=ExtResource("22_5wfvl")]
 layout_mode = 2
 item = "Turret"
@@ -435,7 +431,7 @@ visible = false
 layout_mode = 2
 
 [node name="Day_label" type="Label" parent="."]
-z_index = 2
+z_index = 3
 offset_left = -363.0
 offset_top = -131.0
 offset_right = -303.0
@@ -443,7 +439,7 @@ offset_bottom = -108.0
 text = "Day : 1"
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-z_index = 2
+z_index = 3
 offset_left = -120.0
 offset_top = 168.0
 offset_right = -80.0
@@ -457,7 +453,7 @@ texture_progress = ExtResource("17_1dyty")
 
 [node name="CraftingProgressBar" type="TextureProgressBar" parent="."]
 visible = false
-z_index = 1
+z_index = 3
 offset_left = -40.0
 offset_top = -32.0
 offset_right = 40.0

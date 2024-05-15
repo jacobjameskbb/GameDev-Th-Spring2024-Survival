@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://b6mg270yo1wve"
+path="res://.godot/imported/Bannana whale 5.png-6ee9de11b88f4dabeed481d0e54a6f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/Enemies/Bannana whale 5.png"
+dest_files=["res://.godot/imported/Bannana whale 5.png-6ee9de11b88f4dabeed481d0e54a6f65.ctex"]
 
 [params]
 

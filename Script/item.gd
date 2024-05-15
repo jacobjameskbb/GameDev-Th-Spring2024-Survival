@@ -18,4 +18,6 @@ func spawn_in(item):
 func _on_button_button_up():
 	if Global.Player.inventory.size() < Global.Player.max_inventory_size and Global.Player.current_amount_of_items < Global.Player.max_inventory_size and Global.Player.mouse_in_area == true:
 		get_node('/root/BaseGame').add_item_to_inventory(is_item)
+		get_node('/root/BaseGame').city_area.append(self.position)
+		get_node('/root/BaseGame').current_amount_of_items += -1
 		queue_free()

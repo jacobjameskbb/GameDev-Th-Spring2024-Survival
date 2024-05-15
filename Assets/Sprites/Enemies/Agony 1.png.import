@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c64f74v0cjwxs"
-path="res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"
+uid="uid://cwsh22drdtts4"
+path="res://.godot/imported/Agony 1.png-6901b3ebfc0a7aaddf483700587b11c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Road.png"
-dest_files=["res://.godot/imported/Road.png-d69fc8a55b04f0b71d73ff20d5c649fe.ctex"]
+source_file="res://Assets/Sprites/Enemies/Agony 1.png"
+dest_files=["res://.godot/imported/Agony 1.png-6901b3ebfc0a7aaddf483700587b11c5.ctex"]
 
 [params]
 

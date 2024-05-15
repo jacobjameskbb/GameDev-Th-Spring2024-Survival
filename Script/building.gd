@@ -17,7 +17,7 @@ func _ready():
 	$Area2D/CollisionShape2D.shape = Global.dictionary_of_building_shapes[building_type]['Shape'].new()
 	$Area2D/CollisionShape2D.shape.size = Global.dictionary_of_building_shapes[building_type]['Size']
 	
-	$TextureProgressBar.position = Vector2(self.texture.get_width() - $TextureProgressBar.size.x * 1.5, self.texture.get_height() / 2)
+	$TextureProgressBar.position = Vector2(self.texture.get_width() - $TextureProgressBar.size.x * 1.5, self.texture.get_height() / 2.0)
 	
 	if building_type == 'Crafting Table':
 		var new_crafting_area = Area2D.new()
