@@ -630,7 +630,8 @@ layout_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2750, -16)
-collision_mask = 2
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_tkijs")
