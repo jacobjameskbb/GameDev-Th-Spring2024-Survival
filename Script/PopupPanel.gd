@@ -72,7 +72,7 @@ func _button_input(button_pressed):
 	if button_pressed.text == 'Travel to city':
 		get_parent().generate_city()
 	
-	if button_pressed.text == 'Check storage':
+	if button_pressed.text == 'Check storage' and Global.near_golf_cart:
 		Global.Player.get_node('GolfCartInventory').open()
 		if Global.Player.get_node('MiniMenu').visible == false:
 			Global.Player.get_node('MiniMenu').visible = true

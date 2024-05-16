@@ -120,6 +120,8 @@ var dictionary_of_item_actions: Dictionary = {
 #is in the city or not
 var in_city = false
 
+var near_golf_cart = false
+
 var current_time = 0
 
 var current_day = 0
