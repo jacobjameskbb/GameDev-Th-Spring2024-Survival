@@ -58,7 +58,7 @@ func _ready():
 
 func _process(_delta):
 	if hit_points <= 0:
-		if destroyed_by_player:
+		if destroyed_by_player == true:
 			var new_resource = Global.resource_scene.instantiate()
 			get_node('/root/BaseGame').add_child(new_resource)
 			new_resource.position = position - Vector2(16,16)
@@ -75,7 +75,7 @@ func _process(_delta):
 			get_node('/root/BaseGame').city_area.append(position)
 			get_node('/root/BaseGame').current_city_object_density += -1
 		
-		elif Global.objects['Palm tree'] != is_object:
+		elif Global.objects['Palm tree'] == is_object:
 			get_node('/root/BaseGame').current_beach_foliage += -1
 			get_node('/root/BaseGame').beach_area.append(position)
 		

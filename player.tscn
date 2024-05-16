@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="11_q12vt"]
 [ext_resource type="Texture2D" uid="uid://cadt1vgg2mrmc" path="res://Assets/Sprites/Axe up 3.png" id="13_8bb0w"]
 [ext_resource type="Script" path="res://Script/ToolBar.gd" id="13_cbkm5"]
-[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
+[ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]

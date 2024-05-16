@@ -5,7 +5,6 @@
 [node name="Resource" type="TextureButton" groups=["Pickup_able", "Resource"]]
 z_index = -1
 custom_minimum_size = Vector2(32, 32)
-anchors_preset = -1
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_rvmbj")
