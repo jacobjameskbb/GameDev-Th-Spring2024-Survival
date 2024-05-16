@@ -49,21 +49,26 @@ func _process(delta):
 			list_of_targets.append(body)
 	
 	for body in list_of_targets:
-		if body not in $Area2D.get_overlapping_bodies():
+		if is_instance_valid(body):
+			if body not in $Area2D.get_overlapping_bodies():
+				list_of_targets.erase(body)
+		else:
 			list_of_targets.erase(body)
 	
 	if list_of_targets.is_empty() != true:
 		var current_target = list_of_targets[0]
 	
 		for body in list_of_targets:
-			if self.position.distance_to(body.position) < self.position.distance_to(current_target.position):
-				current_target = body
+			if is_instance_valid(body):
+				if self.position.distance_to(body.position) < self.position.distance_to(current_target.position):
+					current_target = body
 	
-		target = current_target
+		if is_instance_valid(current_target):
+			target = current_target
 	
-	if target != null:
+	if target != null and is_instance_valid(target):
 		$RayCast2D.target_position = -(position - target.position)
-		$TurretBarrel.rotation_degrees = (target.position - self.position).angle()
+		$TurretBarrel.look_at(target.position)
 	
 	if attacking == false:
 		$TurretBarrel.rotation_degrees += 100 * delta

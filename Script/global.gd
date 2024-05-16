@@ -72,15 +72,18 @@ var dictionary_of_enemy_stats: Dictionary = {
 	
 	2 : {'Shape' : CapsuleShape2D, 'Size' : Vector2(26,102), 'Attack_range' : 200, 'uses_first_collision_layer' : true, 'collision_offset' : Vector2(-27,-18)},
 	
+	3 : {'Shape' : CircleShape2D, 'Size' : 112.5,  'Attack_range' : 200,  'uses_first_collision_layer' : false,  'collision_offset' : Vector2(0,0)},
 	
+	4 : {'Shape' : CircleShape2D, 'Size' : 76,  'Attack_range' : 120,  'uses_first_collision_layer' : false,  'collision_offset' : Vector2(0,0)},
 	
+	5 : {'Shape' : CapsuleShape2D, 'Size' : Vector2(60,268),  'Attack_range' : 120,  'uses_first_collision_layer' : true,  'collision_offset' : Vector2(0,-36)},
 }
 
 var dictionary_of_items: Dictionary = {
 	'Wooden Fence' : {'Health' : 250, 'Cost' : {'Plank' : 2}, 'Time' : 2.0, 'Need_CTable' : false},
 	'Stone Fence' : {'Health' : 450, 'Cost' : {'Plank' : 1, 'Rock' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
 	'Crafting Table' : {'Health' : 50, 'Cost' : {'Plank' : 3, 'Rock' : 2}, 'Time' : 10.0, 'Need_CTable' : false},
-	'Turret' : {'Cost' : {'Plank' : 2, 'Rock' : 1, 'Scrap' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
+	'Turret' : {'Cost' : {'Plank' : 1, 'Rock' : 2, 'Scrap' : 3}, 'Time' : 10.0, 'Need_CTable' : false},
 }
 
 var list_of_buildings: Array = [

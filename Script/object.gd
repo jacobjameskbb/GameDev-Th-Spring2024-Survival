@@ -61,7 +61,7 @@ func _process(_delta):
 		if destroyed_by_player:
 			var new_resource = Global.resource_scene.instantiate()
 			get_node('/root/BaseGame').add_child(new_resource)
-			new_resource.position = position - Vector2(20,20)
+			new_resource.position = position - Vector2(16,16)
 			if Global.objects['Tree'] == is_object:
 				new_resource.spawn_in('Plank')
 			if Global.objects['Rock'] == is_object:
@@ -71,15 +71,17 @@ func _process(_delta):
 			if Global.objects['Palm tree'] == is_object:
 				new_resource.spawn_in(random_palm_tree_drop())
 		
-		if Global.objects['Palm tree'] != is_object:
-			get_node('/root/BaseGame').island_area.append(position)
-			get_node('/root/BaseGame').current_foliage += -1
-		elif Global.objects['Scrap pile'] == is_object:
-			get_node('/root/BaseGame').city_area.append(self.position)
-			get_node('/root/BaseGame').current_amount_of_items += -1
-		else:
+		if Global.objects['Scrap pile'] == is_object:
+			get_node('/root/BaseGame').city_area.append(position)
+			get_node('/root/BaseGame').current_city_object_density += -1
+		
+		elif Global.objects['Palm tree'] != is_object:
 			get_node('/root/BaseGame').current_beach_foliage += -1
 			get_node('/root/BaseGame').beach_area.append(position)
+		
+		else:
+			get_node('/root/BaseGame').island_area.append(position)
+			get_node('/root/BaseGame').current_foliage += -1
 		
 		queue_free()
 	

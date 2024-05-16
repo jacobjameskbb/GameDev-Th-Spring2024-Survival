@@ -13,7 +13,7 @@ var timer
 func _process(_delta):
 	if timer != null:
 		if Global.dictionary_of_items[item]['Time'] - timer.time_left < Global.dictionary_of_items[item]['Time']:
-			Global.Player.get_child(10).value = float(Global.dictionary_of_items[item]['Time'] - timer.time_left)
+			Global.Player.get_child(9).value = float(Global.dictionary_of_items[item]['Time'] - timer.time_left)
 
 func _ready():
 	$TextureButton.texture_normal = Global.item_sprites[item]
@@ -32,15 +32,15 @@ func _on_texture_button_up():
 			crafting = true
 			Global.Player.crafting = true
 			timer = get_tree().create_timer(Global.dictionary_of_items[item]['Time'])
-			Global.Player.get_child(10).visible = true
-			Global.Player.get_child(10).max_value = Global.dictionary_of_items[item]['Time']
+			Global.Player.get_child(9).visible = true
+			Global.Player.get_child(9).max_value = Global.dictionary_of_items[item]['Time']
 			get_node('/root/BaseGame').is_crafting = true
 			
 			await timer.timeout
 			
 			
 			if has_enough_resources:
-				Global.Player.get_child(10).visible = false
+				Global.Player.get_child(9).visible = false
 				timer = null
 				craft_item()
 			

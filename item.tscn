@@ -1,17 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://tgdesticl2gk"]
+[gd_scene load_steps=2 format=3 uid="uid://tgdesticl2gk"]
 
 [ext_resource type="Script" path="res://Script/item.gd" id="1_3mati"]
-[ext_resource type="Texture2D" uid="uid://dsk886prsg4e1" path="res://Assets/Sprites/button_sprite.png" id="2_54b3l"]
 
-[node name="Item" type="Sprite2D" groups=["Item", "Pickup_able"]]
+[node name="Item" type="TextureButton" groups=["Item", "Pickup_able"]]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = -1
+offset_right = 32.0
+offset_bottom = 32.0
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_3mati")
 
-[node name="Button" type="TextureButton" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-texture_normal = ExtResource("2_54b3l")
-ignore_texture_size = true
-
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="." to="." method="_on_button_button_up"]

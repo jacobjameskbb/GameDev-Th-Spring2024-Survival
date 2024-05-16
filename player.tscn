@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://c8j3hg8yuepe4" path="res://Assets/Sprites/Axe.png" id="14_xk33i"]
 [ext_resource type="Texture2D" uid="uid://ubsdhr37565n" path="res://Assets/Sprites/Pickaxe.png" id="15_whud7"]
 [ext_resource type="Texture2D" uid="uid://dvmlj4keai3pc" path="res://Assets/Sprites/round_back_progress_bar.png" id="16_m0bi2"]
-[ext_resource type="Script" path="res://Script/Menu.gd" id="16_ow3nk"]
 [ext_resource type="Texture2D" uid="uid://cbuhofn1lm7ba" path="res://Assets/Sprites/round_front_progress_bar.png" id="17_1dyty"]
 [ext_resource type="Texture2D" uid="uid://dtx6x2537dqnl" path="res://Assets/Sprites/health_sprite.png" id="17_nf2nt"]
 [ext_resource type="PackedScene" uid="uid://b3tkmp0l5w6x7" path="res://craftable_item.tscn" id="22_5wfvl"]
@@ -37,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b4cm213hejv4s" path="res://Assets/Sprites/back_progress_bar.png" id="34_tgl7y"]
 [ext_resource type="Texture2D" uid="uid://dx4yesrpjjgw4" path="res://Assets/Sprites/front_progress_bar.png" id="35_l6wyn"]
 [ext_resource type="Texture2D" uid="uid://cgd5vliaf5bqn" path="res://Assets/Sprites/gun.png" id="36_k46ry"]
+[ext_resource type="Script" path="res://Script/GolfCartInventory.gd" id="36_wlwfs"]
 [ext_resource type="Script" path="res://Script/Gun.gd" id="37_rhnuy"]
 [ext_resource type="Texture2D" uid="uid://b4ciix1nf5t8r" path="res://Assets/Sprites/rustyclock.png" id="38_yrpgb"]
 [ext_resource type="Texture2D" uid="uid://da7w41dcrt7le" path="res://Assets/Sprites/Clock hand.png" id="39_sausv"]
@@ -317,48 +317,8 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_lock_ = true
 
-[node name="Menu" type="Control" parent="."]
-z_index = 3
-layout_mode = 3
-anchors_preset = 0
-offset_left = -64.0
-offset_top = -96.0
-offset_right = 64.0
-offset_bottom = 96.0
-script = ExtResource("16_ow3nk")
-
-[node name="PopUpMenu" type="ColorRect" parent="Menu"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.615686, 0.917647, 0.921569)
-
-[node name="Quit" type="Button" parent="Menu/PopUpMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 144.0
-offset_right = -32.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Quit"
-
-[node name="Settings" type="Button" parent="Menu/PopUpMenu"]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 104.0
-offset_right = 99.0
-offset_bottom = 135.0
-text = "Settings"
-
 [node name="MiniMenu" type="Control" parent="."]
+visible = false
 z_index = 3
 layout_mode = 3
 anchors_preset = 0
@@ -375,6 +335,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+tab_alignment = 1
 
 [node name="Inventory" type="Control" parent="MiniMenu/TabContainer"]
 layout_mode = 2
@@ -426,10 +387,6 @@ item = "Stone Fence"
 layout_mode = 2
 item = "Turret"
 
-[node name="Stats" type="Control" parent="MiniMenu/TabContainer"]
-visible = false
-layout_mode = 2
-
 [node name="Day_label" type="Label" parent="."]
 z_index = 3
 offset_left = -363.0
@@ -463,6 +420,46 @@ nine_patch_stretch = true
 texture_under = ExtResource("34_tgl7y")
 texture_progress = ExtResource("35_l6wyn")
 
+[node name="GolfCartInventory" type="Control" parent="."]
+visible = false
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -360.0
+offset_top = -104.0
+offset_right = -128.0
+offset_bottom = 192.0
+script = ExtResource("36_wlwfs")
+
+[node name="ColorRect" type="ColorRect" parent="GolfCartInventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.176471, 0.176471, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="GolfCartInventory"]
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 40.0
+text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GolfCartInventory"]
+custom_minimum_size = Vector2(232, 256)
+layout_mode = 1
+anchors_preset = -1
+offset_top = 40.0
+horizontal_scroll_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="GolfCartInventory/ScrollContainer"]
+layout_mode = 2
+columns = 3
+metadata/_edit_lock_ = true
+
 [node name="Gun" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.5, 0.5)
@@ -486,4 +483,4 @@ texture = ExtResource("39_sausv")
 [connection signal="button_up" from="ToolBar/Axe/Axe_sprite_button" to="ToolBar" method="_on_axe_sprite_button_button_up"]
 [connection signal="button_up" from="ToolBar/Pickaxe/Pickaxe_sprite_button" to="ToolBar" method="_on_pickaxe_sprite_button_button_up"]
 [connection signal="button_up" from="ToolBar/Gun/TextureButton" to="ToolBar" method="_on_texture_button_button_up"]
-[connection signal="button_up" from="Menu/PopUpMenu/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="GolfCartInventory/Button" to="GolfCartInventory" method="_on_button_button_up"]

@@ -6,6 +6,8 @@ extends Control
 
 var mouse_in_area = false
 
+var in_storage = false
+
 func _ready():
 	$Sprite.texture = Global.item_sprites[is_item]
 	$Item_name.text = is_item
@@ -18,7 +20,7 @@ func _process(_delta):
 	
 	if mouse_in_area:
 		if is_item in Global.dictionary_of_item_actions.keys() and Input.is_action_pressed("LMB") and get_node('/root/BaseGame/Panel').is_open == false:
-			get_node('/root/BaseGame/Panel').open(is_item)
+			get_node('/root/BaseGame/Panel').open(is_item, in_storage)
 
 func _on_sprite_mouse_entered():
 	mouse_in_area = true

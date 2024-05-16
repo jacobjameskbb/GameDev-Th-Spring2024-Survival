@@ -21,7 +21,7 @@ const beach_foliage_density = 15
 
 const house_density = 30
 
-const item_amount = 30
+const item_amount = 10
 
 const city_object_density = 10
 
@@ -39,6 +39,8 @@ var time_step: float = 300.0
 
 var is_crafting = false
 
+var list_of_audiostreamplayers: Array = []
+
 signal LMB
 
 func _ready():
@@ -50,6 +52,10 @@ func _ready():
 	
 	for tile in $TileMap.get_used_cells_by_id(0,11):
 		city_area.append(Vector2(tile * 32 + Vector2i(16,16)))
+	
+	for child in get_children():
+		if child.is_class('AudioStreamPlayer') == true:
+			list_of_audiostreamplayers.append(child)
 	
 	generate_foliage()
 	
@@ -98,7 +104,7 @@ func generate_city():
 	
 	while current_amount_of_items < item_amount:
 		var new_item = Global.item_scene.instantiate()
-		new_item.position = pick_random_city_position()
+		new_item.position = pick_random_city_position() - Vector2(16,16)
 		self.add_child(new_item)
 		new_item.make_new_random_item()
 		current_amount_of_items += 1
@@ -130,10 +136,15 @@ func new_count_time():
 	if Global.current_time == 900:
 		Global.types_of_enemies += 1
 	
+	if Global.current_time == 1200:
+		Global.types_of_enemies += 1
+	
+	if Global.current_time == 1500:
+		Global.types_of_enemies += 1
+	
 	$Player/Day_label.text = "Day : " + str(Global.current_day)
 	
 	var day_progress = float(Global.current_time % 300) / 300
-#	print(day_progress)
 	
 	$Player/ClockHand.rotation = day_progress * 2 * PI
 	
@@ -239,7 +250,7 @@ func place_object(object_placed, being_affected):
 		if object_placed in Global.list_of_resources:
 			var new_resource = Global.resource_scene.instantiate()
 			get_node('/root/BaseGame').add_child(new_resource)
-			new_resource.position = Global.Player.position
+			new_resource.position = Global.Player.position - Vector2(16,16)
 			new_resource.spawn_in(object_placed)
 		else:
 			var new_item = Global.item_scene.instantiate()

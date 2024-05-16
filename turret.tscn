@@ -22,7 +22,7 @@ texture = ExtResource("2_vamco")
 [node name="TurretBarrel" type="Sprite2D" parent="."]
 texture = ExtResource("3_7pjra")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Turret"]]
 script = ExtResource("4_5qqtd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

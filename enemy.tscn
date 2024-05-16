@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cegmgyon7vd4e"]
+[gd_scene load_steps=38 format=3 uid="uid://cegmgyon7vd4e"]
 
 [ext_resource type="Texture2D" uid="uid://drpm0uirnqnkj" path="res://Assets/Sprites/Enemies/BallBoi2.png" id="1_nip7y"]
 [ext_resource type="Script" path="res://Script/enemy.gd" id="1_s4ggk"]
@@ -25,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://b6mg270yo1wve" path="res://Assets/Sprites/Enemies/Bannana whale 5.png" id="23_36o3h"]
 [ext_resource type="Texture2D" uid="uid://den4aghlvb1w1" path="res://Assets/Sprites/Enemies/Bannana whale 6.png" id="24_ob0v5"]
 [ext_resource type="Texture2D" uid="uid://b0d7ack7voqq0" path="res://Assets/Sprites/Enemies/Bannana whale 7.png" id="25_4qfm4"]
+[ext_resource type="Texture2D" uid="uid://dtf2iw8ymhe6n" path="res://Assets/Sprites/Enemies/void.png" id="26_4hxwb"]
+[ext_resource type="Texture2D" uid="uid://codva864leeqa" path="res://Assets/Sprites/Enemies/ObeseInsect sprite.png" id="27_1cgto"]
+[ext_resource type="Texture2D" uid="uid://dqxo757lojge3" path="res://Assets/Sprites/Enemies/TheMostBeautifulBeingKnownToMankind.png" id="28_p6pcp"]
+[ext_resource type="Texture2D" uid="uid://52ebtpei0hrg" path="res://Assets/Sprites/Enemies/TheMostBeautifulBeingKnownToMankind 2.png" id="29_nchkb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhame"]
 animations = [{
@@ -167,6 +171,78 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtfnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_4hxwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4hxwb")
+}],
+"loop": false,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_4hxwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_4hxwb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kg642"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_1cgto")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_1cgto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1cgto")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8sop5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_p6pcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nchkb")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_p6pcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nchkb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmhjv"]
 radius = 255.159
 
@@ -192,6 +268,23 @@ animation = &"attacking"
 visible = false
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_q6dqa")
+
+[node name="VoidAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_mtfnd")
+animation = &"attacking"
+
+[node name="ObeseInsectAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_kg642")
+animation = &"attacking"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8sop5")
+animation = &"attacking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

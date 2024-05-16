@@ -1,14 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://f47oj3myqy7i"]
+[gd_scene load_steps=2 format=3 uid="uid://f47oj3myqy7i"]
 
-[ext_resource type="Texture2D" uid="uid://ddblstuc7rfpg" path="res://Assets/Sprites/plank of wood.png" id="1_0h18k"]
 [ext_resource type="Script" path="res://Script/Resource.gd" id="1_rvmbj"]
 
 [node name="Resource" type="TextureButton" groups=["Pickup_able", "Resource"]]
 z_index = -1
-custom_minimum_size = Vector2(40, 40)
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("1_0h18k")
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = -1
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_rvmbj")

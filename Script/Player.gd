@@ -22,14 +22,18 @@ var building = false
 
 var crafting = false
 
+var moving_items = false
+
 var in_crafting_area = false
+
+var dead = false
 
 func get_input(delta):
 	
-	if Input.is_action_just_released("minimenu"):
+	if Input.is_action_just_released("minimenu") and not dead:
 		open_craft_menu()
 	
-	if building == false and crafting == false:
+	if not building and not crafting and not dead and not moving_items:
 		var input_direction = Input.get_vector("left", "right", "up", "down")
 		
 		if input_direction == Vector2(0,0):
@@ -77,7 +81,60 @@ func _process(_delta):
 			inventory.erase(i)
 
 func death():
-	pass
+	self.visible = false
+	dead = true
+
+func move_item(item, in_storage):
+	if in_storage == false:
+		inventory[item] += -1
+		
+		for child in $MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer.get_children():
+			if child.is_item == item:
+				child.item_amount += -1
+				current_amount_of_items += -1
+				break
+		
+		var has_item_node = false
+		
+		for child in $GolfCartInventory/ScrollContainer/GridContainer.get_children():
+			if child.is_item == item:
+				child.item_amount += 1
+				
+				has_item_node = true
+				
+				break
+		
+		if has_item_node == false:
+			var new_golfcart_inventory_item = Global.inventory_item_scene.instantiate()
+			
+			new_golfcart_inventory_item.is_item = item
+			new_golfcart_inventory_item.in_storage = true
+			$GolfCartInventory/ScrollContainer/GridContainer.add_child(new_golfcart_inventory_item)
+	
+	if in_storage and current_amount_of_items < max_inventory_size:
+		for child in $GolfCartInventory/ScrollContainer/GridContainer.get_children():
+			if child.is_item == item:
+				child.item_amount += -1
+				break
+		
+		var has_item_node = false
+		
+		current_amount_of_items += 1
+		
+		for child in $MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer.get_children():
+			if child.is_item == item:
+				child.item_amount += 1
+				inventory[item] += 1
+				has_item_node = true
+				break
+		
+		if has_item_node == false:
+			var new_inventory_item = Global.inventory_item_scene.instantiate()
+			inventory[item] = 1
+			
+			new_inventory_item.is_item = item
+			
+			$MiniMenu/TabContainer/Inventory/ScrollContainer/ItemGridContainer.add_child(new_inventory_item)
 
 func _on_held_item_animation_finished():
 	if $HeldItem.animation == 'mining':
@@ -90,6 +147,3 @@ func open_craft_menu():
 		$MiniMenu.visible = false
 	else:
 		$MiniMenu.visible = true
-
-func _on_quit_button_up():
-	get_tree().quit()
