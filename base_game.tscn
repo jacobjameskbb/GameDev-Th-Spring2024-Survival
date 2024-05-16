@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bw0idmmtutr8j"]
+[gd_scene load_steps=87 format=3 uid="uid://bw0idmmtutr8j"]
 
 [ext_resource type="Script" path="res://Script/base_game.gd" id="1_oglgy"]
 [ext_resource type="AudioStream" uid="uid://0l7rm61dgrlx" path="res://Assets/Music/Survival day song.mp3" id="2_a3ox6"]
@@ -251,6 +251,34 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_imppf"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y3bm8"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_athve"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_p3ky3"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbnl8"]
 texture = ExtResource("11_as43y")
 texture_region_size = Vector2i(32, 32)
@@ -258,20 +286,24 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_imppf")
 0:0/1 = 1
 0:0/1/transpose = true
 0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_y3bm8")
 0:0/2 = 2
 0:0/2/flip_h = true
 0:0/2/flip_v = true
 0:0/2/transpose = true
 0:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/2/physics_layer_0/angular_velocity = 0.0
+0:0/2/navigation_layer_0/polygon = SubResource("NavigationPolygon_athve")
 0:0/3 = 3
 0:0/3/flip_v = true
 0:0/3/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/3/physics_layer_0/angular_velocity = 0.0
+0:0/3/navigation_layer_0/polygon = SubResource("NavigationPolygon_p3ky3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjbem"]
 texture = ExtResource("12_1tmvc")
@@ -598,7 +630,6 @@ layout_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2750, -16)
-collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
